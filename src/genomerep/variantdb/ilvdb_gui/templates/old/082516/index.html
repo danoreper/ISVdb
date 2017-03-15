@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title>Inbred Line Variant DataBase</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $('select').select2();
+        </script>
+    <style>
+        table { border-collapse: width=100%; }
+        th, td { text-align: left; padding: 8px; }
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+    
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="ilvdb-ywcai.apps.unc.edu/query/">Query Input</a>
+                </li>
+                <li role="presentation"><a href="https://ilvdb.shinyapps.io/ilvdb/" target='_blank'>Query</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Inbred Line Variant DataBase</h3>
+    </div>
+    
+    <div class="row marketing">
+        <div class="col-lg-12">
+            
+            <form method=post action="" novalidate>
+            <h4>{{form.variantinputtype.label}}
+            {{form.variantinputtype(id="inputtype",onchange="conditional1()")}}</h4><p>
+            <div id="input1" style='display:none'>
+                {{form.variant_id_text.label}}{{form.variant_id_text(cols="50", rows="1")}}<p>
+                {{form.variantfile.label}}{{form.variantfile}}<p>
+            </div>
+            <div id="input2" style='display:inline'>
+                {{form.chr.label}}{{form.chr}} {{form.strnum.label}}{{form.strnum(style="width:100px")}} {{form.endnum.label}}{{form.endnum(style="width:100px")}}<p>
+                {{form.bedfile.label}}{{form.bedfile}}<p>
+            </div>
+            <div id="input3" style='display:none'>
+                {{form.genesearch.label}}{{form.genesearch(cols="50", rows="1")}}<p>
+                {{form.genefile.label}}{{form.genefile}}<p>
+            </div>
+            
+            
+            <h4>{{form.view.label}}{{form.view(id="inputview",onchange="conditional2()")}}</h4><p>
+            <div id="view1" style='display:inline'>
+                {{form.selectCollum1.label}}
+                {{form.selectCollum1(class="select-multiple",style="width:500px")}}<p>
+            </div>
+            <div id="view2" style='display:none'>
+                {{form.selectCollum2.label}}
+                {{form.selectCollum2(class="select-multiple",style="width:510px")}}<p>
+            </div>
+            <div id="view3" style='display:none'>
+                {{form.selectCollum3.label}}
+                {{form.selectCollum3(class="select-multiple",style="width:500px")}}<p>
+            </div>
+            <div id="view4" style='display:none'>
+                {{form.selectCollum4.label}}
+                {{form.selectCollum4(class="select-multiple",style="width:500px")}}<p>
+            </div>
+            
+            <div id="strain1" style='display:inline'>
+                {{form.strainlistnew.label}}
+                {{form.strainlistnew(class="select-multiple",style="width:400px")}}<p>
+            </div>
+            <div id="strain2" style='display:none'>
+                {{form.strainp1new.label}}{{form.strainp1new}}
+                {{form.strainp2new.label}}{{form.strainp2new}}<p>
+            </div>
+            
+            {{form.prob_cutoff.label}}{{form.prob_cutoff(style="width:60px")}}
+            {{form.homo.label}}{{form.homo}}
+            
+            <div id="ismax" style='display:inline'>
+                {{form.ismax.label}}{{form.ismax}}
+            </div>
+            <div id="consequence" style='display:inline'>
+                {{form.consequence.label}}
+                {{form.consequence(class="select-multiple",style="width:680px")}}
+            </div>
+            
+            <p>{{form.limnum.label}}{{form.limnum(style="width:80px")}}
+            
+            <p><input type=submit value=Submit>
+            </form>
+            
+            <script type="text/javascript">
+                $(".select-multiple").select2();
+            </script>
+            
+            <script>
+                function conditional1() {
+                    var x = document.getElementById("inputtype").value;
+                    if ( x == 1 ){
+                        document.getElementById('input1').style.display = 'inline';
+                        document.getElementById('input2').style.display = 'none'  ;
+                        document.getElementById('input3').style.display = 'none'  ;
+                    }else if ( x == 2 ){
+                        document.getElementById('input1').style.display = 'none'  ;
+                        document.getElementById('input2').style.display = 'inline';
+                        document.getElementById('input3').style.display = 'none'  ;
+                    }else{
+                        document.getElementById('input1').style.display = 'none'  ;
+                        document.getElementById('input2').style.display = 'none'  ;
+                        document.getElementById('input3').style.display = 'inline';
+                    }
+                }
+            
+                function conditional2() {
+                    var x = document.getElementById("inputview").value;
+                    if ( x == 1 ){
+                        document.getElementById('view1').style.display = 'inline';
+                        document.getElementById('view2').style.display = 'none'  ;
+                        document.getElementById('view3').style.display = 'none'  ;
+                        document.getElementById('view4').style.display = 'none'  ;
+                        
+                        document.getElementById('strain1').style.display = 'inline';
+                        document.getElementById('strain2').style.display = 'none';
+                        
+                        document.getElementById('ismax').style.display = 'inline';
+                        
+                        document.getElementById('consequence').style.display = 'inline';
+                        
+                    }else if ( x == 2 ){
+                        document.getElementById('view1').style.display = 'none'  ;
+                        document.getElementById('view2').style.display = 'inline';
+                        document.getElementById('view3').style.display = 'none'  ;
+                        document.getElementById('view4').style.display = 'none'  ;
+                        
+                        document.getElementById('strain1').style.display = 'inline';
+                        document.getElementById('strain2').style.display = 'none';
+                        
+                        document.getElementById('ismax').style.display = 'inline';
+                        
+                        document.getElementById('consequence').style.display = 'none';
+                        
+                    }else if ( x ==3 ){
+                        document.getElementById('view1').style.display = 'none'  ;
+                        document.getElementById('view2').style.display = 'none'  ;
+                        document.getElementById('view3').style.display = 'inline';
+                        document.getElementById('view4').style.display = 'none'  ;
+                        
+                        document.getElementById('strain1').style.display = 'none';
+                        document.getElementById('strain2').style.display = 'inline';
+                        
+                        document.getElementById('ismax').style.display = 'none';
+                        
+                        document.getElementById('consequence').style.display = 'none';
+                    }else{
+                        document.getElementById('view1').style.display = 'none'  ;
+                        document.getElementById('view2').style.display = 'none'  ;
+                        document.getElementById('view3').style.display = 'none';
+                        document.getElementById('view4').style.display = 'inline'  ;
+                        
+                        document.getElementById('strain1').style.display = 'none';
+                        document.getElementById('strain2').style.display = 'inline';
+                        
+                        document.getElementById('ismax').style.display = 'none';
+                        
+                        document.getElementById('consequence').style.display = 'none';
+                    }
+                }
+
+            </script>
+            
+            <div class="table">
+            <table>
+                {% if result_header != None %}
+                <tr>{% for t in result_header %}
+                    <th>{{ t }}</th>
+                    {% endfor %}</tr>
+                {% endif %}
+                
+                {% if result_table != None %}
+                    {% for t in result_table %}
+                        <tr>
+                            {% for i in t %}
+                            <td>{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+            </div>
+            </p><p>
+            {% if result != None %}
+            {{result}}
+            {% endif %}
+            </p>
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; <a href="mailto:ywcai@email.unc.edu?Subject=ILVDBserver" target="_top">Yanwei</a> at <a href="http://valdarlab.unc.edu/" target='_blank'>Valdarlab</a> Last updated: 08.04.16 </p>
+    </footer>
+    
+</div>
+
+</body>
+
+</html>
+<!--
+<script type="text/javascript">
+    var auto_refresh = setInterval(function() { submitform(); }, 5000);
+    
+    function submitform()
+    {
+        document.getElementById("myForm").submit();
+    }
+</script>
+ {% if form.variantinputtype.data == '1' %}
+ {% endif %}
+-->

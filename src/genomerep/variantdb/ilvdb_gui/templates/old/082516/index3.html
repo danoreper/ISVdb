@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="application/shiny-singletons"></script>
+<script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.3];shiny[0.13.2];selectize[0.11.2];font-awesome[4.5.0];datatables[1.10.5];datatables-bootstrap[1.10.5];bootstrap[3.3.5]</script>
+<script src="{{ url_for('static', filename='Shinyhtml_files/json2-min.js') }}"></script>
+<script src="{{ url_for('static', filename='Shinyhtml_files/jquery.min.js') }}"></script>
+<link href="{{ url_for('static', filename='Shinyhtml_files/shiny.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='Shinyhtml_files/shiny.min.js') }}"></script>
+<link href="{{ url_for('static', filename='Shinyhtml_files/selectize.bootstrap3.css') }}" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="shared/selectize/js/es5-shim.min.js"></script>
+<![endif]-->
+<script src="{{ url_for('static', filename='Shinyhtml_files/selectize.min.js') }}"></script>
+<link href="{{ url_for('static', filename='Shinyhtml_files/font-awesome.min.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='Shinyhtml_files/jquery.dataTables.min.js') }}"></script>
+<link href="{{ url_for('static', filename='Shinyhtml_files/dataTables.bootstrap.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='Shinyhtml_files/dataTables.extra.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='Shinyhtml_files/dataTables.bootstrap.js') }}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="{{ url_for('static', filename='Shinyhtml_files/bootstrap.min.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='Shinyhtml_files/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='Shinyhtml_files/html5shiv.min.js') }}"></script>
+<script src="{{ url_for('static', filename='Shinyhtml_files/respond.min.js') }}"></script>
+
+<title>Query variants</title>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Query variants</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well">
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="variantinputtype">
+              <h4>Choose variant by:</h4>
+            </label>
+            <div>
+              <select id="variantinputtype" tabindex="-1" class="selectized shiny-bound-input" style="display: none;">
+                  <option value="1" selected="selected">Variant_id</option>
+              </select>
+              <div class="selectize-control single">
+                  <div class="selectize-input items full has-options has-items">
+                      <div data-value="1" class="item">Variant_id</div>
+                  <input type="text" autocomplete="off" tabindex="" style="width: 4px; opacity: 0; position: absolute; left: -10000px;">
+                  </div>
+                  <div class="selectize-dropdown single" style="display: none; visibility: visible; width: 296px; top: 34px; left: 0px;">
+                      <div class="selectize-dropdown-content">
+                          <div data-value="1" data-selectable="" class="option selected">Variant_id</div>
+                          <div data-value="2" data-selectable="" class="option">Region</div>
+                          <div data-value="3" data-selectable="" class="option">Gene</div>
+                      </div>
+                  </div>
+              </div>
+              <script type="application/json" data-for="variantinputtype" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div data-display-if="input.variantinputtype == 1">
+            <div class="form-group shiny-input-container">
+              <label>Upload variant_id file</label>
+              <input id="variantfile" name="variantfile" type="file" accept="text/plain,.csv" class="shiny-bound-input">
+              <div id="variantfile_progress" class="progress progress-striped active shiny-file-input-progress">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+            <div class="form-group shiny-input-container">
+              <label for="variant_id_text">
+                <h4>Input specific variant_id (comma splict)</h4>
+              </label>
+              <input id="variant_id_text" type="text" class="form-control shiny-bound-input" value="">
+            </div>
+          </div>
+          
+          <div data-display-if="input.variantinputtype == 2" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label>Upload bed file</label>
+              <input id="bedfile" name="bedfile" type="file" accept="text/plain,.bed" class="shiny-bound-input">
+              <div id="bedfile_progress" class="progress progress-striped active shiny-file-input-progress">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group shiny-input-container">
+                  <label class="control-label" for="chr">
+                    <h5>Chrom</h5>
+                  </label>
+                  <div>
+                    <select id="chr" tabindex="-1" class="selectized shiny-bound-input" style="display: none;">
+                        <option value="ALL" selected="selected">ALL</option>
+                    </select><div class="selectize-control single">
+                        <div class="selectize-input items full has-options has-items">
+                            <div data-value="ALL" class="item">ALL</div>
+                            <input type="text" autocomplete="off" tabindex="" style="width: 4px;">
+                        </div>
+                        <div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div>
+                        </div>
+                    </div>
+                    <script type="application/json" data-for="chr" data-nonempty="">{}</script>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group shiny-input-container">
+                  <label for="strnum">
+                    <h5>Start site</h5>
+                  </label>
+                  <input id="strnum" type="number" class="form-control shiny-bound-input" step="1e+06">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group shiny-input-container">
+                  <label for="endnum">
+                    <h5>End site</h5>
+                  </label>
+                  <input id="endnum" type="number" class="form-control shiny-bound-input" step="1e+06">
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div data-display-if="input.variantinputtype == 3" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label>Upload gene list file</label>
+              <input id="genefile" name="genefile" type="file" accept="text/plain,.txt" class="shiny-bound-input">
+              <div id="genefile_progress" class="progress progress-striped active shiny-file-input-progress">
+                <div class="progress-bar"></div>
+              </div>
+            </div>
+            <div class="form-group shiny-input-container">
+              <label for="genesearch">Search for gene name for ensembl ID</label>
+              <input id="genesearch" type="text" class="form-control shiny-bound-input" value="">
+            </div>
+            <button id="gene_search_action" type="button" class="btn btn-default action-button shiny-bound-input">Search Gene</button>
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="gene_list">
+                <h5>Genes search result</h5>
+              </label>
+              <div>
+                <select id="gene_list" multiple="multiple" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full has-options"><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="gene_list">{}</script>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="view">
+              <h4>Choose view type</h4>
+            </label>
+            <div>
+              <select id="view" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="1" selected="selected">Genotype view</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div data-value="1" class="item">Genotype view</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+              <script type="application/json" data-for="view" data-nonempty="">{}</script>
+            </div>
+          </div>
+          <div data-display-if="input.view == 1">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="selectCollum1">
+                <h5>Select included fields</h5>
+              </label>
+              <div>
+                <select id="selectCollum1" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;"><option value="variant_id" selected="selected">variant_id</option><option value="chrom" selected="selected">chrom</option><option value="pos" selected="selected">pos</option><option value="strain_name" selected="selected">strain_name</option><option value="allele" selected="selected">allele</option><option value="prob" selected="selected">prob</option><option value="is_max" selected="selected">is_max</option><option value="consequence" selected="selected">consequence</option><option value="gene_name" selected="selected">gene_name</option><option value="transcript_name" selected="selected">transcript_name</option></select><div class="selectize-control form-control multi"><div class="selectize-input items not-full has-options has-items"><div data-value="variant_id" class="item">variant_id</div><div data-value="chrom" class="item">chrom</div><div data-value="pos" class="item">pos</div><div data-value="strain_name" class="item">strain_name</div><div data-value="allele" class="item">allele</div><div data-value="prob" class="item">prob</div><div data-value="is_max" class="item">is_max</div><div data-value="consequence" class="item">consequence</div><div data-value="gene_name" class="item">gene_name</div><div data-value="transcript_name" class="item">transcript_name</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi form-control" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="selectCollum1">{}</script>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 2" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="selectCollum2">
+                <h5>Select included fields</h5>
+              </label>
+              <div>
+                <select id="selectCollum2" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;"><option value="variant_id" selected="selected">variant_id</option><option value="chrom" selected="selected">chrom</option><option value="pos" selected="selected">pos</option><option value="gene_name" selected="selected">gene_name</option><option value="strain_name" selected="selected">strain_name</option><option value="founder_name" selected="selected">founder_name</option><option value="prob" selected="selected">prob</option></select><div class="selectize-control form-control multi"><div class="selectize-input items not-full has-options has-items"><div data-value="variant_id" class="item">variant_id</div><div data-value="chrom" class="item">chrom</div><div data-value="pos" class="item">pos</div><div data-value="gene_name" class="item">gene_name</div><div data-value="strain_name" class="item">strain_name</div><div data-value="founder_name" class="item">founder_name</div><div data-value="prob" class="item">prob</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi form-control" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="selectCollum2">{}</script>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 3" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="selectCollum3">
+                <h5>Select included fields</h5>
+              </label>
+              <div>
+                <select id="selectCollum3" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;"><option value="variant_id" selected="selected">variant_id</option><option value="chrom" selected="selected">chrom</option><option value="pos" selected="selected">pos</option><option value="gene_name" selected="selected">gene_name</option><option value="strain_name" selected="selected">strain_name</option><option value="allele" selected="selected">allele</option><option value="prob" selected="selected">prob</option><option value="transcript_name" selected="selected">transcript_name</option></select><div class="selectize-control form-control multi"><div class="selectize-input items not-full has-options has-items"><div data-value="variant_id" class="item">variant_id</div><div data-value="chrom" class="item">chrom</div><div data-value="pos" class="item">pos</div><div data-value="gene_name" class="item">gene_name</div><div data-value="strain_name" class="item">strain_name</div><div data-value="allele" class="item">allele</div><div data-value="prob" class="item">prob</div><div data-value="transcript_name" class="item">transcript_name</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi form-control" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="selectCollum3">{}</script>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 4" style="display: none;">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="selectCollum4">
+                <h5>Select included fields</h5>
+              </label>
+              <div>
+                <select id="selectCollum4" class="form-control selectized shiny-bound-input" multiple="multiple" tabindex="-1" style="display: none;"><option value="variant_id" selected="selected">variant_id</option><option value="chrom" selected="selected">chrom</option><option value="pos" selected="selected">pos</option><option value="gene_name" selected="selected">gene_name</option><option value="strain_name" selected="selected">strain_name</option><option value="founder_name" selected="selected">founder_name</option><option value="prob" selected="selected">prob</option></select><div class="selectize-control form-control multi"><div class="selectize-input items not-full has-options has-items"><div data-value="variant_id" class="item">variant_id</div><div data-value="chrom" class="item">chrom</div><div data-value="pos" class="item">pos</div><div data-value="gene_name" class="item">gene_name</div><div data-value="strain_name" class="item">strain_name</div><div data-value="founder_name" class="item">founder_name</div><div data-value="prob" class="item">prob</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi form-control" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="selectCollum4">{}</script>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group shiny-input-container">
+                <label for="prob_cutoff">
+                  <h5>Prob &gt;=</h5>
+                </label>
+                <input id="prob_cutoff" type="number" class="form-control shiny-bound-input" value="0" step="0.1">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" for="homo">
+                  <h5>Heterozygous?</h5>
+                </label>
+                <div>
+                  <select id="homo" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"><option value="All" selected="selected">All</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div data-value="All" class="item">All</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                  <script type="application/json" data-for="homo" data-nonempty="">{}</script>
+                </div>
+              </div>
+            </div>
+            <div data-display-if="input.view == 1 | input.view == 2">
+              <div class="col-sm-3">
+                <div class="form-group shiny-input-container">
+                  <div class="checkbox">
+                    <label>
+                      <input id="ismax" type="checkbox" class="shiny-bound-input">
+                      <span>
+                        <h5>Ismax=True?</h5>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 1">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="consequence">
+                <h5>Consequence? (default is ALL)</h5>
+              </label>
+              <div>
+                <select id="consequence" multiple="multiple" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full has-options"><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="consequence">{}</script>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 3 | input.view == 4" style="display: none;">
+            <div class="col-sm-5">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" for="strainp1new">
+                  <h5>Strains</h5>
+                </label>
+                <div>
+                  <select id="strainp1new" multiple="multiple" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full has-options"><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                  <script type="application/json" data-for="strainp1new">{}</script>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <div class="form-group shiny-input-container">
+                <label class="control-label" for="strainp2new">
+                  <h5>Strains</h5>
+                </label>
+                <div>
+                  <select id="strainp2new" multiple="multiple" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full has-options"><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                  <script type="application/json" data-for="strainp2new">{}</script>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div data-display-if="input.view == 1 | input.view == 2">
+            <div class="form-group shiny-input-container">
+              <label class="control-label" for="strainlistnew">
+                <h5>Strains (Default is all)</h5>
+              </label>
+              <div>
+                <select id="strainlistnew" multiple="multiple" tabindex="-1" class="selectized shiny-bound-input" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full has-options"><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
+                <script type="application/json" data-for="strainlistnew">{}</script>
+              </div>
+            </div>
+            <button id="strainlistnew_founders" type="button" class="btn btn-default action-button shiny-bound-input">Set founders</button>
+          </div>
+          <div class="form-group shiny-input-container">
+            <label>Or Upload strain name file</label>
+            <input id="strainfile" name="strainfile" type="file" accept="text/plain,.csv" class="shiny-bound-input">
+            <div id="strainfile_progress" class="progress progress-striped active shiny-file-input-progress">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+          <button id="submitvalue" type="button" class="btn btn-default action-button shiny-bound-input">Show Tables</button>
+          <a id="downloadData" class="btn btn-default shiny-download-link  shiny-bound-output" href="http://127.0.0.1:3933/session/87a9ee7ff12fe2829820999c5bf1ae66/download/downloadData?w=" target="_blank">
+            <i class="fa fa-download"></i>
+            Download to file
+          </a>
+          <div class="form-group shiny-input-container">
+            <label for="limnum">
+              <h6>Outputlinelimit</h6>
+            </label>
+            <input id="limnum" type="number" class="form-control shiny-bound-input" value="1000">
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+              <pre id="filename" class="shiny-text-output shiny-bound-output"></pre>
+            </div>
+          </div>
+          <h6>MySQL running time is:</h6>
+          <div class="row">
+            <div class="col-sm-5">
+              <pre id="time1" class="shiny-text-output shiny-bound-output"></pre>
+            </div>
+          </div>
+          <h6>Gui running time is:</h6>
+          <div class="row">
+            <div class="col-sm-5">
+              <pre id="time2" class="shiny-text-output shiny-bound-output">0.029968</pre>
+            </div>
+          </div>
+          <h6></h6>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <h2>Table output:</h2>
+        <div class="row">
+          <div id="table" class="shiny-datatable-output shiny-bound-output"></div>
+        </div>
+        <h3>SQL query:</h3>
+        <div class="row">
+          <div id="sql_q" class="shiny-text-output shiny-bound-output"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>
