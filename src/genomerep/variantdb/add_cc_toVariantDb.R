@@ -228,7 +228,7 @@ buildInbredAlleles_nomax <- function(con)
         dbSendQuery(con, statement = paste("create table inbred_alleles_no_max", "ENGINE = ", engine, buildInbredAllelesQuery(1,1), ";"))
 
         dbSendQuery(con, statement = paste("insert into inbred_alleles_no_max",  buildInbredAllelesQuery(1,2), ";"))
-        dbSendQuery(con, statement = paste("insert into inbred_alleles_no_max",  buildInbredAllelesQuery(2,2), ";"))
+        dbSendQuery(con, statement = paste("insert into inbred_alleles_no_max",  buildInbredAllelesQuery(2,1), ";"))
         dbSendQuery(con, statement = paste("insert into inbred_alleles_no_max",  buildInbredAllelesQuery(2,2), ";"))
     }
         
@@ -458,7 +458,7 @@ rebuild_ccdb <- function(db, rilHaplotypeProbsDir, founders, karyotype, host, us
     
     pracma::tic()
     
-    buildInbredLineFixed(con = con, engine = engine)
+##    buildInbredLineFixed(con = con, engine = engine)
 	
     pracma::toc()
 

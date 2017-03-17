@@ -12,7 +12,6 @@ def createIndex(con, tablename, cols):
     con.query(query)
 
 def buildStrainsTable(con, engine):
-    #ipdb.set_trace()
     createIndex(con, "founder_genotype", ["strain_name"])
     logger.debug("created founder_genotype_index")
     return con.query('''create TABLE strain 

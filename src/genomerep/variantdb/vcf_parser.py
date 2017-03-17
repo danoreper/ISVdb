@@ -21,7 +21,7 @@ logger=logging.getLogger("mylog")
 logger.debug("logging!")
 
     
-INSERT_BATCH_SIZE = 5000
+INSERT_BATCH_SIZE = 2500
 ##engine   = "MYISAM"  
 
 def getInputColIndsForOutput(headerTokens, outputFieldToInputField):
@@ -79,7 +79,7 @@ def parsevcf(vcfFiles, foundersFile, dbname, host, user, passwd, firstVariantId,
     logger.debug(createcommand) 
     cursor.execute(createcommand)
     cursor.execute("USE "+dbname+";")
-    con.query("set global max_allowed_packet=8048576000;")
+    con.query("set global max_allowed_packet=4048576000;")
 
     allowedTranscripts = []
     if not allowedTranscriptsFile is None:
@@ -87,7 +87,7 @@ def parsevcf(vcfFiles, foundersFile, dbname, host, user, passwd, firstVariantId,
         for transcript in fh:
             allowedTranscripts.append(transcript.strip())
 
-   #ipdb.set_trace()           
+    
     if limit is None:
         limit = float("inf")
 
@@ -280,6 +280,8 @@ class DiploParsing:
 #             kk = kk.split("/")
 #             if (kk[0]=="." and kk[1]!=".") or (kk[1]=="." and kk[0]!="."):
 #                 logger.debug("err")
+
+
             
             if mleDiplotype=="./.":
                 values.append([variant_id, founder, None, None, 1, True])
@@ -607,6 +609,13 @@ class TableWriter:
         self.con.commit()
 #         self.con.commit()
         self.cur.close()
+
+if DEBUG:
+    
+    engine = "myisam"
+    parsevcf("../output/temp/imprinted_1410/", "../output/temp/founder124f61efe439.csv", "imprinted_1410", "localhost", "root", "stubsql863", None,1000)
+    ipdb.set_trace()
+    x=1/0
     
 if __name__=="__main__":    
     logger.info("beginning code")

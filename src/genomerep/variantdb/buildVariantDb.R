@@ -30,6 +30,7 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
         ranges = NULL
         if(dbtype == "exon")
         {
+            ##TODO check to see if this is already in genome data
             print("building exons")
             ranges = buildGenomeData$getExons()
             print("done building exons")
