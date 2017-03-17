@@ -14,6 +14,7 @@ Builds imputed genotypes and diplotypes for CC strains, and also stores founder 
 2. Edit ../config/defaultvdb.yaml to specify an appropriate value for the user (currently root) and password (currently XXX), 
 such that the user chosen has sufficient privileges to construct a database.
 3. Enter the following at command line from the working directory:
+
 ISVDB_LOCATION/src$ R CMD BATCH '--args ../config/defaultvdb.yaml' ./genomerep/variantdb/dbdriver.R
 
 # Directory structure
