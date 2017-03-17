@@ -41,6 +41,8 @@ genome:
   ##DNA reference of b6, downloaded from ensembl
   dnaReferenceFile:  b6_reference/mus_musculus.GRCm38.75/genome.fa
 
+  karyotype: b6_reference/mm10.chrom.sizes
+
   ##Feature file of b6, including exons, downloaded from ucsc
   exonReferenceFile: b6_reference/mus_musculus.GRCm38.75/Mus_musculus.GRCm38.75.gtf
 

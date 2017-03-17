@@ -3,6 +3,7 @@ Code to generate the inbred strain variant database (v1.1), as well as to build 
 Builds imputed genotypes and diplotypes for CC strains, and also stores founder info.
 
 # Requirements
+* Mac OS X or linux
 * VCFTools>0.1.13
 * R>=3.2.3
 * Python>=2.7.12
