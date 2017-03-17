@@ -1,4 +1,5 @@
-##
+## A general purpose script that is used by any invocation of bsub paraallelization across the cluster.
+##Loads in serialized function and function arguments, as well a file location to write to, calls the function, writes results to file
 ## func, funcArgs, and outFile must be defined in the session
 source("./loadParamsFunc.R")
 

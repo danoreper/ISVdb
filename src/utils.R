@@ -1,5 +1,7 @@
+##Commonly used general purpose functions
 util = new.env(hash=T)
 
+##save a file, recursively creating any directories
 util$save <- function(list, file)
 {
     dir.create(dirname(file), recursive = T, showWarnings=F)
@@ -14,13 +16,15 @@ util$appendToList <- function(existingList, additional)
     return(existingList)
 }
 
+##Fucntion wrapper for match, but doesnt really improve anything... TODO delete
 util$match.wrapper <- function(frame.in,  colname1, frame.target, colname2, colname2.out)
 {
-    
     outcol = frame.target[[colname2.out]][match(frame.in[[colname1]], frame.target[[colname2]])]
     return(outcol)
 }
 
+
+## For items 1:len, splits them into a list of vectors of batches, depending on batchsize. e.g., len = 10, batchsize =2 --> (1,2),(3,4), (5,6), (7,8) (9,10)
 util$getIndexGroupsForLen <- function(len, batchSize)
 {    
     if(!is.null(len))
@@ -29,7 +33,8 @@ util$getIndexGroupsForLen <- function(len, batchSize)
     }
     return(util$getIndexGroupsForInds(inds, batchSize))
 }
-    
+
+#For a set of indexes, splits them into batches of length batch size.
 util$getIndexGroupsForInds <- function(inds, batchSize)
 {
     numBatch = ceiling(length(inds)/batchSize)
@@ -50,12 +55,14 @@ util$getIndexGroupsForInds <- function(inds, batchSize)
 }
 
 
+##get an empiracal one tail p.value given a statistic and a null distribution. direction provides the tail direction
 util$get.empirical.one.tail.p.value <- function(stat, stat.null, direction)
 {
     out = (1 - sum(direction*stat>direction*stat.null)/length(stat.null))
     return(out)
 }
 
+##Get the max tail p.value over both directions.
 util$get.empirical.max.tail.p.value <- function(stat, stat.null)
 {
     p.value.1 = util$get.empirical.one.tail.p.value(nulldist, stat, 1)
@@ -63,6 +70,7 @@ util$get.empirical.max.tail.p.value <- function(stat, stat.null)
     return(max(p.value.1, p.value.2))
 }
 
+##Given a set of trueLabels, shuffles them numShuffles times, returns a matrix of the shuffles where each column is a shuffling. subjectTo is a constraint of length trueLabels, consisting of a vector of integers. Each integer is a group; shuffling must respect the group membership. For example if half the trueLabels were assigned a 1, and the other half a 2 in the subjsectTo vector, trueLabels in the 1 group could be shuffled among each other, and trueLabels in the 2 group could be shuffled amongst each other. 
 util$generateShuffles <- function(trueLabels, numShuffles = 1, subjectTo = NULL, identityFirst = F)
 {
     ##no constraint, as all things are in the same group
@@ -107,6 +115,7 @@ util$generateShuffles <- function(trueLabels, numShuffles = 1, subjectTo = NULL,
     return(shuffles)
 }
 
+##Given a dataframe df, lookup a value keyed by some float key column. Uses tolerance 
 util$lookupByFloat <- function(df, floatkeyCol, floatkey, tol = .00000001, valueCol=NULL)
 {
     val =  abs(df[[floatkeyCol]] - floatkey) < tol
@@ -117,6 +126,7 @@ util$lookupByFloat <- function(df, floatkeyCol, floatkey, tol = .00000001, value
     return(val)
 }
 
+##given a vector of items, insersts elem at index into it
 util$insertAtIndex <- function(elem, index, avec)
 {
     if(is.null(elem))
@@ -138,7 +148,7 @@ util$insertAtIndex <- function(elem, index, avec)
     return(newvec)
 }
 
-# improved list of objects
+# improved list of objects taking up memory
 util$.ls.objects <- function (pos = 1, pattern, order.by, decreasing=FALSE, head=FALSE, n=5)
 {
     napply <- function(names, fn) sapply(names, function(x) fn(get(x, pos = pos)))
@@ -169,6 +179,7 @@ util$bjobs <- function()
 {
     print(ss("bjobs"))
 }
+
 #intentionally in global scope for ease of typing
 fp = file.path
 ss = system

@@ -1,10 +1,13 @@
+##
+## Functions for parallelizing both on the same computer, and for submitting jobs via bsub to killdevil cluster
+##
+#################################################################
 library(parallel)
 source("./utils.R")
 
 bsub = new.env(hash=T)
 
 
-##unlink(".RData")
 tmpDir = fp(prop$tmpdir)
 bsub$get.bsub.accumulator <- function(funcFile, bsubCommand,
                                       batchSize     = 1,
@@ -98,26 +101,6 @@ bsub$get.bsub.accumulator <- function(funcFile, bsubCommand,
     return(accumulator)
 }
 
-## ##given a vector of out file names from runall, converts to a list of the output objects themselves. May occasionally be memory prohibitive 
-## bsub$getOutputs <- function(outfiles)
-## {
-##     outputs = list()
-##     for(i in 1:length(outfiles))
-##     {
-##         outFile = outfiles[i]
-##         output  = try(bsub$getOutput(outFile))
-
-##         if(class(output)=="try-error")
-##         {
-##             print(paste0("failing outfile: ",outFile))
-##             outputs[[i]] = NA
-##         } else {
-##             outputs[[i]] = output
-##         }
-            
-##     }
-##     return(outputs)
-## }
 
 bsub$getAllOutputs <- function(outs, accum)
 {

@@ -1,3 +1,6 @@
+##Parses a VCF file containing founders down into smaller pieces, stores the smaller pieces in a
+##Database, which is fully normalized an indexed later on.
+
 DEBUG = False
 
 import os
@@ -166,8 +169,9 @@ def parsevcf(vcfFiles, foundersFile, dbname, host, user, passwd, firstVariantId,
     tmEnd = time.time();
     logger.debug(tmEnd-tmStart)
     con.close()
-class VariantParsing:
-    
+
+
+class VariantParsing:    
     _outputFieldToInputField = OrderedDict([("chrom" , "#CHROM"),
                                             ("pos"   , "POS")])  
     _outputfields = ["variant_id"]

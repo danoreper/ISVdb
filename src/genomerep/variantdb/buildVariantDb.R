@@ -1,3 +1,4 @@
+##Highest level functions for building variant dbs. 
 
 source("./loadParams.R")
 source("./genomerep/cc_founderProbs.R")
@@ -9,6 +10,8 @@ vcfParser  = "nohup python -m genomerep.variantdb.vcf_parser "
 
 buildVariantDb = new.env(hash=T)
 
+##primary entry point:
+##build all the variant DBs, exons for now, imprinted and whole genome later
 buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData) 
 {
     .extend <- function(x, upstream=0, downstream=0)     
@@ -89,41 +92,21 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
     }
 }
 
-##gets an initial unused variant id for first chromosome in chrsTo build by iterating over all chromosomes NOT to rebbuild
-buildVariantDb$.getInitVariantId <- function(karyotype, chrsToBuild,dbtype)
-{
-    print(chrsToBuild)
-    maxVariantId = 0
-    for(chr in karyotype$chrname)
-    {
-        if(! chr %in% chrsToBuild)
-        {
-            dbname = paste0(prop$variantdb[[dbtype]]$name, "_", chr)
-            candMax = try(buildVariantDb$.getMaxVariantId(dbname))
-            if(class(candMax) == "try-error")
-            {
-                next
-            } else {
-                maxVariantId = max(candMax, maxVariantId)
-            }
-        }
-    }
+##build a single variant db.
+##dbname: name for the db
+##karyotype: a data frame providing chromosome lengths per chromosome.
+##filter.bed: a bed file restricting the regions of interest.
+##initialVariantId: the startId to build a variantDB. This is typically used
+## when we loop over chromosomes, and want a unique id for every variant, so start with
+## the last chromosome built max variant id + 1.
+## transcriptsFile: a list of transcripts of interest. TODO delete me.
+## pythonlogfile: location for the python log for the vcf parser.
+## rebuildVCF: boolean indicating whether the vcf for this db has already been built. If it has, dont bother rebuilding. Primaruily for testing.
+## rebuildFounder: boolean indicating whether the VCF file has been parsed and a founder database for it already built.
+## rebuildCC: boolean indicating whether the CC database part has already been built.
+## limit: the maximum number of variants to store in the db. PRimarily for testing.
 
-    initialVariantId = maxVariantId + 1
-    return(initialVariantId)
-}
 
-buildVariantDb$.getMaxVariantId <- function(db,
-                                            dbhost = prop$variantdb$host,
-                                            dbuser = prop$variantdb$user,
-                                            dbpassword = prop$variantdb$password)
-{
-    con = dbConnect(MySQL(), user=dbuser, password =dbpassword, dbname=db, host=dbhost)   
-    maxid = dbGetQuery(con, "select max(variant_id) from variant;")[1,1]
-    dbDisconnect(con)
-    return(maxid)
-}
-  
 buildVariantDb$buildSingleVariantDb <- function(dbname,
                                                 karyotype  = NULL,
                                                 filter.bed = NULL,
@@ -230,4 +213,40 @@ buildVariantDb$buildSingleVariantDb <- function(dbname,
                      dbpassword)
         print("finished building ccdf")
     }
+}
+
+
+##gets an initial unused variant id for first chromosome in chrsTo build by iterating over all chromosomes NOT to rebbuild
+buildVariantDb$.getInitVariantId <- function(karyotype, chrsToBuild,dbtype)
+{
+    print(chrsToBuild)
+    maxVariantId = 0
+    for(chr in karyotype$chrname)
+    {
+        if(! chr %in% chrsToBuild)
+        {
+            dbname = paste0(prop$variantdb[[dbtype]]$name, "_", chr)
+            candMax = try(buildVariantDb$.getMaxVariantId(dbname))
+            if(class(candMax) == "try-error")
+            {
+                next
+            } else {
+                maxVariantId = max(candMax, maxVariantId)
+            }
+        }
+    }
+
+    initialVariantId = maxVariantId + 1
+    return(initialVariantId)
+}
+
+buildVariantDb$.getMaxVariantId <- function(db,
+                                            dbhost = prop$variantdb$host,
+                                            dbuser = prop$variantdb$user,
+                                            dbpassword = prop$variantdb$password)
+{
+    con = dbConnect(MySQL(), user=dbuser, password =dbpassword, dbname=db, host=dbhost)   
+    maxid = dbGetQuery(con, "select max(variant_id) from variant;")[1,1]
+    dbDisconnect(con)
+    return(maxid)
 }

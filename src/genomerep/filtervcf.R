@@ -1,22 +1,13 @@
-                                        # TODO: Add comment
-                                        # 
-                                        # Author: doreper
+## Wrapper around the VCFtools command line calls. Used to filter vcfs by strain and genomic region;
+## the vcfs we use start out as whole genome and include something like 20 strains, of which
+## we only are interested in 7.
+## Author: doreper
 ###############################################################################
 source("./stringutils.R")
 filterVCF = new.env(hash=T)
 
-filterVCF$runLoggedCommand = function(command, logfile, outputDir)
-{
-    
-    logDir = file.path(outputDir, "logs")
-    print(logDir)
-    dir.create(logDir, showWarnings=F)
-    ##TODO logging doesnt seem to work well with this... fix it at some point
-    ##	command = paste(command, ">>&", file.path(logDir, logfile))
-    print(command)
-    system(command)
-}
 
+##filter a single vcf file to just the founders of interest, in only the region specified by bedfile, and toggle whether to keep consequences (which can be really big)
 filterVCF$filterVcf <- function(vcf_file, vcfout, tmpdir="./tmp", founders=NULL, bedfile=NULL, keepcsq=T) 
 {
     dir.create(tmpdir, showWarnings = F)
@@ -44,7 +35,7 @@ filterVCF$filterVcf <- function(vcf_file, vcfout, tmpdir="./tmp", founders=NULL,
 
     command = paste("vcftools ", "--gzvcf", vcf_file,  bedarg, founderString, "--recode", csqArg, "-c | gzip -c >",vcfout)
     print(command)
-    filterVCF$runLoggedCommand(command, "vcflog.txt", dirname(vcfout))
+    filterVCF$.runLoggedCommand(command, "vcflog.txt", dirname(vcfout))
 }
 
 filterVCF$writeFoundersFile <- function(tmpdir, founders)
@@ -85,22 +76,18 @@ filterVCF$.reduceVCF = function(vcf_file, founders, vcfInfoOut=NULL, vcfPosOut=N
     }
     foundersFile = filterVCF$writeFoundersFile(tmpdir, founders)
     command = paste("python ./genomerep/pyvcf_reduce.py", vcf_file, foundersFile, vcfInfoOut, vcfPosOut)
-    filterVCF$runLoggedCommand(command)
+    filterVCF$.runLoggedCommand(command)
     return(vcfInfoOut = vcfInfoOut, vcfPosOut = vcfPosOut)
 }
 
-                                        #cutdf <- function(goodcols, inputfile, sep, ...)
-                                        #{
-                                        #	inds = 	c()
-                                        #	header = read.table(inputfile, nrows=1,header=T,sep=sep,...)
-                                        #	for (goodcol in goodcols)
-                                        #	{
-                                        #		index = which(colnames(header)==goodcol)
-                                        #		inds = c(inds, index)
-                                        #	}
-                                        #	
-                                        #	cutcommand = paste0("cut -d'",sep, "' -f",paste(inds, collapse=","), " ", inputfile)
-                                        #	apipe = pipe(cutcommand)
-                                        #	df = read.table(apipe, header = T, sep=sep, ...)
-                                        #	return(df)
-                                        #}
+filterVCF$.runLoggedCommand = function(command, logfile, outputDir)
+{
+    
+    logDir = file.path(outputDir, "logs")
+    print(logDir)
+    dir.create(logDir, showWarnings=F)
+    ##TODO logging doesnt seem to work well with this... fix it at some point
+    ##	command = paste(command, ">>&", file.path(logDir, logfile))
+    print(command)
+    system(command)
+}

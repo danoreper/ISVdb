@@ -1,5 +1,5 @@
 # 
-# Loads params from yaml file.
+# Script for loading params from yaml file.
 ###############################################################################
 source("./loadParamsFunc.R")
 

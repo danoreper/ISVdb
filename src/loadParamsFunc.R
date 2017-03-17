@@ -1,4 +1,6 @@
 library(stringr)
+
+##Parse command line args; anything without a -I is considred to be a property override
 parseCommandArgs <- function(args = commandArgs(T))
 {
 
@@ -19,6 +21,7 @@ parseCommandArgs <- function(args = commandArgs(T))
     return(list(inpArgs = inpArgs, propArgs = propArgs))
 }
 
+##write yaml properties to file
 writeParams <- function(propObj, filename)
 {
     astring = yaml::as.yaml(as.list(propObj))
@@ -26,7 +29,7 @@ writeParams <- function(propObj, filename)
 }
 
 
-## loads params from command line
+## function for loading params from command line args; the files
 loadParams <-  function(args = commandArgs(T))
 {
 
@@ -52,6 +55,7 @@ loadParams <-  function(args = commandArgs(T))
     return(prop)
 }
 
+##recursive helper for overriding properties; i.e. overriding sublists
 .loadParamRecurseHelp <- function(origlist, overlist)
 {
     for(aname in ls(overlist))
