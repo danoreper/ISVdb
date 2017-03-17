@@ -8,7 +8,7 @@ library("data.table")
 library("Biostrings")
 library("rtracklayer")
 
-source("./genomerep/buildImprintedGenes.R")
+##source("./genomerep/buildImprintedGenes.R")
 source("./loadParams.R")
 source("./utils.R")
 
@@ -24,16 +24,17 @@ buildGenomeData$buildAllData=function(buildVariantDb = F)
     genomeData = new.env(hash=T)
 
     genomeData$founders = read.table(dat(prop$genome$foundersMap),header=T, sep=",")$founder
-    genomeData$karyotype = buildGenomeData$getKaryotype(dat( prop$genome$dnaReferenceFile))
+    ##    genomeData$karyotype = buildGenomeData$getKaryotype(dat( prop$genome$dnaReferenceFile))
+    genomeData$karyotype = buildGenomeData$getKaryotype(dat( prop$genome$karyotype))
 
     genomeData$snords = buildGenomeData$getSnords()
     
-    if(prop$genome$rebuildImprinted) 
-    {
-        ##writen to imprinted file location
-        buildGenomeData$rebuildImprintedFile()
-    }
-    genomeData$imprintedGenes = buildGenomeData$loadImprintedGranges(dat(prop$genome$imprintedGenesFile))
+    ## if(prop$genome$rebuildImprinted) 
+    ## {
+    ##     ##writen to imprinted file location
+    ##     buildGenomeData$rebuildImprintedFile()
+    ## }
+    ## genomeData$imprintedGenes = buildGenomeData$loadImprintedGranges(dat(prop$genome$imprintedGenesFile))
 
     ##TODO wrap up the slow part
     print("getting exons")
@@ -45,14 +46,14 @@ buildGenomeData$buildAllData=function(buildVariantDb = F)
 
         print("done getting exons")
 
-        imprintedGenes = as.data.frame(unique(genomeData$imprintedGenes))
+        ##imprintedGenes = as.data.frame(unique(genomeData$imprintedGenes))
         genomeData$imprintedExonFeatures = genomeData$exons[genomeData$exons$gene_id %in% imprintedGenes$ensembl_gene_id]
 
         ##transcript regions rather than actual transcript names... find out from Fernando if this is what we want
         ## genomeData$imprintedExonFeatures      = genomeData$exons[subjectHits(findOverlaps(genomeData$imprintedGenes, genomeData$exons))]
         
-        genomeData$imprintedGeneTranscriptIDs = unique(genomeData$imprintedExonFeatures$transcript_id)
-        write.table(genomeData$imprintedGeneTranscriptIDs, file=dat(prop$genome$imprintedTranscriptsFile), row.names=F, quote=F, col.names=F)
+        ## genomeData$imprintedGeneTranscriptIDs = unique(genomeData$imprintedExonFeatures$transcript_id)
+        ##write.table(genomeData$imprintedGeneTranscriptIDs, file=dat(prop$genome$imprintedTranscriptsFile), row.names=F, quote=F, col.names=F)
         genomeData$exons=NULL
     }
     print("done with slow")
@@ -149,18 +150,30 @@ buildGenomeData$getGeneInfo <- function(gtfFile = dat( prop$genome$exonReference
 }
 
 ##create a data frame containing length per chromosome
-buildGenomeData$getKaryotype <- function(referenceFile =  dat(prop$genome$dnaReferenceFile)) 
+## buildGenomeData$getKaryotype <- function(referenceFile =  dat(prop$genome$dnaReferenceFile)) 
+## {
+##     refstring = readDNAStringSet(referenceFile)
+##     chrname   = strsplit(names(refstring), " ")
+##     chrname   = unlist(lapply(chrname, "[", 1))
+##     lengths   = width(refstring)
+##     rm(refstring)
+##     gc()
+##     karyotypeFrame = data.frame(chrname = chrname , len=lengths)
+##     rownames(karyotypeFrame) = chrname
+##     return(karyotypeFrame)
+## }
+
+##create a data frame containing length per chromosome
+buildGenomeData$getKaryotype <- function(referenceFile =  dat(prop$genome$karyotype)) 
 {
-    refstring = readDNAStringSet(referenceFile)
-    chrname   = strsplit(names(refstring), " ")
-    chrname   = unlist(lapply(chrname, "[", 1))
-    lengths   = width(refstring)
-    rm(refstring)
-    gc()
-    karyotypeFrame = data.frame(chrname = chrname , len=lengths)
-    rownames(karyotypeFrame) = chrname
-    return(karyotypeFrame)
+    a = fread(referenceFile)
+    setnames(a, old = c("V1", "V2"), new= c("chrname", "len"))
+    a = a[chrname %in% c("chrX", "chrY", "chrM", paste0("chr",1:19))]
+    a$chrname = gsub(a$chrname, pattern = "chr", replacement = "")
+    a$chrname[a$chrname =="M"] = "MT"
+    return(a)
 }
+
 
 buildGenomeData$writeToBed <- function(ranges, exonBedFile)
 {

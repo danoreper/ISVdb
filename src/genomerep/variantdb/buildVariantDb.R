@@ -26,7 +26,7 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
         ranges(x) <- IRanges(new_start, new_end)
         trim(x)
     }
-    
+
     karyotype = genomeData$karyotype
     for(dbtype in c("exon")) ##full, ##, "imprinted")) TODO full and imprinted once disk is available.
     {
@@ -46,6 +46,7 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
             ranges = .extend(ranges, upstream = thepadding, downstream = thepadding)
         }
                                              
+        browser()
         chrsToBuild = prop$variantdb$chr_range
         if(is.na(chrsToBuild))
         {
@@ -59,8 +60,10 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
         {
             
             print(paste0("building db: ",dbtype, "_",chr))
+
             len = karyotype$len[karyotype$chrname == chr]
-            
+
+
             gr = c(buildGenomeData$buildGr(start=1, end = len, chr = chr, strand = "+"),
                    buildGenomeData$buildGr(start=1, end = len, chr = chr, strand = "-"))
 
@@ -72,6 +75,7 @@ buildVariantDb$buildDbs <- function(genomeData=buildGenomeData$buildAllData)
             buildGenomeData$writeToBed(gr, chrbed)
             
             dbname = paste0(prop$variantdb[[dbtype]]$name, "_", chr)
+
             buildVariantDb$buildSingleVariantDb(dbname = dbname,
                                                 filter.bed = chrbed,
                                                 initialVariantId=initialVariantId,
