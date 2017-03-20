@@ -6,7 +6,7 @@ source("./genomerep/variantdb/add_cc_toVariantDb.R")
 source("./genomerep/filtervcf.R")
 source("./genomerep/buildGenomeData2.R")
 
-vcfParser  = "nohup python -m genomerep.variantdb.vcf_parser "
+vcfParser  = "nohup python -m genomerep.variantdb.vcf_parser2 "
 
 buildVariantDb = new.env(hash=T)
 
