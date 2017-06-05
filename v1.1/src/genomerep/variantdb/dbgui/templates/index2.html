@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title>Inbred Line Variant DataBase</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src={{ url_for('static',filename='js/jquery.dataTables.js') }}></script>
+        
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <style>
+        table { border-collapse: width=100%; }
+        th, td { text-align: left; padding: 8px; }
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><a href="#">Home</a>
+                </li>
+                <li role="presentation"><a href="https://ilvdb.shinyapps.io/ilvdb/" target='_blank'>Query</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Inbred Line Variant DataBase</h3>
+    </div>
+    
+    <div class="row marketing">
+        <div class="col-lg-12">
+            <h4>Step 1</h4>
+            <p>Use the <a href="https://ilvdb.shinyapps.io/ilvdb/" target='_blank'>Query Generater</a> to generate database query </p>
+            
+            <h4>Step 2</h4>
+            <p>Copy the database query to your clipbord. Documentation of the query is recommended for reproducibility.</p>
+            
+            <h4>Step 3</h4>
+            <p>Paste the query and search the database.</p>
+            <form method=post action="">
+                {% for field in form%}
+                {{field.label}}
+                {{field(cols="85", rows="4")|safe}}
+                {% endfor %}
+                <p><input type=submit value=Submit></form></p>
+            <p>
+            {% if result != None %}
+            {{result}}
+            {% endif %}
+            
+            <div class="table">
+            <table id="outputtable" class="display">
+                {% if result_header != None %}
+                <tr>{% for t in result_header %}
+                    <th>{{ t }}</th>
+                    {% endfor %}</tr>
+                {% endif %}
+                
+                {% if result_table != None %}
+                    {% for t in result_table %}
+                        <tr>
+                            {% for i in t %}
+                            <td>{{ i }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+            
+            <script type="text/javascript">
+                $(document).ready( function () {
+                                  $('#outputtable').DataTable();
+                                  } );
+            </script>
+            
+            
+            
+            </div>
+            </p>
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; <a href="mailto:ywcai@email.unc.edu?Subject=ILVDBserver" target="_top">Yanwei</a> at <a href="http://valdarlab.unc.edu/" target='_blank'>Valdarlab</a>2016</p>
+    </footer>
+    
+</div>
+
+</body>
+
+</html>
+<!--
+<script type="text/javascript">
+    var auto_refresh = setInterval(function() { submitform(); }, 5000);
+    
+    function submitform()
+    {
+        document.getElementById("myForm").submit();
+    }
+</script>
+-->
