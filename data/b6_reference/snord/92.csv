@@ -1,0 +1,5 @@
+"id_with_url","name","species","feature_type","description"
+"ENSMUSG00000093289","Snord92","Mouse","Gene","small nucleolar RNA, C/D box 92 [Source:MGI Symbol;Acc:MGI:3819565]  Snord92 (MGI Symbol record with a description of small nucleolar RNA, C/D box 92), with a synonym of MBII-316, is associated with Gene ENSMUSG00000093289"
+"100217462","Snord92","Mouse","Gene"," Snord92 (RefSeq gene name) is associated with Gene 100217462"
+"ENSMUSG00000092713","Gm22858","Mouse","Gene","predicted gene, 22858 [Source:MGI Symbol;Acc:MGI:5452635]  SNORD53_SNORD92 (RFAM record with a description of Small nucleolar RNA SNORD53/SNORD92) is associated with Gene ENSMUSG00000092713"
+"ENSMUSG00000092887","Snord53","Mouse","Gene","small nucleolar RNA, C/D box 53 [Source:MGI Symbol;Acc:MGI:3819542]  SNORD53_SNORD92 (RFAM record with a description of Small nucleolar RNA SNORD53/SNORD92) is associated with Gene ENSMUSG00000092887"

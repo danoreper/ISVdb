@@ -1,0 +1,5 @@
+"id_with_url","name","species","feature_type","description"
+"ENSMUSG00000065273","Gm25128","Mouse","Gene","predicted gene, 25128 [Source:MGI Symbol;Acc:MGI:5454905]  SNORD83 (RFAM record with a description of Small nucleolar RNA SNORD83) is associated with Gene ENSMUSG00000065273"
+"ENSMUSG00000075770","Gm22589","Mouse","Gene","predicted gene, 22589 [Source:MGI Symbol;Acc:MGI:5452366]  SNORD83 (RFAM record with a description of Small nucleolar RNA SNORD83) is associated with Gene ENSMUSG00000075770"
+"ENSMUSG00000077734","Snord83b","Mouse","Gene","small nucleolar RNA, C/D box 83B [Source:MGI Symbol;Acc:MGI:3819557]"
+"100302601","Snord83b","Mouse","Gene",""
