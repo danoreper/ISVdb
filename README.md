@@ -20,7 +20,7 @@ ISVDB\_LOCATION\$ bash install.sh
 
 For now, this install script only downloads data files (that are too large for github), and places them in their expected location relative to source code. Note that the time to complete installation may be lengthy, depending on network speed. VCFTools, R, Python, and Python and R libraries need to be self-installed by the user.
 
-# To create all csv files representing genotypes and diplotyes:
+# Run code to create all genotype and diplotype csv files:
 1. Navigate to ISVDB_LOCATION/src as the working directory
 2. Enter the following at command line: 
 ISVDB\_LOCATION/src\$ R CMD BATCH ./genomerep/variantdb2/dbdriver.R
@@ -32,15 +32,10 @@ ISVDB\_LOCATION/src$ R CMD BATCH '--args ../config/defaultCluster.yaml' ./genome
 2b. Another option to reduce runtime is to run locally, but restrict the size of the database that is created. To do so, edit ISVDB\_LOCATION/config/defaultParams.yaml. In particular, edit the following properties:
 
 * **variantdb:  var\_limit: .na** The max number of variants of each type (indel, snp) that the vcf parsing will bother storing. Meant for testing. .na means build them all.
-
  
 * **variantdb: varcc\_limit: .na** The max number of cc lines that variant db will bother storing. Meant for testing. .na means build all.
 
-
-
 * **variantdb:  chr\_range: .na** The chromosomes that will be built. .na means build them all
-
-
 
 
 # Directory structure
