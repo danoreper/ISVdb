@@ -44,32 +44,39 @@ variantdb:  chr_range: .na
 
 
 # Directory structure
-ISVDB\_LOCATION/src: The source code that generates genotype and diplotype files
-ISVDB\_LOCATION/config: configuration files for running locally or on killdevil.
-ISVDB\_LOCATION/data: Data files for generating genotype and diplotype files. Largely empty before instll.sh is run.
-ISVDB\_LOCATION/output/isvdb: Generated genotype and diplotype files, for both exon and whole genome
-ISVDB\_LOCATION/output/isvdb/exon1410: exon information
-ISVDB\_LOCATION/output/isvdb/full1410: whole genome information
+* ISVDB\_LOCATION/src: The source code that generates genotype and diplotype files
+* ISVDB\_LOCATION/config: configuration files for running locally or on killdevil.
+* ISVDB\_LOCATION/data: Data files for generating genotype and diplotype files. Largely empty before instll.sh is run.
+* ISVDB\_LOCATION/output/isvdb: Generated genotype and diplotype files, for both exon and whole genome
+* ISVDB\_LOCATION/output/isvdb/exon1410: exon information
+* ISVDB\_LOCATION/output/isvdb/full1410: whole genome information
 
 Restricting description to exons,
-ISVDB\_LOCATION/output/isvdb/exon1410/genotype: exon genotypes
-ISVDB\_LOCATION/output/isvdb/exon1410/diplotype: exon diplotypes
-ISVDB\_LOCATION/output/isvdb/exon1410/genotype\_sampling: genotype sampling files (useful for simulating crosses)
-ISVDB\_LOCATION/output/isvdb/exon1410/diplotype\_sampling: diplotype sampling files (useful for simulating crosses)
+* ISVDB\_LOCATION/output/isvdb/exon1410/genotype: exon genotypes
+* ISVDB\_LOCATION/output/isvdb/exon1410/diplotype: exon diplotypes
+* ISVDB\_LOCATION/output/isvdb/exon1410/genotype\_sampling: genotype sampling files (useful for simulating crosses)
+* ISVDB\_LOCATION/output/isvdb/exon1410/diplotype\_sampling: diplotype sampling files (useful for simulating crosses)
 
-ISVDB\_LOCATION/v1.1: version 1.1 of this project, which used an SQL representation, and only contained exons+/- 100bp rather than the whole genome.
+* ISVDB\_LOCATION/v1.1: version 1.1 of this project, which used an SQL representation, and only contained exons+/- 100bp rather than the whole genome.
 
 # Output file organization
 Output files are organized in folders according to strain and then chromosome. For example, 
 ISVDB\_LOCATION/output/isvdb/exon1410/diplotype contains a folder corresponding to the diplotypes for StrainName1, with a separate file per chromosome.
 
 ---StrainName1
+
 ------1.txt.tar.gz
+
 ------2.txt.tar.gz
+
 ------3.txt.tar.gz
+
 ------...
+
 ------MT.txt.tar.gz
+
 ------X.txt.tar.gz
+
 ------Y.txt.tar.gz
 
 # Diplotype output format
