@@ -1,0 +1,397 @@
+"ensembl_gene_id"	"mgi_symbol"	"brainImprinted"	"strainEffect"	"Expressed.allele"	"description"	"chromosome_name"	"strand"	"start_position"	"end_position"	"snordType"
+"ENSMUSG00000000031"	"H19"	FALSE	FALSE	"Maternal"	"H19 fetal liver mRNA [Source:MGI Symbol;Acc:MGI:95891]"	"7"	"-1"	"142575529"	"142578143"	NA
+"ENSMUSG00000000154"	"Slc22a18"	FALSE	FALSE	"Maternal"	"solute carrier family 22 (organic cation transporter), member 18 [Source:MGI Symbol;Acc:MGI:1336884]"	"7"	"1"	"143473721"	"143499334"	NA
+"ENSMUSG00000000214"	"Th"	TRUE	FALSE	"Maternal"	"tyrosine hydroxylase [Source:MGI Symbol;Acc:MGI:98735]"	"7"	"-1"	"142892752"	"142931128"	NA
+"ENSMUSG00000000215"	"Ins2"	FALSE	FALSE	"Paternal"	"insulin II [Source:MGI Symbol;Acc:MGI:96573]"	"7"	"-1"	"142678656"	"142699510"	NA
+"ENSMUSG00000000244"	"Tspan32"	FALSE	FALSE	"Maternal"	"tetraspanin 32 [Source:MGI Symbol;Acc:MGI:1350360]"	"7"	"1"	"143005046"	"143019644"	NA
+"ENSMUSG00000000948"	"Snrpn"	TRUE	TRUE	"Paternal"	"small nuclear ribonucleoprotein N [Source:MGI Symbol;Acc:MGI:98347]"	"7"	"-1"	"59982495"	"60140219"	NA
+"ENSMUSG00000001175"	"Calm1"	TRUE	TRUE	"Paternal"	"calmodulin 1 [Source:MGI Symbol;Acc:MGI:88251]"	"12"	"1"	"100199435"	"100209806"	NA
+"ENSMUSG00000002265"	"Peg3"	TRUE	TRUE	"Paternal"	"paternally expressed 3 [Source:MGI Symbol;Acc:MGI:104748]"	"7"	"-1"	"6703892"	"6730421"	NA
+"ENSMUSG00000002266"	"Zim1"	FALSE	FALSE	"Maternal"	"zinc finger, imprinted 1 [Source:MGI Symbol;Acc:MGI:1341879]"	"7"	"-1"	"6675443"	"6696450"	NA
+"ENSMUSG00000002565"	"Scin"	FALSE	FALSE	"Maternal"	"scinderin [Source:MGI Symbol;Acc:MGI:1306794]"	"12"	"-1"	"40059769"	"40134228"	NA
+"ENSMUSG00000002602"	"Axl"	FALSE	FALSE	"Maternal"	"AXL receptor tyrosine kinase [Source:MGI Symbol;Acc:MGI:1347244]"	"7"	"-1"	"25757273"	"25788705"	NA
+"ENSMUSG00000004631"	"Sgce"	TRUE	FALSE	"Paternal"	"sarcoglycan, epsilon [Source:MGI Symbol;Acc:MGI:1329042]"	"6"	"-1"	"4674350"	"4747204"	NA
+"ENSMUSG00000005575"	"Ube2m"	TRUE	FALSE	"Paternal"	"ubiquitin-conjugating enzyme E2M [Source:MGI Symbol;Acc:MGI:108278]"	"7"	"-1"	"13035120"	"13038275"	NA
+"ENSMUSG00000005686"	"Ampd3"	FALSE	FALSE	"Maternal"	"adenosine monophosphate deaminase 3 [Source:MGI Symbol;Acc:MGI:1096344]"	"7"	"1"	"110768206"	"110812405"	NA
+"ENSMUSG00000007659"	"Bcl2l1"	TRUE	FALSE	"Paternal"	"BCL2-like 1 [Source:MGI Symbol;Acc:MGI:88139]"	"2"	"-1"	"152780668"	"152831728"	NA
+"ENSMUSG00000007739"	"Cct4"	TRUE	FALSE	"Maternal"	"chaperonin containing Tcp1, subunit 4 (delta) [Source:MGI Symbol;Acc:MGI:104689]"	"11"	"1"	"22990519"	"23003780"	NA
+"ENSMUSG00000007891"	"Ctsd"	TRUE	FALSE	"Maternal"	"cathepsin D [Source:MGI Symbol;Acc:MGI:88562]"	"7"	"-1"	"142371148"	"142388038"	NA
+"ENSMUSG00000009248"	"Ascl2"	FALSE	FALSE	"Maternal"	"achaete-scute complex homolog 2 (Drosophila) [Source:MGI Symbol;Acc:MGI:96920]"	"7"	"-1"	"142966822"	"142969264"	NA
+"ENSMUSG00000009545"	"Kcnq1"	FALSE	FALSE	"Maternal"	"potassium voltage-gated channel, subfamily Q, member 1 [Source:MGI Symbol;Acc:MGI:108083]"	"7"	"1"	"143107254"	"143427042"	NA
+"ENSMUSG00000010054"	"Tusc2"	TRUE	FALSE	"Paternal"	"tumor suppressor candidate 2 [Source:MGI Symbol;Acc:MGI:1931086]"	"9"	"1"	"107563255"	"107566108"	NA
+"ENSMUSG00000010760"	"Phlda2"	FALSE	FALSE	"Maternal"	"pleckstrin homology-like domain, family A, member 2 [Source:MGI Symbol;Acc:MGI:1202307]"	"7"	"-1"	"143501545"	"143502541"	NA
+"ENSMUSG00000015189"	"Casd1"	FALSE	FALSE	"Maternal"	"CAS1 domain containing 1 [Source:MGI Symbol;Acc:MGI:2384865]"	"6"	"1"	"4600840"	"4643381"	NA
+"ENSMUSG00000016252"	"Atp5e"	TRUE	TRUE	"Paternal"	"ATP synthase, H+ transporting, mitochondrial F1 complex, epsilon subunit [Source:MGI Symbol;Acc:MGI:1855697]"	"2"	"-1"	"174461072"	"174464105"	NA
+"ENSMUSG00000016458"	"Wt1"	FALSE	FALSE	"Maternal"	"Wilms tumor 1 homolog [Source:MGI Symbol;Acc:MGI:98968]"	"2"	"1"	"105126529"	"105173616"	NA
+"ENSMUSG00000016756"	"Cmah"	FALSE	FALSE	"Maternal"	"cytidine monophospho-N-acetylneuraminic acid hydroxylase [Source:MGI Symbol;Acc:MGI:103227]"	"13"	"1"	"24327420"	"24477285"	NA
+"ENSMUSG00000018411"	"Mapt"	FALSE	FALSE	"Maternal"	"microtubule-associated protein tau [Source:MGI Symbol;Acc:MGI:97180]"	"11"	"1"	"104231390"	"104332090"	NA
+"ENSMUSG00000019188"	"H13"	TRUE	TRUE	"Maternal"	"histocompatibility 13 [Source:MGI Symbol;Acc:MGI:95886]"	"2"	"1"	"152669461"	"152708670"	NA
+"ENSMUSG00000019432"	"Ddx39b"	TRUE	TRUE	"Paternal"	"DEAD (Asp-Glu-Ala-Asp) box polypeptide 39B [Source:MGI Symbol;Acc:MGI:99240]"	"17"	"1"	"35241746"	"35253707"	NA
+"ENSMUSG00000019817"	"Plagl1"	TRUE	FALSE	"Paternal"	"pleiomorphic adenoma gene-like 1 [Source:MGI Symbol;Acc:MGI:1100874]"	"10"	"1"	"13090691"	"13131694"	NA
+"ENSMUSG00000019929"	"Dcn"	FALSE	FALSE	"Maternal"	"decorin [Source:MGI Symbol;Acc:MGI:94872]"	"10"	"1"	"97479500"	"97518162"	NA
+"ENSMUSG00000019986"	"Ahi1"	TRUE	FALSE	"Paternal"	"Abelson helper integration site 1 [Source:MGI Symbol;Acc:MGI:87971]"	"10"	"1"	"20952547"	"21080428"	NA
+"ENSMUSG00000020173"	"Cobl"	TRUE	FALSE	"Maternal"	"cordon-bleu WH2 repeat [Source:MGI Symbol;Acc:MGI:105056]"	"11"	"-1"	"12236608"	"12464960"	NA
+"ENSMUSG00000020176"	"Grb10"	TRUE	TRUE	"Paternal"	"growth factor receptor bound protein 10 [Source:MGI Symbol;Acc:MGI:103232]"	"11"	"-1"	"11930508"	"12038683"	NA
+"ENSMUSG00000020182"	"Ddc"	TRUE	TRUE	"Maternal"	"dopa decarboxylase [Source:MGI Symbol;Acc:MGI:94876]"	"11"	"-1"	"11814101"	"11898144"	NA
+"ENSMUSG00000020431"	"Adcy1"	TRUE	TRUE	"Paternal"	"adenylate cyclase 1 [Source:MGI Symbol;Acc:MGI:99677]"	"11"	"1"	"7063489"	"7178506"	NA
+"ENSMUSG00000020849"	"Ywhae"	TRUE	TRUE	"Paternal"	"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, epsilon polypeptide [Source:MGI Symbol;Acc:MGI:894689]"	"11"	"1"	"75732869"	"75765845"	NA
+"ENSMUSG00000021266"	"Wars"	TRUE	FALSE	"Paternal"	"tryptophanyl-tRNA synthetase [Source:MGI Symbol;Acc:MGI:104630]"	"12"	"-1"	"108860030"	"108894174"	NA
+"ENSMUSG00000021268"	"Meg3"	TRUE	TRUE	"Maternal"	"maternally expressed 3 [Source:MGI Symbol;Acc:MGI:1202886]"	"12"	"1"	"109541001"	"109571726"	NA
+"ENSMUSG00000021478"	"Drd1a"	FALSE	FALSE	"Maternal"	"dopamine receptor D1A [Source:MGI Symbol;Acc:MGI:99578]"	"13"	"-1"	"54051186"	"54055658"	NA
+"ENSMUSG00000021546"	"Hnrnpk"	TRUE	FALSE	"Paternal"	"heterogeneous nuclear ribonucleoprotein K [Source:MGI Symbol;Acc:MGI:99894]"	"13"	"-1"	"58391142"	"58403343"	NA
+"ENSMUSG00000021699"	"Pde4d"	FALSE	FALSE	"Paternal"	"phosphodiesterase 4D, cAMP specific [Source:MGI Symbol;Acc:MGI:99555]"	"13"	"1"	"108449948"	"109953461"	NA
+"ENSMUSG00000022285"	"Ywhaz"	TRUE	FALSE	"Paternal"	"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, zeta polypeptide [Source:MGI Symbol;Acc:MGI:109484]"	"15"	"-1"	"36770770"	"36794547"	NA
+"ENSMUSG00000022332"	"Khdrbs3"	TRUE	FALSE	"Maternal"	"KH domain containing, RNA binding, signal transduction associated 3 [Source:MGI Symbol;Acc:MGI:1313312]"	"15"	"1"	"68928420"	"69093512"	NA
+"ENSMUSG00000022464"	"Slc38a4"	FALSE	FALSE	"Paternal"	"solute carrier family 38, member 4 [Source:MGI Symbol;Acc:MGI:1916604]"	"15"	"-1"	"96994823"	"97055956"	NA
+"ENSMUSG00000023828"	"Slc22a3"	FALSE	FALSE	"Maternal"	"solute carrier family 22 (organic cation transporter), member 3 [Source:MGI Symbol;Acc:MGI:1333817]"	"17"	"-1"	"12419972"	"12507704"	NA
+"ENSMUSG00000023830"	"Igf2r"	TRUE	FALSE	"Maternal"	"insulin-like growth factor 2 receptor [Source:MGI Symbol;Acc:MGI:96435]"	"17"	"-1"	"12682406"	"12769664"	NA
+"ENSMUSG00000023868"	"Pde10a"	FALSE	FALSE	"Maternal"	"phosphodiesterase 10A [Source:MGI Symbol;Acc:MGI:1345143]"	"17"	"1"	"8525372"	"8986648"	NA
+"ENSMUSG00000023964"	"Calcr"	FALSE	FALSE	"Maternal"	"calcitonin receptor [Source:MGI Symbol;Acc:MGI:101950]"	"6"	"-1"	"3685677"	"3764713"	NA
+"ENSMUSG00000024084"	"Qpct"	FALSE	FALSE	"Maternal"	"glutaminyl-peptide cyclotransferase (glutaminyl cyclase) [Source:MGI Symbol;Acc:MGI:1917786]"	"17"	"1"	"79051906"	"79090243"	NA
+"ENSMUSG00000024261"	"Syt4"	TRUE	FALSE	"Paternal"	"synaptotagmin IV [Source:MGI Symbol;Acc:MGI:101759]"	"18"	"-1"	"31437808"	"31447415"	NA
+"ENSMUSG00000024423"	"Impact"	TRUE	FALSE	"Paternal"	"imprinted and ancient [Source:MGI Symbol;Acc:MGI:1098233]"	"18"	"1"	"12972252"	"12992948"	NA
+"ENSMUSG00000024758"	"Rtn3"	TRUE	FALSE	"Paternal"	"reticulon 3 [Source:MGI Symbol;Acc:MGI:1339970]"	"19"	"-1"	"7425901"	"7483289"	NA
+"ENSMUSG00000025324"	"Atp10a"	FALSE	FALSE	"Maternal"	"ATPase, class V, type 10A [Source:MGI Symbol;Acc:MGI:1330809]"	"7"	"1"	"58658202"	"58829426"	NA
+"ENSMUSG00000025326"	"Ube3a"	TRUE	FALSE	"Maternal"	"ubiquitin protein ligase E3A [Source:MGI Symbol;Acc:MGI:105098]"	"7"	"1"	"59228752"	"59306727"	NA
+"ENSMUSG00000025579"	"Gaa"	TRUE	FALSE	"Paternal"	"glucosidase, alpha, acid [Source:MGI Symbol;Acc:MGI:95609]"	"11"	"1"	"119267887"	"119285454"	NA
+"ENSMUSG00000025607"	"Copg2"	TRUE	TRUE	"Maternal"	"coatomer protein complex, subunit gamma 2 [Source:MGI Symbol;Acc:MGI:1858683]"	"6"	"-1"	"30747554"	"30896794"	NA
+"ENSMUSG00000025764"	"Phf17"	FALSE	FALSE	"Paternal"	"PHD finger protein 17 [Source:MGI Symbol;Acc:MGI:1925835]"	"3"	"1"	"41555734"	"41616862"	NA
+"ENSMUSG00000025964"	"Adam23"	TRUE	TRUE	"Paternal"	"a disintegrin and metallopeptidase domain 23 [Source:MGI Symbol;Acc:MGI:1345162]"	"1"	"1"	"63445891"	"63596515"	NA
+"ENSMUSG00000025967"	"Eef1b2"	TRUE	FALSE	"Paternal"	"eukaryotic translation elongation factor 1 beta 2 [Source:MGI Symbol;Acc:MGI:1929520]"	"1"	"1"	"63176825"	"63180486"	NA
+"ENSMUSG00000025968"	"Ndufs1"	TRUE	TRUE	"Paternal"	"NADH dehydrogenase (ubiquinone) Fe-S protein 1 [Source:MGI Symbol;Acc:MGI:2443241]"	"1"	"-1"	"63143596"	"63176822"	NA
+"ENSMUSG00000026786"	"Apbb1ip"	TRUE	FALSE	"Paternal"	"amyloid beta (A4) precursor protein-binding, family B, member 1 interacting protein [Source:MGI Symbol;Acc:MGI:1861354]"	"2"	"1"	"22774094"	"22875653"	NA
+"ENSMUSG00000027014"	"Cwc22"	TRUE	TRUE	"Paternal"	"CWC22 spliceosome-associated protein homolog (S. cerevisiae) [Source:MGI Symbol;Acc:MGI:2136773]"	"2"	"-1"	"77881159"	"77946375"	NA
+"ENSMUSG00000027199"	"Gatm"	FALSE	FALSE	"Maternal"	"glycine amidinotransferase (L-arginine:glycine amidinotransferase) [Source:MGI Symbol;Acc:MGI:1914342]"	"2"	"-1"	"122594467"	"122611303"	NA
+"ENSMUSG00000027520"	"Zdbf2"	TRUE	TRUE	"Paternal"	"zinc finger, DBF-type containing 2 [Source:MGI Symbol;Acc:MGI:1921134]"	"1"	"1"	"63273265"	"63314576"	NA
+"ENSMUSG00000027522"	"Stx16"	TRUE	FALSE	"Maternal"	"syntaxin 16 [Source:MGI Symbol;Acc:MGI:1923396]"	"2"	"1"	"174076308"	"174099771"	NA
+"ENSMUSG00000027523"	"Gnas"	TRUE	TRUE	"Paternal"	"GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus [Source:MGI Symbol;Acc:MGI:95777]"	"2"	"1"	"174284320"	"174346744"	NA
+"ENSMUSG00000027551"	"Zfp64"	FALSE	FALSE	"Paternal"	"zinc finger protein 64 [Source:MGI Symbol;Acc:MGI:107342]"	"2"	"-1"	"168893331"	"168955587"	NA
+"ENSMUSG00000027797"	"Dclk1"	TRUE	TRUE	"Paternal"	"doublecortin-like kinase 1 [Source:MGI Symbol;Acc:MGI:1330861]"	"3"	"1"	"55242526"	"55539064"	NA
+"ENSMUSG00000028161"	"Ppp3ca"	TRUE	TRUE	"Paternal"	"protein phosphatase 3, catalytic subunit, alpha isoform [Source:MGI Symbol;Acc:MGI:107164]"	"3"	"1"	"136670124"	"136937727"	NA
+"ENSMUSG00000029016"	"Clcn6"	TRUE	FALSE	"Paternal"	"chloride channel 6 [Source:MGI Symbol;Acc:MGI:1347049]"	"4"	"-1"	"148004259"	"148038821"	NA
+"ENSMUSG00000029096"	"Htra3"	FALSE	FALSE	"Maternal"	"HtrA serine peptidase 3 [Source:MGI Symbol;Acc:MGI:1925808]"	"5"	"-1"	"35652041"	"35679782"	NA
+"ENSMUSG00000029664"	"Tfpi2"	FALSE	FALSE	"Maternal"	"tissue factor pathway inhibitor 2 [Source:MGI Symbol;Acc:MGI:108543]"	"6"	"-1"	"3962589"	"3974650"	NA
+"ENSMUSG00000029755"	"Dlx5"	FALSE	FALSE	"Maternal"	"distal-less homeobox 5 [Source:MGI Symbol;Acc:MGI:101926]"	"6"	"-1"	"6877805"	"6882085"	NA
+"ENSMUSG00000029759"	"Pon3"	FALSE	FALSE	"Maternal"	"paraoxonase 3 [Source:MGI Symbol;Acc:MGI:106686]"	"6"	"-1"	"5220852"	"5256286"	NA
+"ENSMUSG00000029775"	"Klhdc10"	TRUE	TRUE	"Maternal"	"kelch domain containing 10 [Source:MGI Symbol;Acc:MGI:1924038]"	"6"	"1"	"30401868"	"30455179"	NA
+"ENSMUSG00000029782"	"Tmem209"	TRUE	FALSE	"Maternal"	"transmembrane protein 209 [Source:MGI Symbol;Acc:MGI:1919899]"	"6"	"-1"	"30479053"	"30509783"	NA
+"ENSMUSG00000029804"	"Herc3"	TRUE	FALSE	"Maternal"	"hect domain and RLD 3 [Source:MGI Symbol;Acc:MGI:1921248]"	"6"	"1"	"58831465"	"58920398"	NA
+"ENSMUSG00000030075"	"Cntn3"	FALSE	FALSE	"Maternal"	"contactin 3 [Source:MGI Symbol;Acc:MGI:99534]"	"6"	"-1"	"102163306"	"102464667"	NA
+"ENSMUSG00000030122"	"Ptms"	TRUE	FALSE	"Paternal"	"parathymosin [Source:MGI Symbol;Acc:MGI:1916452]"	"6"	"-1"	"124913681"	"124917946"	NA
+"ENSMUSG00000030154"	"Klrb1f"	FALSE	FALSE	"Maternal"	"killer cell lectin-like receptor subfamily B member 1F [Source:MGI Symbol;Acc:MGI:2442965]"	"6"	"1"	"129045901"	"129057471"	NA
+"ENSMUSG00000030428"	"Ttyh1"	TRUE	TRUE	"Paternal"	"tweety homolog 1 (Drosophila) [Source:MGI Symbol;Acc:MGI:1889007]"	"7"	"1"	"4119408"	"4136706"	NA
+"ENSMUSG00000030782"	"Tgfb1i1"	TRUE	FALSE	"Maternal"	"transforming growth factor beta 1 induced transcript 1 [Source:MGI Symbol;Acc:MGI:102784]"	"7"	"1"	"128246812"	"128253712"	NA
+"ENSMUSG00000030846"	"Tial1"	TRUE	TRUE	"Maternal"	"Tia1 cytotoxic granule-associated RNA binding protein-like 1 [Source:MGI Symbol;Acc:MGI:107913]"	"7"	"-1"	"128439777"	"128461717"	NA
+"ENSMUSG00000030847"	"Bag3"	TRUE	FALSE	"Maternal"	"BCL2-associated athanogene 3 [Source:MGI Symbol;Acc:MGI:1352493]"	"7"	"1"	"128523583"	"128546977"	NA
+"ENSMUSG00000031075"	"Ano1"	FALSE	FALSE	"Maternal"	"anoctamin 1, calcium activated chloride channel [Source:MGI Symbol;Acc:MGI:2142149]"	"7"	"-1"	"144588549"	"144751974"	NA
+"ENSMUSG00000031362"	"Xlr4c"	FALSE	FALSE	"Maternal"	"X-linked lymphocyte-regulated 4C [Source:MGI Symbol;Acc:MGI:3574099]"	"X"	"-1"	"73233688"	"73243130"	NA
+"ENSMUSG00000031714"	"Gab1"	FALSE	FALSE	"Paternal"	"growth factor receptor bound protein 2-associated protein 1 [Source:MGI Symbol;Acc:MGI:108088]"	"8"	"-1"	"80764434"	"80880479"	NA
+"ENSMUSG00000031962"	"Cdh15"	FALSE	FALSE	"Paternal"	"cadherin 15 [Source:MGI Symbol;Acc:MGI:106672]"	"8"	"1"	"122848374"	"122867397"	NA
+"ENSMUSG00000032356"	"Rasgrf1"	TRUE	TRUE	"Paternal"	"RAS protein-specific guanine nucleotide-releasing factor 1 [Source:MGI Symbol;Acc:MGI:99694]"	"9"	"1"	"89909775"	"90026976"	NA
+"ENSMUSG00000032359"	"Ctsh"	TRUE	TRUE	"Paternal"	"cathepsin H [Source:MGI Symbol;Acc:MGI:107285]"	"9"	"1"	"90054152"	"90076089"	NA
+"ENSMUSG00000032584"	"Mst1r"	FALSE	FALSE	"Maternal"	"macrophage stimulating 1 receptor (c-met-related tyrosine kinase) [Source:MGI Symbol;Acc:MGI:99614]"	"9"	"1"	"107906889"	"107920383"	NA
+"ENSMUSG00000032667"	"Pon2"	FALSE	FALSE	"Maternal"	"paraoxonase 2 [Source:MGI Symbol;Acc:MGI:106687]"	"6"	"-1"	"5264147"	"5298455"	NA
+"ENSMUSG00000032827"	"Ppp1r9a"	TRUE	TRUE	"Maternal"	"protein phosphatase 1, regulatory (inhibitor) subunit 9A [Source:MGI Symbol;Acc:MGI:2442401]"	"6"	"1"	"4902917"	"5165661"	NA
+"ENSMUSG00000033585"	"Ndn"	TRUE	TRUE	"Paternal"	"necdin [Source:MGI Symbol;Acc:MGI:97290]"	"7"	"1"	"62348277"	"62349928"	NA
+"ENSMUSG00000033676"	"Gabrb3"	TRUE	FALSE	"Paternal"	"gamma-aminobutyric acid (GABA) A receptor, subunit beta 3 [Source:MGI Symbol;Acc:MGI:95621]"	"7"	"1"	"57590518"	"57828802"	NA
+"ENSMUSG00000034959"	"5031414D18Rik"	TRUE	FALSE	"Paternal"	"RIKEN cDNA 5031414D18 gene [Source:MGI Symbol;Acc:MGI:2685590]"	"14"	"1"	"75016027"	"75052532"	NA
+"ENSMUSG00000034997"	"Htr2a"	FALSE	FALSE	"Maternal"	"5-hydroxytryptamine (serotonin) receptor 2A [Source:MGI Symbol;Acc:MGI:109521]"	"14"	"1"	"74640840"	"74706859"	NA
+"ENSMUSG00000035202"	"Lars2"	TRUE	FALSE	"Paternal"	"leucyl-tRNA synthetase, mitochondrial [Source:MGI Symbol;Acc:MGI:2142973]"	"9"	"1"	"123366940"	"123462664"	NA
+"ENSMUSG00000035804"	"Ins1"	FALSE	FALSE	"Paternal"	"insulin I [Source:MGI Symbol;Acc:MGI:96572]"	"19"	"1"	"52264323"	"52265456"	NA
+"ENSMUSG00000036698"	"Ago2"	TRUE	TRUE	"Maternal"	"argonaute RISC catalytic subunit 2 [Source:MGI Symbol;Acc:MGI:2446632]"	"15"	"-1"	"73095844"	"73184840"	NA
+"ENSMUSG00000036760"	"Kcnk9"	TRUE	FALSE	"Maternal"	"potassium channel, subfamily K, member 9 [Source:MGI Symbol;Acc:MGI:3521816]"	"15"	"-1"	"72512119"	"72546279"	NA
+"ENSMUSG00000036800"	"Fam135b"	TRUE	FALSE	"Maternal"	"family with sequence similarity 135, member B [Source:MGI Symbol;Acc:MGI:1917613]"	"15"	"-1"	"71445678"	"71727838"	NA
+"ENSMUSG00000037606"	"Osbpl5"	FALSE	FALSE	"Maternal"	"oxysterol binding protein-like 5 [Source:MGI Symbol;Acc:MGI:1930265]"	"7"	"-1"	"143688762"	"143756985"	NA
+"ENSMUSG00000037613"	"Tnfrsf23"	FALSE	FALSE	"Maternal"	"tumor necrosis factor receptor superfamily, member 23 [Source:MGI Symbol;Acc:MGI:1930269]"	"7"	"-1"	"143665809"	"143685872"	NA
+"ENSMUSG00000037664"	"Cdkn1c"	TRUE	TRUE	"Maternal"	"cyclin-dependent kinase inhibitor 1C (P57) [Source:MGI Symbol;Acc:MGI:104564]"	"7"	"-1"	"143458350"	"143461050"	NA
+"ENSMUSG00000037706"	"Cd81"	FALSE	FALSE	"Maternal"	"CD81 antigen [Source:MGI Symbol;Acc:MGI:1096398]"	"7"	"1"	"143052739"	"143067934"	NA
+"ENSMUSG00000037709"	"Fam13a"	TRUE	FALSE	"Maternal"	"family with sequence similarity 13, member A [Source:MGI Symbol;Acc:MGI:1889842]"	"6"	"-1"	"58932090"	"59024549"	NA
+"ENSMUSG00000039263"	"Npepl1"	TRUE	FALSE	"Maternal"	"aminopeptidase-like 1 [Source:MGI Symbol;Acc:MGI:2448523]"	"2"	"1"	"174110349"	"174123070"	NA
+"ENSMUSG00000039809"	"Gabbr2"	TRUE	FALSE	"Paternal"	"gamma-aminobutyric acid (GABA) B receptor, 2 [Source:MGI Symbol;Acc:MGI:2386030]"	"4"	"-1"	"46662318"	"46991873"	NA
+"ENSMUSG00000039963"	"Ccdc40"	FALSE	FALSE	"Paternal"	"coiled-coil domain containing 40 [Source:MGI Symbol;Acc:MGI:2443893]"	"11"	"1"	"119228572"	"119265236"	NA
+"ENSMUSG00000040856"	"Dlk1"	TRUE	TRUE	"Paternal"	"delta-like 1 homolog (Drosophila) [Source:MGI Symbol;Acc:MGI:94900]"	"12"	"1"	"109452823"	"109463336"	NA
+"ENSMUSG00000040867"	"Begain"	TRUE	FALSE	"Paternal"	"brain-enriched guanylate kinase-associated [Source:MGI Symbol;Acc:MGI:3044626]"	"12"	"-1"	"109032187"	"109068217"	NA
+"ENSMUSG00000040877"	"Wdr25"	TRUE	FALSE	"Paternal"	"WD repeat domain 25 [Source:MGI Symbol;Acc:MGI:3045255]"	"12"	"1"	"108894272"	"109028452"	NA
+"ENSMUSG00000040966"	"Slc22a2"	FALSE	FALSE	"Maternal"	"solute carrier family 22 (organic cation transporter), member 2 [Source:MGI Symbol;Acc:MGI:1335072]"	"17"	"1"	"12584189"	"12628465"	NA
+"ENSMUSG00000042105"	"Inpp5f"	TRUE	TRUE	"Paternal"	"inositol polyphosphate-5-phosphatase F [Source:MGI Symbol;Acc:MGI:2141867]"	"7"	"1"	"128611328"	"128696425"	NA
+"ENSMUSG00000042607"	"Asb4"	TRUE	TRUE	"Maternal"	"ankyrin repeat and SOCS box-containing 4 [Source:MGI Symbol;Acc:MGI:1929751]"	"6"	"1"	"5383386"	"5433022"	NA
+"ENSMUSG00000042814"	"Mcts2"	FALSE	FALSE	"Paternal"	"malignant T cell amplified sequence 2 [Source:MGI Symbol;Acc:MGI:1913655]"	"2"	"1"	"152687148"	"152687940"	NA
+"ENSMUSG00000044068"	"Zrsr1"	TRUE	TRUE	"Paternal"	"zinc finger (CCCH type), RNA binding motif and serine/arginine rich 1 [Source:MGI Symbol;Acc:MGI:98885]"	"11"	"1"	"22972005"	"22976496"	NA
+"ENSMUSG00000044231"	"Nhlrc1"	TRUE	TRUE	"Paternal"	"NHL repeat containing 1 [Source:MGI Symbol;Acc:MGI:2145264]"	"13"	"-1"	"47012558"	"47014850"	NA
+"ENSMUSG00000045362"	"Tnfrsf26"	FALSE	FALSE	"Maternal"	"tumor necrosis factor receptor superfamily, member 26 [Source:MGI Symbol;Acc:MGI:2651928]"	"7"	"-1"	"143607685"	"143627845"	NA
+"ENSMUSG00000045657"	"Pcdhb10"	TRUE	TRUE	"Maternal"	"protocadherin beta 10 [Source:MGI Symbol;Acc:MGI:2136745]"	"18"	"1"	"37411674"	"37414514"	NA
+"ENSMUSG00000045752"	"Tssc4"	FALSE	FALSE	"Maternal"	"tumor-suppressing subchromosomal transferable fragment 4 [Source:MGI Symbol;Acc:MGI:1861712]"	"7"	"1"	"143069249"	"143071093"	NA
+"ENSMUSG00000045777"	"Ifitm10"	TRUE	FALSE	"Maternal"	"interferon induced transmembrane protein 10 [Source:MGI Symbol;Acc:MGI:2444776]"	"7"	"-1"	"142325837"	"142373753"	NA
+"ENSMUSG00000046447"	"Camk2n1"	TRUE	TRUE	"Maternal"	"calcium/calmodulin-dependent protein kinase II inhibitor 1 [Source:MGI Symbol;Acc:MGI:1913509]"	"4"	"1"	"138454314"	"138460123"	NA
+"ENSMUSG00000046856"	"Gpr1"	FALSE	FALSE	"Paternal"	"G protein-coupled receptor 1 [Source:MGI Symbol;Acc:MGI:2385324]"	"1"	"-1"	"63182691"	"63214543"	NA
+"ENSMUSG00000047746"	"Fbxo40"	FALSE	FALSE	"Maternal"	"F-box protein 40 [Source:MGI Symbol;Acc:MGI:2443753]"	"16"	"-1"	"36963460"	"36990467"	NA
+"ENSMUSG00000047921"	"Trappc9"	TRUE	TRUE	"Maternal"	"trafficking protein particle complex 9 [Source:MGI Symbol;Acc:MGI:1923760]"	"15"	"-1"	"72589621"	"73061204"	NA
+"ENSMUSG00000048583"	"Igf2"	TRUE	TRUE	"Maternal"	"insulin-like growth factor 2 [Source:MGI Symbol;Acc:MGI:96434]"	"7"	"-1"	"142650766"	"142666816"	NA
+"ENSMUSG00000048720"	"Tbc1d12"	FALSE	FALSE	"Paternal"	"TBC1D12: TBC1 domain family, member 12 [Source:MGI Symbol;Acc:MGI:2384803]"	"19"	"1"	"38836579"	"38919923"	NA
+"ENSMUSG00000048895"	"Cdk5r1"	TRUE	TRUE	"Paternal"	"cyclin-dependent kinase 5, regulatory subunit 1 (p35) [Source:MGI Symbol;Acc:MGI:101764]"	"11"	"1"	"80477046"	"80481179"	NA
+"ENSMUSG00000049620"	"Prss33"	TRUE	FALSE	"Maternal"	"protease, serine, 33 [Source:MGI Symbol;Acc:MGI:2661234]"	"17"	"-1"	"23833360"	"23836056"	NA
+"ENSMUSG00000051355"	"Commd1"	FALSE	FALSE	"Maternal"	"COMM domain containing 1 [Source:MGI Symbol;Acc:MGI:109474]"	"11"	"-1"	"22896136"	"22982382"	NA
+"ENSMUSG00000051527"	"Usp29"	TRUE	FALSE	"Paternal"	"ubiquitin specific peptidase 29 [Source:MGI Symbol;Acc:MGI:1888998]"	"7"	"1"	"6961160"	"6963769"	NA
+"ENSMUSG00000051855"	"Mest"	TRUE	TRUE	"Paternal"	"mesoderm specific transcript [Source:MGI Symbol;Acc:MGI:96968]"	"6"	"1"	"30723547"	"30748455"	NA
+"ENSMUSG00000053395"	"Cacng8"	TRUE	FALSE	"Paternal"	"calcium channel, voltage-dependent, gamma subunit 8 [Source:MGI Symbol;Acc:MGI:1932376]"	"7"	"1"	"3390683"	"3415648"	NA
+"ENSMUSG00000054455"	"Vapb"	TRUE	FALSE	"Maternal"	"vesicle-associated membrane protein, associated protein B and C [Source:MGI Symbol;Acc:MGI:1928744]"	"2"	"1"	"173737511"	"173784336"	NA
+"ENSMUSG00000055078"	"Gabra5"	TRUE	TRUE	"Paternal"	"gamma-aminobutyric acid (GABA) A receptor, subunit alpha 5 [Source:MGI Symbol;Acc:MGI:95617]"	"7"	"-1"	"57407690"	"57510009"	NA
+"ENSMUSG00000055430"	"Nap1l5"	TRUE	TRUE	"Paternal"	"nucleosome assembly protein 1-like 5 [Source:MGI Symbol;Acc:MGI:1923555]"	"6"	"-1"	"58905234"	"58907126"	NA
+"ENSMUSG00000056972"	"Magel2"	FALSE	FALSE	"Paternal"	"melanoma antigen, family L, 2 [Source:MGI Symbol;Acc:MGI:1351648]"	"7"	"1"	"62376979"	"62381640"	NA
+"ENSMUSG00000058454"	"Dhcr7"	FALSE	FALSE	"Maternal"	"7-dehydrocholesterol reductase [Source:MGI Symbol;Acc:MGI:1298378]"	"7"	"1"	"143823145"	"143848410"	NA
+"ENSMUSG00000059119"	"Nap1l4"	FALSE	FALSE	"Maternal"	"nucleosome assembly protein 1-like 4 [Source:MGI Symbol;Acc:MGI:1316687]"	"7"	"-1"	"143513579"	"143549090"	NA
+"ENSMUSG00000061186"	"Sfmbt2"	FALSE	FALSE	"Paternal"	"Scm-like with four mbt domains 2 [Source:MGI Symbol;Acc:MGI:2447794]"	"2"	"1"	"10370510"	"10595253"	NA
+"ENSMUSG00000062866"	"Phactr2"	TRUE	FALSE	"Maternal"	"phosphatase and actin regulator 2 [Source:MGI Symbol;Acc:MGI:2446138]"	"10"	"-1"	"13207717"	"13474396"	NA
+"ENSMUSG00000064621"	"AF357355"	FALSE	FALSE	"Maternal"	"snoRNA AF357355 [Source:MGI Symbol;Acc:MGI:3843217]"	"12"	"1"	"109654627"	"109654698"	NA
+"ENSMUSG00000064621"	"Gm26922"	FALSE	FALSE	"Maternal"	"snoRNA AF357355 [Source:MGI Symbol;Acc:MGI:3843217]"	"12"	"1"	"109654627"	"109654698"	NA
+"ENSMUSG00000065022"	"AF357341"	FALSE	FALSE	"Maternal"	"snoRNA AF357341 [Source:MGI Symbol;Acc:MGI:3510328]"	"12"	"1"	"109681519"	"109681593"	NA
+"ENSMUSG00000065410"	"Mir298"	FALSE	FALSE	"Paternal"	"microRNA 298 [Source:MGI Symbol;Acc:MGI:3619321]"	"2"	"-1"	"174267504"	"174267585"	NA
+"ENSMUSG00000065426"	"Mir134"	FALSE	FALSE	"Maternal"	"microRNA 134 [Source:MGI Symbol;Acc:MGI:2676819]"	"12"	"1"	"109734123"	"109734224"	NA
+"ENSMUSG00000065433"	"Mir370"	FALSE	FALSE	"Maternal"	"microRNA 370 [Source:MGI Symbol;Acc:MGI:3619375]"	"12"	"1"	"109618258"	"109618336"	NA
+"ENSMUSG00000065448"	"Mir154"	FALSE	FALSE	"Maternal"	"microRNA 154 [Source:MGI Symbol;Acc:MGI:2676839]"	"12"	"1"	"109738424"	"109738507"	NA
+"ENSMUSG00000065477"	"Mir411"	FALSE	FALSE	"Maternal"	"microRNA 411 [Source:MGI Symbol;Acc:MGI:3619399]"	"12"	"1"	"109710175"	"109710270"	NA
+"ENSMUSG00000065497"	"Mir410"	FALSE	FALSE	"Maternal"	"microRNA 410 [Source:MGI Symbol;Acc:MGI:3619398]"	"12"	"1"	"109743715"	"109743795"	NA
+"ENSMUSG00000065501"	"Mir335"	FALSE	FALSE	"Paternal"	"microRNA 335 [Source:MGI Symbol;Acc:MGI:3619348]"	"6"	"1"	"30741299"	"30741396"	NA
+"ENSMUSG00000065521"	"Mir296"	FALSE	FALSE	"Paternal"	"microRNA 296 [Source:MGI Symbol;Acc:MGI:3619269]"	"2"	"-1"	"174267047"	"174267125"	NA
+"ENSMUSG00000065526"	"Mir337"	FALSE	FALSE	"Maternal"	"microRNA 337 [Source:MGI Symbol;Acc:MGI:3619351]"	"12"	"1"	"109585790"	"109585886"	NA
+"ENSMUSG00000065596"	"Mir184"	FALSE	FALSE	"Paternal"	"microRNA 184 [Source:MGI Symbol;Acc:MGI:2676848]"	"9"	"-1"	"89802260"	"89802328"	NA
+"ENSMUSG00000065749"	"AF357428"	FALSE	FALSE	"Maternal"	"snoRNA AF357428 [Source:MGI Symbol;Acc:MGI:3053436]"	"12"	"1"	"109679945"	"109680013"	NA
+"ENSMUSG00000067768"	"Xlr4b"	FALSE	FALSE	"Maternal"	"X-linked lymphocyte-regulated 4B [Source:MGI Symbol;Acc:MGI:1350975]"	"X"	"1"	"73214333"	"73222453"	NA
+"ENSMUSG00000067786"	"Nnat"	TRUE	TRUE	"Paternal"	"neuronatin [Source:MGI Symbol;Acc:MGI:104716]"	"2"	"1"	"157560078"	"157562522"	NA
+"ENSMUSG00000067787"	"Blcap"	TRUE	FALSE	"Maternal"	"bladder cancer associated protein homolog (human) [Source:MGI Symbol;Acc:MGI:1858907]"	"2"	"-1"	"157556362"	"157571274"	NA
+"ENSMUSG00000068151"	"A230006K03Rik"	TRUE	FALSE	"Paternal"	"RIKEN cDNA A230006K03 gene [Source:MGI Symbol;Acc:MGI:3644205]"	"7"	"-1"	"61127996"	"61311721"	NA
+"ENSMUSG00000068391"	"Chrac1"	TRUE	TRUE	"Maternal"	"chromatin accessibility complex 1 [Source:MGI Symbol;Acc:MGI:2135796]"	"15"	"1"	"73090392"	"73097554"	NA
+"ENSMUSG00000070072"	"Mir433"	FALSE	FALSE	"Maternal"	"microRNA 433 [Source:MGI Symbol;Acc:MGI:3619404]"	"12"	"1"	"109591715"	"109591838"	NA
+"ENSMUSG00000070076"	"Mir127"	FALSE	FALSE	"Maternal"	"microRNA 127 [Source:MGI Symbol;Acc:MGI:2676812]"	"12"	"1"	"109592832"	"109592928"	NA
+"ENSMUSG00000070080"	"Mir431"	FALSE	FALSE	"Maternal"	"microRNA 431 [Source:MGI Symbol;Acc:MGI:3619403]"	"12"	"1"	"109590447"	"109590537"	NA
+"ENSMUSG00000070129"	"Mir136"	FALSE	FALSE	"Maternal"	"microRNA 136 [Source:MGI Symbol;Acc:MGI:2676821]"	"12"	"1"	"109595317"	"109595398"	NA
+"ENSMUSG00000070133"	"Mir434"	FALSE	FALSE	"Maternal"	"microRNA 434 [Source:MGI Symbol;Acc:MGI:3619405]"	"12"	"1"	"109594506"	"109594599"	NA
+"ENSMUSG00000070424"	"Art5"	FALSE	FALSE	"Maternal"	"ADP-ribosyltransferase 5 [Source:MGI Symbol;Acc:MGI:107948]"	"7"	"-1"	"102096879"	"102102845"	NA
+"ENSMUSG00000070526"	"Peg12"	FALSE	FALSE	"Paternal"	"paternally expressed 12 [Source:MGI Symbol;Acc:MGI:1351637]"	"7"	"-1"	"62461871"	"62464510"	NA
+"ENSMUSG00000070527"	"Mkrn3"	FALSE	FALSE	"Paternal"	"makorin, ring finger protein, 3 [Source:MGI Symbol;Acc:MGI:2181178]"	"7"	"-1"	"62417593"	"62420139"	NA
+"ENSMUSG00000070570"	"Slc17a7"	TRUE	TRUE	"Paternal"	"solute carrier family 17 (sodium-dependent inorganic phosphate cotransporter), member 7 [Source:MGI Symbol;Acc:MGI:1920211]"	"7"	"1"	"45163921"	"45176138"	NA
+"ENSMUSG00000071815"	"Fthl17"	FALSE	FALSE	"Paternal"	"ferritin, heavy polypeptide-like 17 [Source:MGI Symbol;Acc:MGI:1933180]"	"X"	"1"	"9033485"	"9034331"	NA
+"ENSMUSG00000073125"	"Xlr3b"	FALSE	FALSE	"Maternal"	"X-linked lymphocyte-regulated 3B [Source:MGI Symbol;Acc:MGI:109505]"	"X"	"1"	"73192207"	"73202930"	NA
+"ENSMUSG00000073209"	"Klf14"	FALSE	FALSE	"Maternal"	"Kruppel-like factor 14 [Source:MGI Symbol;Acc:MGI:3577024]"	"6"	"-1"	"30956021"	"30958990"	NA
+"ENSMUSG00000075707"	"Dio3"	FALSE	FALSE	"Paternal"	"deiodinase, iodothyronine type III [Source:MGI Symbol;Acc:MGI:1306782]"	"12"	"1"	"110279068"	"110281097"	NA
+"ENSMUSG00000076006"	"Mir376b"	FALSE	FALSE	"Maternal"	"microRNA 376b [Source:MGI Symbol;Acc:MGI:3619378]"	"12"	"1"	"109723456"	"109723541"	NA
+"ENSMUSG00000077191"	"Snord64"	FALSE	FALSE	"Paternal"	"small nucleolar RNA, C/D box 64 [Source:MGI Symbol;Acc:MGI:3819546]"	"7"	"-1"	"59978808"	"59978874"	NA
+"ENSMUSG00000078247"	"Airn"	FALSE	FALSE	"Paternal"	"antisense Igf2r RNA [Source:MGI Symbol;Acc:MGI:1353471]"	"17"	"1"	"12741311"	"12860122"	NA
+"ENSMUSG00000085715"	"Tsix"	FALSE	FALSE	"Maternal"	"X (inactive)-specific transcript, opposite strand [Source:MGI Symbol;Acc:MGI:1336196]"	"X"	"1"	"103431517"	"103484957"	NA
+"ENSMUSG00000085925"	"Rtl1"	FALSE	FALSE	"Paternal"	"retrotransposon-like 1 [Source:MGI Symbol;Acc:MGI:2656842]"	"12"	"-1"	"109589194"	"109600330"	NA
+"ENSMUSG00000086503"	"Xist"	FALSE	FALSE	"Paternal"	"inactive X specific transcripts [Source:MGI Symbol;Acc:MGI:98974]"	"X"	"-1"	"103460375"	"103483217"	NA
+"ENSMUSG00000088294"	"AF357425"	FALSE	FALSE	"Maternal"	"snoRNA AF357425 [Source:MGI Symbol;Acc:MGI:3053434]"	"12"	"1"	"109636012"	"109636084"	NA
+"ENSMUSG00000090852"	"Tnfrsf22"	FALSE	FALSE	"Maternal"	"tumor necrosis factor receptor superfamily, member 22 [Source:MGI Symbol;Acc:MGI:1930270]"	"7"	"-1"	"143634806"	"143636585"	NA
+"ENSMUSG00000092035"	"Peg10"	TRUE	TRUE	"Paternal"	"paternally expressed 10 [Source:MGI Symbol;Acc:MGI:2157785]"	"6"	"1"	"4747306"	"4760517"	NA
+"ENSMUSG00000093224"	"Gm25750"	FALSE	FALSE	"Maternal"	"predicted gene, 25750 [Source:MGI Symbol;Acc:MGI:5455527]"	"12"	"-1"	"109711779"	"109711890"	NA
+"ENSMUSG00000093536"	"Smim17"	TRUE	FALSE	"Maternal"	"small integral membrane protein 17 [Source:MGI Symbol;Acc:MGI:4365374]"	"7"	"1"	"6398715"	"6432093"	NA
+"ENSMUSG00000095180"	"Rhox5"	FALSE	FALSE	"Paternal"	"reproductive homeobox 5 [Source:MGI Symbol;Acc:MGI:97538]"	"X"	"1"	"37804842"	"37808876"	NA
+"ENSMUSG00000064377"	"Gm24966"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59344073"	"59344151"	"snord115"
+"ENSMUSG00000093824"	"Gm24799"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59409063"	"59409141"	"snord115"
+"ENSMUSG00000093830"	"Gm23145"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59424924"	"59425002"	"snord115"
+"ENSMUSG00000093854"	"Gm24310"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59518411"	"59518489"	"snord115"
+"ENSMUSG00000093860"	"Gm22632"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59481219"	"59481297"	"snord115"
+"ENSMUSG00000093870"	"Gm25461"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59516539"	"59516617"	"snord115"
+"ENSMUSG00000093943"	"Gm22834"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59475622"	"59475700"	"snord115"
+"ENSMUSG00000093958"	"Gm24495"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59507198"	"59507276"	"snord115"
+"ENSMUSG00000093981"	"Gm24862"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59391690"	"59391768"	"snord115"
+"ENSMUSG00000093994"	"Gm26498"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59386081"	"59386159"	"snord115"
+"ENSMUSG00000093997"	"Gm26499"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59377582"	"59377660"	"snord115"
+"ENSMUSG00000094032"	"Gm24654"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59546487"	"59546565"	"snord115"
+"ENSMUSG00000094034"	"Gm24653"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59358890"	"59358968"	"snord115"
+"ENSMUSG00000094037"	"Gm24652"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59567091"	"59567169"	"snord115"
+"ENSMUSG00000094038"	"Gm24657"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59366366"	"59366444"	"snord115"
+"ENSMUSG00000094048"	"Gm26284"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59589548"	"59589626"	"snord115"
+"ENSMUSG00000094049"	"Gm26283"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59490561"	"59490639"	"snord115"
+"ENSMUSG00000094059"	"Gm23471"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59434277"	"59434355"	"snord115"
+"ENSMUSG00000094068"	"Gm25156"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59353283"	"59353361"	"snord115"
+"ENSMUSG00000094093"	"Gm25647"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59524028"	"59524105"	"snord115"
+"ENSMUSG00000094095"	"Gm25648"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59347681"	"59347759"	"snord115"
+"ENSMUSG00000094099"	"Gm25823"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59522156"	"59522233"	"snord115"
+"ENSMUSG00000094129"	"Gm23944"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59583934"	"59584012"	"snord115"
+"ENSMUSG00000094148"	"Gm24952"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59580191"	"59580269"	"snord115"
+"ENSMUSG00000094213"	"Gm23449"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59512795"	"59512873"	"snord115"
+"ENSMUSG00000094283"	"Gm26434"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59615744"	"59615822"	"snord115"
+"ENSMUSG00000094308"	"Gm24926"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59477493"	"59477571"	"snord115"
+"ENSMUSG00000094364"	"Gm26059"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59468163"	"59468241"	"snord115"
+"ENSMUSG00000094438"	"Gm23618"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59568964"	"59569042"	"snord115"
+"ENSMUSG00000094442"	"Gm25452"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59591422"	"59591500"	"snord115"
+"ENSMUSG00000094458"	"Gm22627"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59533386"	"59533464"	"snord115"
+"ENSMUSG00000094465"	"Gm24306"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59349536"	"59349614"	"snord115"
+"ENSMUSG00000094476"	"Gm25934"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59351409"	"59351487"	"snord115"
+"ENSMUSG00000094508"	"Gm26230"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59368236"	"59368314"	"snord115"
+"ENSMUSG00000094513"	"Gm24566"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59445503"	"59445581"	"snord115"
+"ENSMUSG00000094522"	"Gm22912"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59612005"	"59612083"	"snord115"
+"ENSMUSG00000094524"	"Gm22909"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59520284"	"59520362"	"snord115"
+"ENSMUSG00000094538"	"Gm25741"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59466292"	"59466370"	"snord115"
+"ENSMUSG00000094548"	"Gm25221"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59430536"	"59430614"	"snord115"
+"ENSMUSG00000094550"	"Gm22393"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59441762"	"59441840"	"snord115"
+"ENSMUSG00000094554"	"Gm22391"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59606390"	"59606468"	"snord115"
+"ENSMUSG00000094565"	"Gm25229"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59414091"	"59414169"	"snord115"
+"ENSMUSG00000094567"	"Gm25230"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59531515"	"59531593"	"snord115"
+"ENSMUSG00000094587"	"Gm26366"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59486818"	"59486896"	"snord115"
+"ENSMUSG00000094604"	"Gm25874"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59451115"	"59451193"	"snord115"
+"ENSMUSG00000094609"	"Gm25870"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59619017"	"59619095"	"snord115"
+"ENSMUSG00000094610"	"Gm23076"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59449243"	"59449321"	"snord115"
+"ENSMUSG00000094625"	"Gm22524"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59462548"	"59462626"	"snord115"
+"ENSMUSG00000094631"	"Gm24220"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59357021"	"59357099"	"snord115"
+"ENSMUSG00000094636"	"Gm24219"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59529643"	"59529721"	"snord115"
+"ENSMUSG00000094667"	"Gm24872"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59421187"	"59421265"	"snord115"
+"ENSMUSG00000094723"	"Gm23356"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59417457"	"59417535"	"snord115"
+"ENSMUSG00000094753"	"Gm25017"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59602647"	"59602725"	"snord115"
+"ENSMUSG00000094765"	"Gm25523"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59509068"	"59509146"	"snord115"
+"ENSMUSG00000094847"	"Gm22640"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59578319"	"59578397"	"snord115"
+"ENSMUSG00000094883"	"Gm25121"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59364496"	"59364574"	"snord115"
+"ENSMUSG00000094888"	"Gm25120"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59436149"	"59436227"	"snord115"
+"ENSMUSG00000094903"	"Gm23575"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59604519"	"59604597"	"snord115"
+"ENSMUSG00000094912"	"Gm26392"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59527771"	"59527849"	"snord115"
+"ENSMUSG00000094917"	"Gm26390"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59484948"	"59485026"	"snord115"
+"ENSMUSG00000094919"	"Gm26389"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59432407"	"59432485"	"snord115"
+"ENSMUSG00000094922"	"Gm24759"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59597035"	"59597113"	"snord115"
+"ENSMUSG00000094998"	"Gm22050"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59559599"	"59559677"	"snord115"
+"ENSMUSG00000095009"	"Gm25175"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59470034"	"59470112"	"snord115"
+"ENSMUSG00000095021"	"Gm24021"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59563345"	"59563423"	"snord115"
+"ENSMUSG00000095031"	"Gm22348"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59405330"	"59405408"	"snord115"
+"ENSMUSG00000095091"	"Gm23660"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59387953"	"59388031"	"snord115"
+"ENSMUSG00000095182"	"Gm26374"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59587676"	"59587754"	"snord115"
+"ENSMUSG00000095220"	"Gm23560"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59617612"	"59617690"	"snord115"
+"ENSMUSG00000095310"	"Gm25463"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59412802"	"59412880"	"snord115"
+"ENSMUSG00000095314"	"Gm25462"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59498041"	"59498119"	"snord115"
+"ENSMUSG00000095342"	"Gm26096"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59373844"	"59373922"	"snord115"
+"ENSMUSG00000095357"	"Gm23286"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59561472"	"59561550"	"snord115"
+"ENSMUSG00000095372"	"Gm22111"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59447374"	"59447452"	"snord115"
+"ENSMUSG00000095402"	"Gm25585"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59552109"	"59552187"	"snord115"
+"ENSMUSG00000095418"	"Gm23922"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59370106"	"59370184"	"snord115"
+"ENSMUSG00000095425"	"Gm24417"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59362628"	"59362706"	"snord115"
+"ENSMUSG00000095428"	"Gm24418"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59438019"	"59438097"	"snord115"
+"ENSMUSG00000095476"	"Gm25077"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59473776"	"59473854"	"snord115"
+"ENSMUSG00000095491"	"Gm24088"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59410933"	"59411011"	"snord115"
+"ENSMUSG00000095501"	"Gm22449"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59608262"	"59608340"	"snord115"
+"ENSMUSG00000095511"	"Gm24137"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59610133"	"59610211"	"snord115"
+"ENSMUSG00000095581"	"Gm22630"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59464420"	"59464498"	"snord115"
+"ENSMUSG00000095587"	"Gm22629"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59585806"	"59585884"	"snord115"
+"ENSMUSG00000095628"	"Gm24585"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59535256"	"59535334"	"snord115"
+"ENSMUSG00000095660"	"Gm22274"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59565218"	"59565296"	"snord115"
+"ENSMUSG00000095671"	"Gm25098"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59492432"	"59492510"	"snord115"
+"ENSMUSG00000095713"	"Gm26466"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59407197"	"59407275"	"snord115"
+"ENSMUSG00000095714"	"Gm26467"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59574579"	"59574656"	"snord115"
+"ENSMUSG00000095739"	"Gm25314"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59371975"	"59372053"	"snord115"
+"ENSMUSG00000095764"	"Gm25840"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59553981"	"59554059"	"snord115"
+"ENSMUSG00000095828"	"Gm25449"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59419323"	"59419401"	"snord115"
+"ENSMUSG00000095885"	"Gm26432"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59496169"	"59496247"	"snord115"
+"ENSMUSG00000095911"	"Gm24528"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59415590"	"59415668"	"snord115"
+"ENSMUSG00000095924"	"Gm24040"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59557727"	"59557805"	"snord115"
+"ENSMUSG00000095945"	"Gm25194"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59576449"	"59576527"	"snord115"
+"ENSMUSG00000095997"	"Gm24702"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59494300"	"59494378"	"snord115"
+"ENSMUSG00000096028"	"Gm25984"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59593294"	"59593372"	"snord115"
+"ENSMUSG00000096041"	"Gm22511"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59471904"	"59471982"	"snord115"
+"ENSMUSG00000096046"	"Gm24969"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59360760"	"59360838"	"snord115"
+"ENSMUSG00000096048"	"Gm22510"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59454855"	"59454933"	"snord115"
+"ENSMUSG00000096067"	"Gm23682"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59544615"	"59544693"	"snord115"
+"ENSMUSG00000096090"	"Gm26334"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59548359"	"59548437"	"snord115"
+"ENSMUSG00000096136"	"Gm25146"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59595165"	"59595243"	"snord115"
+"ENSMUSG00000096161"	"Gm24639"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59443631"	"59443709"	"snord115"
+"ENSMUSG00000096185"	"Gm23305"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59537128"	"59537206"	"snord115"
+"ENSMUSG00000096281"	"Gm22255"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59510934"	"59511012"	"snord115"
+"ENSMUSG00000096285"	"Gm22253"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59600776"	"59600854"	"snord115"
+"ENSMUSG00000096287"	"Gm22252"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59525899"	"59525977"	"snord115"
+"ENSMUSG00000096291"	"Gm23933"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59389820"	"59389898"	"snord115"
+"ENSMUSG00000096306"	"Gm25209"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59542742"	"59542820"	"snord115"
+"ENSMUSG00000096324"	"Gm26336"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59488689"	"59488767"	"snord115"
+"ENSMUSG00000096328"	"Gm26337"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59423055"	"59423133"	"snord115"
+"ENSMUSG00000096359"	"Gm25710"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59613876"	"59613954"	"snord115"
+"ENSMUSG00000096387"	"Gm26488"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59355152"	"59355230"	"snord115"
+"ENSMUSG00000096390"	"Gm23687"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59439891"	"59439969"	"snord115"
+"ENSMUSG00000096392"	"Gm23688"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59570835"	"59570913"	"snord115"
+"ENSMUSG00000096430"	"Gm22130"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59426795"	"59426873"	"snord115"
+"ENSMUSG00000096447"	"Gm24206"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59538998"	"59539076"	"snord115"
+"ENSMUSG00000096454"	"Gm23310"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59514667"	"59514745"	"snord115"
+"ENSMUSG00000096496"	"Gm25646"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59379451"	"59379529"	"snord115"
+"ENSMUSG00000096565"	"Gm24100"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59598904"	"59598982"	"snord115"
+"ENSMUSG00000096595"	"Gm25742"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59550238"	"59550316"	"snord115"
+"ENSMUSG00000096605"	"Gm26200"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59479347"	"59479425"	"snord115"
+"ENSMUSG00000096648"	"Gm24027"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59460677"	"59460755"	"snord115"
+"ENSMUSG00000096683"	"Gm25988"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59428665"	"59428743"	"snord115"
+"ENSMUSG00000096799"	"Gm22996"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59375713"	"59375791"	"snord115"
+"ENSMUSG00000096811"	"Gm25088"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59452983"	"59453061"	"snord115"
+"ENSMUSG00000096812"	"Gm25087"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59582063"	"59582140"	"snord115"
+"ENSMUSG00000096814"	"Gm25085"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59540870"	"59540948"	"snord115"
+"ENSMUSG00000096821"	"Gm24570"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59572707"	"59572785"	"snord115"
+"ENSMUSG00000096913"	"Gm24866"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59393561"	"59393639"	"snord115"
+"ENSMUSG00000075726"	"Gm23254"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59483074"	"59483152"	"snord115"
+"ENSMUSG00000075968"	"Gm25089"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59555854"	"59555932"	"snord115"
+"ENSMUSG00000077615"	"Gm25499"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59342226"	"59342294"	"snord115"
+"ENSMUSG00000077645"	"Gm24983"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59458815"	"59458883"	"snord115"
+"ENSMUSG00000077681"	"Gm22496"	FALSE	FALSE	NA	"snord115"	"7"	"-1"	"59347337"	"59347424"	"snord115"
+"64243"	"Snord116"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59675990"	"59676079"	"snord116"
+"ENSMUSG00000096475"	"Snord116l1"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59894620"	"59894713"	"snord116"
+"ENSMUSG00000096759"	"Snord116l2"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59876933"	"59877026"	"snord116"
+"ENSMUSG00000093802"	"Gm23619"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59804471"	"59804564"	"snord116"
+"ENSMUSG00000093869"	"Gm22631"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59781780"	"59781873"	"snord116"
+"ENSMUSG00000093929"	"Gm23862"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59673461"	"59673554"	"snord116"
+"ENSMUSG00000093971"	"Gm23359"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59889593"	"59889686"	"snord116"
+"ENSMUSG00000093974"	"Gm23357"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59861731"	"59861824"	"snord116"
+"ENSMUSG00000094039"	"Gm24658"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59887057"	"59887150"	"snord116"
+"ENSMUSG00000094060"	"Gm25157"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59779250"	"59779343"	"snord116"
+"ENSMUSG00000094109"	"Gm22776"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59764088"	"59764181"	"snord116"
+"ENSMUSG00000094218"	"Gm23446"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59766611"	"59766704"	"snord116"
+"ENSMUSG00000094274"	"Gm22289"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59904755"	"59904848"	"snord116"
+"ENSMUSG00000094287"	"Gm26433"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59859214"	"59859307"	"snord116"
+"ENSMUSG00000094389"	"Gm22188"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59871864"	"59871957"	"snord116"
+"ENSMUSG00000094407"	"Gm23141"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59705968"	"59706061"	"snord116"
+"ENSMUSG00000094573"	"Gm23549"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59874380"	"59874473"	"snord116"
+"ENSMUSG00000094581"	"Gm26365"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59693220"	"59693313"	"snord116"
+"ENSMUSG00000094599"	"Gm24742"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59892111"	"59892204"	"snord116"
+"ENSMUSG00000094642"	"Gm23696"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59899687"	"59899780"	"snord116"
+"ENSMUSG00000094831"	"Gm25474"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59784293"	"59784386"	"snord116"
+"ENSMUSG00000094837"	"Gm25471"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59761554"	"59761647"	"snord116"
+"ENSMUSG00000094987"	"Gm23724"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59869330"	"59869423"	"snord116"
+"ENSMUSG00000094994"	"Gm22046"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59748956"	"59749049"	"snord116"
+"ENSMUSG00000094997"	"Gm22047"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59791844"	"59791937"	"snord116"
+"ENSMUSG00000095045"	"Gm22851"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59774190"	"59774283"	"snord116"
+"ENSMUSG00000095060"	"Gm26188"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59723644"	"59723737"	"snord116"
+"ENSMUSG00000095100"	"Gm22128"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59771656"	"59771749"	"snord116"
+"ENSMUSG00000095155"	"Gm26032"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59741373"	"59741466"	"snord116"
+"ENSMUSG00000095349"	"Gm26097"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59796905"	"59796997"	"snord116"
+"ENSMUSG00000095374"	"Gm22110"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59866788"	"59866881"	"snord116"
+"ENSMUSG00000095389"	"Gm23953"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59736313"	"59736406"	"snord116"
+"ENSMUSG00000095458"	"Gm26223"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59879459"	"59879552"	"snord116"
+"ENSMUSG00000095479"	"Gm25074"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59776724"	"59776817"	"snord116"
+"ENSMUSG00000095542"	"Gm24618"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59746425"	"59746518"	"snord116"
+"ENSMUSG00000095618"	"Gm26246"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59789331"	"59789424"	"snord116"
+"ENSMUSG00000095639"	"Gm22941"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59786818"	"59786911"	"snord116"
+"ENSMUSG00000095641"	"Gm25615"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59864240"	"59864333"	"snord116"
+"ENSMUSG00000095691"	"Gm26094"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59902213"	"59902306"	"snord116"
+"ENSMUSG00000095734"	"Gm23767"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59708469"	"59708562"	"snord116"
+"ENSMUSG00000096017"	"Gm26502"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59756514"	"59756607"	"snord116"
+"ENSMUSG00000096057"	"Gm25944"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59731223"	"59731316"	"snord116"
+"ENSMUSG00000096070"	"Gm25350"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59754002"	"59754095"	"snord116"
+"ENSMUSG00000096082"	"Gm24711"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59721125"	"59721218"	"snord116"
+"ENSMUSG00000096095"	"Gm26332"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59738848"	"59738941"	"snord116"
+"ENSMUSG00000096190"	"Gm26136"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59884499"	"59884592"	"snord116"
+"ENSMUSG00000096231"	"Gm22584"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59713534"	"59713625"	"snord116"
+"ENSMUSG00000096248"	"Gm24264"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59698307"	"59698400"	"snord116"
+"ENSMUSG00000096302"	"Gm25210"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59769138"	"59769231"	"snord116"
+"ENSMUSG00000096305"	"Gm23047"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59733770"	"59733863"	"snord116"
+"ENSMUSG00000096313"	"Gm23524"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59881989"	"59882082"	"snord116"
+"ENSMUSG00000096431"	"Gm22131"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59681055"	"59681148"	"snord116"
+"ENSMUSG00000096462"	"Gm22812"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59806995"	"59807088"	"snord116"
+"ENSMUSG00000096502"	"Gm23089"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59718588"	"59718681"	"snord116"
+"ENSMUSG00000096604"	"Gm26201"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59801956"	"59802049"	"snord116"
+"ENSMUSG00000096634"	"Gm22173"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59897161"	"59897254"	"snord116"
+"ENSMUSG00000096660"	"Gm22863"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59743912"	"59744005"	"snord116"
+"ENSMUSG00000096677"	"Gm24518"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59728681"	"59728774"	"snord116"
+"ENSMUSG00000096845"	"Gm25597"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59794360"	"59794453"	"snord116"
+"ENSMUSG00000096865"	"Gm23313"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59759026"	"59759119"	"snord116"
+"ENSMUSG00000096868"	"Gm22258"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59799444"	"59799537"	"snord116"
+"ENSMUSG00000077772"	"Gm22373"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59923034"	"59923122"	"snord116"
+"ENSMUSG00000094069"	"Gm25155"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59700878"	"59700971"	"snord116"
+"ENSMUSG00000094150"	"Gm23265"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59726161"	"59726254"	"snord116"
+"ENSMUSG00000094236"	"Gm24609"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59695744"	"59695837"	"snord116"
+"ENSMUSG00000094890"	"Gm22285"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59678509"	"59678602"	"snord116"
+"ENSMUSG00000094923"	"Gm24760"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59751489"	"59751582"	"snord116"
+"ENSMUSG00000094960"	"Gm22417"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59711009"	"59711102"	"snord116"
+"ENSMUSG00000096019"	"Gm26504"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59675988"	"59676081"	"snord116"
+"ENSMUSG00000096110"	"Gm26270"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59716059"	"59716152"	"snord116"
+"ENSMUSG00000096148"	"Gm25816"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59703427"	"59703520"	"snord116"
+"ENSMUSG00000096159"	"Gm24153"	FALSE	FALSE	NA	"snord116"	"7"	"-1"	"59683586"	"59683679"	"snord116"

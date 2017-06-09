@@ -1,0 +1,100 @@
+,,,,,,,,,Mean pateral expression proportion,,,,,
+Chr,Tx start (mm10),Tx end (mm10),Gene,Description,Ensembl name,Expressed allele,Strain effect?,Novel?,FG,GF,FH,HF,GH,HG
+1,63143595,63176822,Ndufs1,NADH dehydrogenase (ubiquinone) Fe-S protein 1 ,ENSMUSG00000025968,Paternal,Yes,Yes,0.486,0.476,0.508,0.502,0.540,0.510
+1,63176824,63180486,Eef1b2,eukaryotic translation elongation factor 1 beta 2 ,ENSMUSG00000025967,Paternal,,Yes,0.600,0.522,0.582,0.520,0.527,0.468
+1,63273264,63314576,Zdbf2,"zinc finger, DBF-type containing 2 ",ENSMUSG00000027520,Paternal,Yes,,0.963,0.061,0.965,0.020,0.972,0.010
+1,63445890,63596515,Adam23,a disintegrin and metallopeptidase domain 23 ,ENSMUSG00000025964,Paternal,Yes,,0.560,0.482,0.524,0.422,0.504,0.402
+2,22774093,22875653,Apbb1ip,"amyloid beta (A4) precursor protein-binding, family B, member 1 interacting protein ",ENSMUSG00000026786,Paternal,,Yes,0.492,0.479,0.046,0.042,0.383,0.341
+2,77881158,77946375,Cwc22,CWC22 spliceosome-associated protein homolog (S. cerevisiae) ,ENSMUSG00000027014,Paternal,Yes,Yes,0.867,0.850,0.007,0.002,0.486,0.474
+2,152669460,152708670,H13,histocompatibility 13 ,ENSMUSG00000019188,Maternal,Yes,,0.122,0.824,0.212,0.814,0.226,0.873
+2,152780667,152831728,Bcl2l1,BCL2-like 1 ,ENSMUSG00000007659,Paternal,,,0.553,0.423,0.538,0.409,0.558,0.454
+2,157556361,157571274,Blcap,bladder cancer associated protein homolog (human) ,ENSMUSG00000067787,Maternal,,,0.389,0.589,0.370,0.555,0.387,0.593
+2,157560077,157562522,Nnat,neuronatin ,ENSMUSG00000067786,Paternal,Yes,,0.998,0.109,0.432,0.453,0.923,0.011
+2,173737510,173784336,Vapb,"vesicle-associated membrane protein, associated protein B and C ",ENSMUSG00000054455,Maternal,,Yes,0.495,0.509,0.476,0.499,0.474,0.495
+2,174076307,174099771,Stx16,syntaxin 16 ,ENSMUSG00000027522,Maternal,,Yes,0.473,0.489,0.476,0.512,0.421,0.471
+2,174110348,174123070,Npepl1,aminopeptidase-like 1 ,ENSMUSG00000039263,Maternal,,Yes,0.475,0.550,0.470,0.522,0.492,0.552
+2,174284319,174346744,Gnas,"GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus ",ENSMUSG00000027523,Paternal,Yes,,0.664,0.331,0.757,0.251,0.624,0.208
+2,174461071,174464105,Atp5e,"ATP synthase, H+ transporting, mitochondrial F1 complex, epsilon subunit ",ENSMUSG00000016252,Paternal,Yes,Yes,0.530,0.482,0.536,0.506,0.536,0.505
+3,55242525,55539064,Dclk1,doublecortin-like kinase 1 ,ENSMUSG00000027797,Paternal,Yes,Yes,0.518,0.507,0.459,0.436,0.450,0.437
+3,136670123,136937727,Ppp3ca,"protein phosphatase 3, catalytic subunit, alpha isoform ",ENSMUSG00000028161,Paternal,Yes,Yes,0.474,0.444,0.438,0.438,0.466,0.463
+4,46662317,46991873,Gabbr2,"gamma-aminobutyric acid (GABA) B receptor, 2 ",ENSMUSG00000039809,Paternal,,Yes,0.522,0.510,0.517,0.495,0.516,0.505
+4,138454313,138460123,Camk2n1,calcium/calmodulin-dependent protein kinase II inhibitor 1 ,ENSMUSG00000046447,Maternal,Yes,Yes,0.517,0.520,0.502,0.496,0.564,0.523
+4,148004258,148038821,Clcn6,chloride channel 6 ,ENSMUSG00000029016,Paternal,,Yes,0.511,0.483,0.502,0.481,0.520,0.472
+6,4674349,4747204,Sgce,"sarcoglycan, epsilon ",ENSMUSG00000004631,Paternal,,,0.997,0.007,0.993,0.006,0.996,0.015
+6,4747305,4760517,Peg10,paternally expressed 10 ,ENSMUSG00000092035,Paternal,Yes,,0.883,0.129,0.941,0.023,0.917,0.039
+6,4902916,5165661,Ppp1r9a,"protein phosphatase 1, regulatory (inhibitor) subunit 9A ",ENSMUSG00000032827,Maternal,Yes,,0.466,0.498,0.469,0.505,0.486,0.533
+6,5383385,5433022,Asb4,ankyrin repeat and SOCS box-containing 4 ,ENSMUSG00000042607,Maternal,Yes,,0.443,0.542,0.148,0.552,0.137,0.382
+6,30401867,30455179,Klhdc10,kelch domain containing 10 ,ENSMUSG00000029775,Maternal,Yes,Yes,0.485,0.546,0.440,0.526,0.436,0.533
+6,30479052,30509783,Tmem209,transmembrane protein 209 ,ENSMUSG00000029782,Maternal,,Yes,0.476,0.520,0.470,0.502,0.499,0.533
+6,30723546,30748455,Mest,mesoderm specific transcript ,ENSMUSG00000051855,Paternal,Yes,,0.873,0.093,0.485,0.039,0.884,0.065
+6,30747553,30896794,Copg2,"coatomer protein complex, subunit gamma 2 ",ENSMUSG00000025607,Maternal,Yes,,0.389,0.785,0.258,0.767,0.183,0.607
+6,58831464,58920398,Herc3,hect domain and RLD 3 ,ENSMUSG00000029804,Maternal,,Yes,0.378,0.594,0.342,0.562,0.364,0.587
+6,58905233,58907126,Nap1l5,nucleosome assembly protein 1-like 5 ,ENSMUSG00000055430,Paternal,Yes,,0.934,0.043,0.860,0.018,0.927,0.099
+6,58932089,59024549,Fam13a,"family with sequence similarity 13, member A ",ENSMUSG00000037709,Maternal,,Yes,0.465,0.545,0.488,0.530,0.490,0.545
+6,124913680,124917946,Ptms,parathymosin ,ENSMUSG00000030122,Paternal,,Yes,0.518,0.488,0.415,0.398,0.428,0.404
+7,3394116,3415605,Cacng8,"calcium channel, voltage-dependent, gamma subunit 8 ",ENSMUSG00000053395,Paternal,,Yes,0.532,0.475,0.520,0.481,0.549,0.442
+7,4119407,4136706,Ttyh1,tweety homolog 1 (Drosophila) ,ENSMUSG00000030428,Paternal,Yes,Yes,0.551,0.537,0.448,0.429,0.464,0.463
+7,6398714,6432093,Gm16532,"predicted gene, 16532 ",ENSMUSG00000093536,Maternal,,Yes,0.396,0.481,0.364,0.449,0.373,0.504
+7,6703891,6730421,Peg3,paternally expressed 3 ,ENSMUSG00000002265,Paternal,Yes,,0.932,0.066,0.990,0.021,0.991,0.016
+7,6961159,6963769,Usp29,ubiquitin specific peptidase 29 ,ENSMUSG00000051527,Paternal,,,0.997,0.004,0.996,0.005,NaN,NaN
+7,13035119,13038275,Ube2m,"ubiquitin-conjugating enzyme E2M (UBC12 homolog, yeast) ",ENSMUSG00000005575,Paternal,,Yes,0.498,0.460,0.528,0.476,0.509,0.461
+7,45163920,45176138,Slc17a7,"solute carrier family 17 (sodium-dependent inorganic phosphate cotransporter), member 7 ",ENSMUSG00000070570,Paternal,Yes,Yes,0.527,0.507,0.503,0.494,0.483,0.473
+7,57407689,57510009,Gabra5,"gamma-aminobutyric acid (GABA) A receptor, subunit alpha 5 ",ENSMUSG00000055078,Paternal,Yes,Yes,0.478,0.444,0.519,0.463,0.546,0.494
+7,57590517,57828802,Gabrb3,"gamma-aminobutyric acid (GABA) A receptor, subunit beta 3 ",ENSMUSG00000033676,Paternal,,Yes,0.475,0.460,0.494,0.477,0.498,0.490
+7,59228751,59306727,Ube3a,ubiquitin protein ligase E3A ,ENSMUSG00000025326,Maternal,,,0.198,0.791,0.210,0.765,0.193,0.793
+7,59982494,60140219,Snrpn,small nuclear ribonucleoprotein N ,ENSMUSG00000000948,Paternal,Yes,,0.985,0.017,0.993,0.012,0.990,0.023
+7,61089568,61221965,DOKist4,polyQ-containing protein CAG-8,ENSMUSG00000078690,Paternal,Yes,,0.653,0.203,0.871,0.021,NaN,NaN
+7,61127995,61311721,A230006K03Rik,RIKEN cDNA A230006K03 gene ,ENSMUSG00000068151,Paternal,,Yes,NaN,NaN,0.971,0.009,NaN,NaN
+7,61943901,61982303,A330076H08Rik,RIKEN cDNA A330076H08 gene,ENSMUSG00000087490,Paternal,,Yes,0.933,0.254,0.761,0.182,0.616,0.123
+7,62348276,62349928,Ndn,necdin ,ENSMUSG00000033585,Paternal,Yes,,0.575,0.475,0.987,0.016,0.990,0.010
+7,128246811,128253712,Tgfb1i1,transforming growth factor beta 1 induced transcript 1 ,ENSMUSG00000030782,Maternal,,Yes,0.428,0.574,0.361,0.510,0.377,0.539
+7,128439776,128461717,Tial1,Tia1 cytotoxic granule-associated RNA binding protein-like 1 ,ENSMUSG00000030846,Maternal,Yes,Yes,0.399,0.569,0.294,0.138,0.426,0.588
+7,128523582,128546977,Bag3,BCL2-associated athanogene 3 ,ENSMUSG00000030847,Maternal,,Yes,0.416,0.549,0.447,0.543,0.425,0.555
+7,128611327,128696425,Inpp5f,inositol polyphosphate-5-phosphatase F ,ENSMUSG00000042105,Paternal,Yes,,0.821,0.239,0.805,0.287,0.807,0.213
+7,142325836,142373753,6330512M04Rik,RIKEN cDNA 6330512M04 gene ,ENSMUSG00000045777o,Maternal,,Yes,0.474,0.528,0.437,0.498,0.446,0.523
+7,142371147,142388038,Ctsd,cathepsin D ,ENSMUSG00000007891,Maternal,,Yes,0.512,0.514,0.519,0.531,0.506,0.515
+7,142650765,142666816,Igf2,insulin-like growth factor 2 ,ENSMUSG00000048583,Maternal,Yes,,0.390,0.567,0.358,0.612,0.364,0.621
+7,142892751,142931128,Th,tyrosine hydroxylase ,ENSMUSG00000000214,Maternal,,,0.519,0.577,0.451,0.481,0.397,0.438
+7,143458349,143461050,Cdkn1c,cyclin-dependent kinase inhibitor 1C (P57) ,ENSMUSG00000037664,Maternal,Yes,,0.232,0.896,0.104,0.871,0.044,0.774
+9,89909774,90026976,Rasgrf1,RAS protein-specific guanine nucleotide-releasing factor 1 ,ENSMUSG00000032356,Paternal,Yes,,0.950,0.055,0.959,0.056,0.943,0.058
+9,90054151,90076089,Ctsh,cathepsin H ,ENSMUSG00000032359,Paternal,Yes,Yes,0.604,0.560,0.448,0.361,0.353,0.350
+9,107563254,107566108,Tusc2,tumor suppressor candidate 2 ,ENSMUSG00000010054,Paternal,,Yes,0.379,0.347,0.616,0.567,0.751,0.711
+9,123366939,123462664,Lars2,"leucyl-tRNA synthetase, mitochondrial ",ENSMUSG00000035202,Paternal,,Yes,0.488,0.465,0.518,0.473,0.535,0.478
+10,13090690,13131694,Plagl1,pleiomorphic adenoma gene-like 1 ,ENSMUSG00000019817,Paternal,,,0.982,0.009,0.989,0.009,0.993,0.026
+10,13207716,13474396,Phactr2,phosphatase and actin regulator 2 ,ENSMUSG00000062866,Maternal,,,0.454,0.531,0.498,0.591,0.498,0.588
+10,20952546,21080428,Ahi1,Abelson helper integration site 1 ,ENSMUSG00000019986,Paternal,,Yes,0.542,0.507,0.611,0.593,0.577,0.544
+11,7063488,7178506,Adcy1,adenylate cyclase 1 ,ENSMUSG00000020431,Paternal,Yes,Yes,0.532,0.512,0.503,0.503,0.491,0.484
+11,11814100,11898144,Ddc,dopa decarboxylase ,ENSMUSG00000020182,Maternal,Yes,,0.476,0.538,0.513,0.528,0.495,0.594
+11,11930507,12038683,Grb10,growth factor receptor bound protein 10 ,ENSMUSG00000020176,Paternal,Yes,,0.923,0.081,0.868,0.118,0.913,0.076
+11,12236607,12464960,Cobl,cordon-bleu ,ENSMUSG00000020173,Maternal,,,0.426,0.473,0.439,0.491,0.476,0.528
+11,22972004,22976496,Zrsr1,"zinc finger (CCCH type), RNA binding motif and serine/arginine rich 1 ",ENSMUSG00000044068,Paternal,Yes,,0.997,0.115,0.996,0.165,0.788,0.214
+11,22990518,23003780,Cct4,"chaperonin containing Tcp1, subunit 4 (delta) ",ENSMUSG00000007739,Maternal,,Yes,0.466,0.505,0.466,0.513,0.563,0.514
+11,75732868,75765845,Ywhae,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, epsilon polypeptide ",ENSMUSG00000020849,Paternal,Yes,Yes,0.509,0.494,0.515,0.487,0.502,0.498
+11,80477045,80481179,Cdk5r1,"cyclin-dependent kinase 5, regulatory subunit 1 (p35) ",ENSMUSG00000048895,Paternal,Yes,Yes,0.438,0.429,0.473,0.434,0.558,0.549
+11,119267886,119285454,Gaa,"glucosidase, alpha, acid ",ENSMUSG00000025579,Paternal,,Yes,0.462,0.439,0.525,0.499,0.578,0.554
+12,100199434,100209806,Calm1,calmodulin 1 ,ENSMUSG00000001175,Paternal,Yes,Yes,0.520,0.505,0.519,0.514,0.523,0.519
+12,108860029,108894174,Wars,tryptophanyl-tRNA synthetase ,ENSMUSG00000021266,Paternal,,,0.593,0.514,0.636,0.562,0.550,0.469
+12,108894271,109028452,Wdr25,WD repeat domain 25 ,ENSMUSG00000040877,Paternal,,Yes,0.537,0.422,0.522,0.366,0.455,0.354
+12,109032186,109068217,Begain,brain-enriched guanylate kinase-associated ,ENSMUSG00000040867,Paternal,,,0.614,0.401,0.619,0.389,0.604,0.375
+12,109452822,109463336,Dlk1,delta-like 1 homolog (Drosophila) ,ENSMUSG00000040856,Paternal,Yes,,0.973,0.050,0.935,0.047,0.906,0.027
+12,109541000,109571726,Meg3,maternally expressed 3 ,ENSMUSG00000021268,Maternal,Yes,,0.085,0.878,0.025,0.939,0.036,0.968
+12,109645847,109661711,Rian,RNA imprinted and accumulated in nucleus,ENSMUSG00000091793,Maternal,Yes,,0.032,0.993,0.025,0.940,0.005,0.997
+12,109734825,109749457,Mirg,miRNA containing gene,ENSMUSG00000091158,Maternal,Yes,,0.216,0.754,0.011,0.969,0.024,0.951
+13,47012557,47014850,Nhlrc1,NHL repeat containing 1 ,ENSMUSG00000044231,Paternal,Yes,Yes,0.538,0.401,0.561,0.442,NaN,NaN
+13,58391141,58403343,Hnrnpk,heterogeneous nuclear ribonucleoprotein K ,ENSMUSG00000021546,Paternal,,Yes,0.495,0.473,0.455,0.412,0.536,0.495
+14,75016026,75052532,5031414D18Rik,RIKEN cDNA 5031414D18 gene ,ENSMUSG00000034959,Paternal,,Yes,0.025,0.012,NaN,NaN,NaN,NaN
+15,36770769,36794547,Ywhaz,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, zeta polypeptide ",ENSMUSG00000022285,Paternal,,Yes,0.542,0.523,0.495,0.473,0.474,0.452
+15,68928419,69093512,Khdrbs3,"KH domain containing, RNA binding, signal transduction associated 3 ",ENSMUSG00000022332,Maternal,,Yes,0.472,0.502,0.482,0.507,0.507,0.518
+15,71445677,71727838,Fam135b,"family with sequence similarity 135, member B ",ENSMUSG00000036800,Maternal,,Yes,0.500,0.583,0.464,0.531,0.414,0.485
+15,72512118,72546279,Kcnk9,"potassium channel, subfamily K, member 9 ",ENSMUSG00000036760,Maternal,,,0.012,0.970,0.039,0.970,0.009,0.968
+15,72589620,73061204,Trappc9,trafficking protein particle complex 9 ,ENSMUSG00000047921,Maternal,Yes,,0.305,0.755,0.314,0.736,0.241,0.736
+15,73090391,73097554,Chrac1,chromatin accessibility complex 1 ,ENSMUSG00000068391,Maternal,Yes,Yes,0.418,0.599,0.306,0.750,0.420,0.662
+15,73095843,73096684,Eif2c2,"eukaryotic translation initiation factor 2C, 2 ",ENSMUSG00000093631,Maternal,Yes,Yes,0.282,0.604,0.303,0.603,0.470,0.621
+15,73098591,73184840,Eif2c2,"eukaryotic translation initiation factor 2C, 2 ",ENSMUSG00000036698,Maternal,Yes,,0.259,0.728,0.242,0.720,0.239,0.747
+17,12682405,12769664,Igf2r,insulin-like growth factor 2 receptor ,ENSMUSG00000023830,Maternal,,,0.443,0.626,0.413,0.555,0.391,0.562
+17,23833359,23836056,Prss33,"protease, serine, 33 ",ENSMUSG00000049620,Maternal,,Yes,NaN,NaN,0.337,0.469,0.466,0.742
+17,35241745,35253707,Ddx39b,DEAD (Asp-Glu-Ala-Asp) box polypeptide 39B ,ENSMUSG00000019432,Paternal,Yes,Yes,0.548,0.495,0.517,0.476,0.513,0.493
+18,12972251,12992948,Impact,imprinted and ancient ,ENSMUSG00000024423,Paternal,,,0.993,0.057,0.936,0.035,0.945,0.031
+18,31437807,31447415,Syt4,synaptotagmin IV ,ENSMUSG00000024261,Paternal,,Yes,0.517,0.486,0.498,0.482,0.499,0.482
+18,37411673,37414514,Pcdhb10,protocadherin beta 10 ,ENSMUSG00000045657,Maternal,Yes,Yes,0.330,0.350,0.285,0.445,0.596,0.516
+19,7425900,7483289,Rtn3,reticulon 3 ,ENSMUSG00000024758,Paternal,,Yes,0.554,0.536,0.505,0.493,0.463,0.451

@@ -1,0 +1,193 @@
+"ensembl_gene_id","mgi_symbol","brainImprinted","strainEffect","description","chromosome_name","strand","start_position","end_position"
+"1","ENSMUSG00000000031","H19",FALSE,FALSE,"H19 fetal liver mRNA [Source:MGI Symbol;Acc:MGI:95891]","7",-1,142575529,142578143
+"2","ENSMUSG00000000154","Slc22a18",FALSE,FALSE,"solute carrier family 22 (organic cation transporter), member 18 [Source:MGI Symbol;Acc:MGI:1336884]","7",1,143473721,143499334
+"3","ENSMUSG00000000214","Th",TRUE,FALSE,"tyrosine hydroxylase [Source:MGI Symbol;Acc:MGI:98735]","7",-1,142892752,142931128
+"4","ENSMUSG00000000215","Ins2",FALSE,FALSE,"insulin II [Source:MGI Symbol;Acc:MGI:96573]","7",-1,142678656,142699510
+"5","ENSMUSG00000000244","Tspan32",FALSE,FALSE,"tetraspanin 32 [Source:MGI Symbol;Acc:MGI:1350360]","7",1,143005046,143019644
+"6","ENSMUSG00000000948","Snrpn",TRUE,TRUE,"small nuclear ribonucleoprotein N [Source:MGI Symbol;Acc:MGI:98347]","7",-1,59982495,60140219
+"7","ENSMUSG00000001175","Calm1",TRUE,TRUE,"calmodulin 1 [Source:MGI Symbol;Acc:MGI:88251]","12",1,100199435,100209806
+"8","ENSMUSG00000002265","Peg3",TRUE,TRUE,"paternally expressed 3 [Source:MGI Symbol;Acc:MGI:104748]","7",-1,6703892,6730421
+"9","ENSMUSG00000002266","Zim1",FALSE,FALSE,"zinc finger, imprinted 1 [Source:MGI Symbol;Acc:MGI:1341879]","7",-1,6675443,6696450
+"10","ENSMUSG00000002565","Scin",FALSE,FALSE,"scinderin [Source:MGI Symbol;Acc:MGI:1306794]","12",-1,40059769,40134228
+"11","ENSMUSG00000002602","Axl",FALSE,FALSE,"AXL receptor tyrosine kinase [Source:MGI Symbol;Acc:MGI:1347244]","7",-1,25757273,25788705
+"12","ENSMUSG00000004631","Sgce",TRUE,FALSE,"sarcoglycan, epsilon [Source:MGI Symbol;Acc:MGI:1329042]","6",-1,4674350,4747204
+"13","ENSMUSG00000005575","Ube2m",TRUE,FALSE,"ubiquitin-conjugating enzyme E2M [Source:MGI Symbol;Acc:MGI:108278]","7",-1,13035120,13038275
+"14","ENSMUSG00000005686","Ampd3",FALSE,FALSE,"adenosine monophosphate deaminase 3 [Source:MGI Symbol;Acc:MGI:1096344]","7",1,110768206,110812405
+"15","ENSMUSG00000007659","Bcl2l1",TRUE,FALSE,"BCL2-like 1 [Source:MGI Symbol;Acc:MGI:88139]","2",-1,152780668,152831728
+"16","ENSMUSG00000007739","Cct4",TRUE,FALSE,"chaperonin containing Tcp1, subunit 4 (delta) [Source:MGI Symbol;Acc:MGI:104689]","11",1,22990519,23003780
+"17","ENSMUSG00000007891","Ctsd",TRUE,FALSE,"cathepsin D [Source:MGI Symbol;Acc:MGI:88562]","7",-1,142371148,142388038
+"18","ENSMUSG00000009248","Ascl2",FALSE,FALSE,"achaete-scute complex homolog 2 (Drosophila) [Source:MGI Symbol;Acc:MGI:96920]","7",-1,142966822,142969264
+"19","ENSMUSG00000009545","Kcnq1",FALSE,FALSE,"potassium voltage-gated channel, subfamily Q, member 1 [Source:MGI Symbol;Acc:MGI:108083]","7",1,143107254,143427042
+"20","ENSMUSG00000010054","Tusc2",TRUE,FALSE,"tumor suppressor candidate 2 [Source:MGI Symbol;Acc:MGI:1931086]","9",1,107563255,107566108
+"21","ENSMUSG00000010760","Phlda2",FALSE,FALSE,"pleckstrin homology-like domain, family A, member 2 [Source:MGI Symbol;Acc:MGI:1202307]","7",-1,143501545,143502541
+"22","ENSMUSG00000015189","Casd1",FALSE,FALSE,"CAS1 domain containing 1 [Source:MGI Symbol;Acc:MGI:2384865]","6",1,4600840,4643381
+"23","ENSMUSG00000016252","Atp5e",TRUE,TRUE,"ATP synthase, H+ transporting, mitochondrial F1 complex, epsilon subunit [Source:MGI Symbol;Acc:MGI:1855697]","2",-1,174461072,174464105
+"24","ENSMUSG00000016458","Wt1",FALSE,FALSE,"Wilms tumor 1 homolog [Source:MGI Symbol;Acc:MGI:98968]","2",1,105126529,105173616
+"25","ENSMUSG00000016756","Cmah",FALSE,FALSE,"cytidine monophospho-N-acetylneuraminic acid hydroxylase [Source:MGI Symbol;Acc:MGI:103227]","13",1,24327420,24477285
+"26","ENSMUSG00000018411","Mapt",FALSE,FALSE,"microtubule-associated protein tau [Source:MGI Symbol;Acc:MGI:97180]","11",1,104231390,104332090
+"27","ENSMUSG00000019188","H13",TRUE,TRUE,"histocompatibility 13 [Source:MGI Symbol;Acc:MGI:95886]","2",1,152669461,152708670
+"28","ENSMUSG00000019432","Ddx39b",TRUE,TRUE,"DEAD (Asp-Glu-Ala-Asp) box polypeptide 39B [Source:MGI Symbol;Acc:MGI:99240]","17",1,35241746,35253707
+"29","ENSMUSG00000019817","Plagl1",TRUE,FALSE,"pleiomorphic adenoma gene-like 1 [Source:MGI Symbol;Acc:MGI:1100874]","10",1,13090691,13131694
+"30","ENSMUSG00000019929","Dcn",FALSE,FALSE,"decorin [Source:MGI Symbol;Acc:MGI:94872]","10",1,97479500,97518162
+"31","ENSMUSG00000019986","Ahi1",TRUE,FALSE,"Abelson helper integration site 1 [Source:MGI Symbol;Acc:MGI:87971]","10",1,20952547,21080428
+"32","ENSMUSG00000020173","Cobl",TRUE,FALSE,"cordon-bleu WH2 repeat [Source:MGI Symbol;Acc:MGI:105056]","11",-1,12236608,12464960
+"33","ENSMUSG00000020176","Grb10",TRUE,TRUE,"growth factor receptor bound protein 10 [Source:MGI Symbol;Acc:MGI:103232]","11",-1,11930508,12038683
+"34","ENSMUSG00000020182","Ddc",TRUE,TRUE,"dopa decarboxylase [Source:MGI Symbol;Acc:MGI:94876]","11",-1,11814101,11898144
+"35","ENSMUSG00000020431","Adcy1",TRUE,TRUE,"adenylate cyclase 1 [Source:MGI Symbol;Acc:MGI:99677]","11",1,7063489,7178506
+"36","ENSMUSG00000020849","Ywhae",TRUE,TRUE,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, epsilon polypeptide [Source:MGI Symbol;Acc:MGI:894689]","11",1,75732869,75765845
+"37","ENSMUSG00000021266","Wars",TRUE,FALSE,"tryptophanyl-tRNA synthetase [Source:MGI Symbol;Acc:MGI:104630]","12",-1,108860030,108894174
+"38","ENSMUSG00000021268","Meg3",TRUE,TRUE,"maternally expressed 3 [Source:MGI Symbol;Acc:MGI:1202886]","12",1,109541001,109571726
+"39","ENSMUSG00000021478","Drd1a",FALSE,FALSE,"dopamine receptor D1A [Source:MGI Symbol;Acc:MGI:99578]","13",-1,54051186,54055658
+"40","ENSMUSG00000021546","Hnrnpk",TRUE,FALSE,"heterogeneous nuclear ribonucleoprotein K [Source:MGI Symbol;Acc:MGI:99894]","13",-1,58391142,58403343
+"41","ENSMUSG00000021699","Pde4d",FALSE,FALSE,"phosphodiesterase 4D, cAMP specific [Source:MGI Symbol;Acc:MGI:99555]","13",1,108449948,109953461
+"42","ENSMUSG00000022285","Ywhaz",TRUE,FALSE,"tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein, zeta polypeptide [Source:MGI Symbol;Acc:MGI:109484]","15",-1,36770770,36794547
+"43","ENSMUSG00000022332","Khdrbs3",TRUE,FALSE,"KH domain containing, RNA binding, signal transduction associated 3 [Source:MGI Symbol;Acc:MGI:1313312]","15",1,68928420,69093512
+"44","ENSMUSG00000022464","Slc38a4",FALSE,FALSE,"solute carrier family 38, member 4 [Source:MGI Symbol;Acc:MGI:1916604]","15",-1,96994823,97055956
+"45","ENSMUSG00000023828","Slc22a3",FALSE,FALSE,"solute carrier family 22 (organic cation transporter), member 3 [Source:MGI Symbol;Acc:MGI:1333817]","17",-1,12419972,12507704
+"46","ENSMUSG00000023830","Igf2r",TRUE,FALSE,"insulin-like growth factor 2 receptor [Source:MGI Symbol;Acc:MGI:96435]","17",-1,12682406,12769664
+"47","ENSMUSG00000023868","Pde10a",FALSE,FALSE,"phosphodiesterase 10A [Source:MGI Symbol;Acc:MGI:1345143]","17",1,8525372,8986648
+"48","ENSMUSG00000023964","Calcr",FALSE,FALSE,"calcitonin receptor [Source:MGI Symbol;Acc:MGI:101950]","6",-1,3685677,3764713
+"49","ENSMUSG00000024084","Qpct",FALSE,FALSE,"glutaminyl-peptide cyclotransferase (glutaminyl cyclase) [Source:MGI Symbol;Acc:MGI:1917786]","17",1,79051906,79090243
+"50","ENSMUSG00000024261","Syt4",TRUE,FALSE,"synaptotagmin IV [Source:MGI Symbol;Acc:MGI:101759]","18",-1,31437808,31447415
+"51","ENSMUSG00000024423","Impact",TRUE,FALSE,"imprinted and ancient [Source:MGI Symbol;Acc:MGI:1098233]","18",1,12972252,12992948
+"52","ENSMUSG00000024758","Rtn3",TRUE,FALSE,"reticulon 3 [Source:MGI Symbol;Acc:MGI:1339970]","19",-1,7425901,7483289
+"53","ENSMUSG00000025324","Atp10a",FALSE,FALSE,"ATPase, class V, type 10A [Source:MGI Symbol;Acc:MGI:1330809]","7",1,58658202,58829426
+"54","ENSMUSG00000025326","Ube3a",TRUE,FALSE,"ubiquitin protein ligase E3A [Source:MGI Symbol;Acc:MGI:105098]","7",1,59228752,59306727
+"55","ENSMUSG00000025579","Gaa",TRUE,FALSE,"glucosidase, alpha, acid [Source:MGI Symbol;Acc:MGI:95609]","11",1,119267887,119285454
+"56","ENSMUSG00000025607","Copg2",TRUE,TRUE,"coatomer protein complex, subunit gamma 2 [Source:MGI Symbol;Acc:MGI:1858683]","6",-1,30747554,30896794
+"57","ENSMUSG00000025764","Phf17",FALSE,FALSE,"PHD finger protein 17 [Source:MGI Symbol;Acc:MGI:1925835]","3",1,41555734,41616862
+"58","ENSMUSG00000025964","Adam23",TRUE,TRUE,"a disintegrin and metallopeptidase domain 23 [Source:MGI Symbol;Acc:MGI:1345162]","1",1,63445891,63596515
+"59","ENSMUSG00000025967","Eef1b2",TRUE,FALSE,"eukaryotic translation elongation factor 1 beta 2 [Source:MGI Symbol;Acc:MGI:1929520]","1",1,63176825,63180486
+"60","ENSMUSG00000025968","Ndufs1",TRUE,TRUE,"NADH dehydrogenase (ubiquinone) Fe-S protein 1 [Source:MGI Symbol;Acc:MGI:2443241]","1",-1,63143596,63176822
+"61","ENSMUSG00000026786","Apbb1ip",TRUE,FALSE,"amyloid beta (A4) precursor protein-binding, family B, member 1 interacting protein [Source:MGI Symbol;Acc:MGI:1861354]","2",1,22774094,22875653
+"62","ENSMUSG00000027014","Cwc22",TRUE,TRUE,"CWC22 spliceosome-associated protein homolog (S. cerevisiae) [Source:MGI Symbol;Acc:MGI:2136773]","2",-1,77881159,77946375
+"63","ENSMUSG00000027199","Gatm",FALSE,FALSE,"glycine amidinotransferase (L-arginine:glycine amidinotransferase) [Source:MGI Symbol;Acc:MGI:1914342]","2",-1,122594467,122611303
+"64","ENSMUSG00000027520","Zdbf2",TRUE,TRUE,"zinc finger, DBF-type containing 2 [Source:MGI Symbol;Acc:MGI:1921134]","1",1,63273265,63314576
+"65","ENSMUSG00000027522","Stx16",TRUE,FALSE,"syntaxin 16 [Source:MGI Symbol;Acc:MGI:1923396]","2",1,174076308,174099771
+"66","ENSMUSG00000027523","Gnas",TRUE,TRUE,"GNAS (guanine nucleotide binding protein, alpha stimulating) complex locus [Source:MGI Symbol;Acc:MGI:95777]","2",1,174284320,174346744
+"67","ENSMUSG00000027551","Zfp64",FALSE,FALSE,"zinc finger protein 64 [Source:MGI Symbol;Acc:MGI:107342]","2",-1,168893331,168955587
+"68","ENSMUSG00000027797","Dclk1",TRUE,TRUE,"doublecortin-like kinase 1 [Source:MGI Symbol;Acc:MGI:1330861]","3",1,55242526,55539064
+"69","ENSMUSG00000028161","Ppp3ca",TRUE,TRUE,"protein phosphatase 3, catalytic subunit, alpha isoform [Source:MGI Symbol;Acc:MGI:107164]","3",1,136670124,136937727
+"70","ENSMUSG00000029016","Clcn6",TRUE,FALSE,"chloride channel 6 [Source:MGI Symbol;Acc:MGI:1347049]","4",-1,148004259,148038821
+"71","ENSMUSG00000029096","Htra3",FALSE,FALSE,"HtrA serine peptidase 3 [Source:MGI Symbol;Acc:MGI:1925808]","5",-1,35652041,35679782
+"72","ENSMUSG00000029664","Tfpi2",FALSE,FALSE,"tissue factor pathway inhibitor 2 [Source:MGI Symbol;Acc:MGI:108543]","6",-1,3962589,3974650
+"73","ENSMUSG00000029755","Dlx5",FALSE,FALSE,"distal-less homeobox 5 [Source:MGI Symbol;Acc:MGI:101926]","6",-1,6877805,6882085
+"74","ENSMUSG00000029759","Pon3",FALSE,FALSE,"paraoxonase 3 [Source:MGI Symbol;Acc:MGI:106686]","6",-1,5220852,5256286
+"75","ENSMUSG00000029775","Klhdc10",TRUE,TRUE,"kelch domain containing 10 [Source:MGI Symbol;Acc:MGI:1924038]","6",1,30401868,30455179
+"76","ENSMUSG00000029782","Tmem209",TRUE,FALSE,"transmembrane protein 209 [Source:MGI Symbol;Acc:MGI:1919899]","6",-1,30479053,30509783
+"77","ENSMUSG00000029804","Herc3",TRUE,FALSE,"hect domain and RLD 3 [Source:MGI Symbol;Acc:MGI:1921248]","6",1,58831465,58920398
+"78","ENSMUSG00000030075","Cntn3",FALSE,FALSE,"contactin 3 [Source:MGI Symbol;Acc:MGI:99534]","6",-1,102163306,102464667
+"79","ENSMUSG00000030122","Ptms",TRUE,FALSE,"parathymosin [Source:MGI Symbol;Acc:MGI:1916452]","6",-1,124913681,124917946
+"80","ENSMUSG00000030154","Klrb1f",FALSE,FALSE,"killer cell lectin-like receptor subfamily B member 1F [Source:MGI Symbol;Acc:MGI:2442965]","6",1,129045901,129057471
+"81","ENSMUSG00000030428","Ttyh1",TRUE,TRUE,"tweety homolog 1 (Drosophila) [Source:MGI Symbol;Acc:MGI:1889007]","7",1,4119408,4136706
+"82","ENSMUSG00000030782","Tgfb1i1",TRUE,FALSE,"transforming growth factor beta 1 induced transcript 1 [Source:MGI Symbol;Acc:MGI:102784]","7",1,128246812,128253712
+"83","ENSMUSG00000030846","Tial1",TRUE,TRUE,"Tia1 cytotoxic granule-associated RNA binding protein-like 1 [Source:MGI Symbol;Acc:MGI:107913]","7",-1,128439777,128461717
+"84","ENSMUSG00000030847","Bag3",TRUE,FALSE,"BCL2-associated athanogene 3 [Source:MGI Symbol;Acc:MGI:1352493]","7",1,128523583,128546977
+"85","ENSMUSG00000031075","Ano1",FALSE,FALSE,"anoctamin 1, calcium activated chloride channel [Source:MGI Symbol;Acc:MGI:2142149]","7",-1,144588549,144751974
+"86","ENSMUSG00000031362","Xlr4c",FALSE,FALSE,"X-linked lymphocyte-regulated 4C [Source:MGI Symbol;Acc:MGI:3574099]","X",-1,73233688,73243130
+"87","ENSMUSG00000031714","Gab1",FALSE,FALSE,"growth factor receptor bound protein 2-associated protein 1 [Source:MGI Symbol;Acc:MGI:108088]","8",-1,80764434,80880479
+"88","ENSMUSG00000031962","Cdh15",FALSE,FALSE,"cadherin 15 [Source:MGI Symbol;Acc:MGI:106672]","8",1,122848374,122867397
+"89","ENSMUSG00000032356","Rasgrf1",TRUE,TRUE,"RAS protein-specific guanine nucleotide-releasing factor 1 [Source:MGI Symbol;Acc:MGI:99694]","9",1,89909775,90026976
+"90","ENSMUSG00000032359","Ctsh",TRUE,TRUE,"cathepsin H [Source:MGI Symbol;Acc:MGI:107285]","9",1,90054152,90076089
+"91","ENSMUSG00000032584","Mst1r",FALSE,FALSE,"macrophage stimulating 1 receptor (c-met-related tyrosine kinase) [Source:MGI Symbol;Acc:MGI:99614]","9",1,107906889,107920383
+"92","ENSMUSG00000032667","Pon2",FALSE,FALSE,"paraoxonase 2 [Source:MGI Symbol;Acc:MGI:106687]","6",-1,5264147,5298455
+"93","ENSMUSG00000032827","Ppp1r9a",TRUE,TRUE,"protein phosphatase 1, regulatory (inhibitor) subunit 9A [Source:MGI Symbol;Acc:MGI:2442401]","6",1,4902917,5165661
+"94","ENSMUSG00000033585","Ndn",TRUE,TRUE,"necdin [Source:MGI Symbol;Acc:MGI:97290]","7",1,62348277,62349928
+"95","ENSMUSG00000033676","Gabrb3",TRUE,FALSE,"gamma-aminobutyric acid (GABA) A receptor, subunit beta 3 [Source:MGI Symbol;Acc:MGI:95621]","7",1,57590518,57828802
+"96","ENSMUSG00000034959","5031414D18Rik",TRUE,FALSE,"RIKEN cDNA 5031414D18 gene [Source:MGI Symbol;Acc:MGI:2685590]","14",1,75016027,75052532
+"97","ENSMUSG00000034997","Htr2a",FALSE,FALSE,"5-hydroxytryptamine (serotonin) receptor 2A [Source:MGI Symbol;Acc:MGI:109521]","14",1,74640840,74706859
+"98","ENSMUSG00000035202","Lars2",TRUE,FALSE,"leucyl-tRNA synthetase, mitochondrial [Source:MGI Symbol;Acc:MGI:2142973]","9",1,123366940,123462664
+"99","ENSMUSG00000035804","Ins1",FALSE,FALSE,"insulin I [Source:MGI Symbol;Acc:MGI:96572]","19",1,52264323,52265456
+"100","ENSMUSG00000036698","Ago2",TRUE,TRUE,"argonaute RISC catalytic subunit 2 [Source:MGI Symbol;Acc:MGI:2446632]","15",-1,73095844,73184840
+"101","ENSMUSG00000036760","Kcnk9",TRUE,FALSE,"potassium channel, subfamily K, member 9 [Source:MGI Symbol;Acc:MGI:3521816]","15",-1,72512119,72546279
+"102","ENSMUSG00000036800","Fam135b",TRUE,FALSE,"family with sequence similarity 135, member B [Source:MGI Symbol;Acc:MGI:1917613]","15",-1,71445678,71727838
+"103","ENSMUSG00000037606","Osbpl5",FALSE,FALSE,"oxysterol binding protein-like 5 [Source:MGI Symbol;Acc:MGI:1930265]","7",-1,143688762,143756985
+"104","ENSMUSG00000037613","Tnfrsf23",FALSE,FALSE,"tumor necrosis factor receptor superfamily, member 23 [Source:MGI Symbol;Acc:MGI:1930269]","7",-1,143665809,143685872
+"105","ENSMUSG00000037664","Cdkn1c",TRUE,TRUE,"cyclin-dependent kinase inhibitor 1C (P57) [Source:MGI Symbol;Acc:MGI:104564]","7",-1,143458350,143461050
+"106","ENSMUSG00000037706","Cd81",FALSE,FALSE,"CD81 antigen [Source:MGI Symbol;Acc:MGI:1096398]","7",1,143052739,143067934
+"107","ENSMUSG00000037709","Fam13a",TRUE,FALSE,"family with sequence similarity 13, member A [Source:MGI Symbol;Acc:MGI:1889842]","6",-1,58932090,59024549
+"108","ENSMUSG00000039263","Npepl1",TRUE,FALSE,"aminopeptidase-like 1 [Source:MGI Symbol;Acc:MGI:2448523]","2",1,174110349,174123070
+"109","ENSMUSG00000039809","Gabbr2",TRUE,FALSE,"gamma-aminobutyric acid (GABA) B receptor, 2 [Source:MGI Symbol;Acc:MGI:2386030]","4",-1,46662318,46991873
+"110","ENSMUSG00000039963","Ccdc40",FALSE,FALSE,"coiled-coil domain containing 40 [Source:MGI Symbol;Acc:MGI:2443893]","11",1,119228572,119265236
+"111","ENSMUSG00000040856","Dlk1",TRUE,TRUE,"delta-like 1 homolog (Drosophila) [Source:MGI Symbol;Acc:MGI:94900]","12",1,109452823,109463336
+"112","ENSMUSG00000040867","Begain",TRUE,FALSE,"brain-enriched guanylate kinase-associated [Source:MGI Symbol;Acc:MGI:3044626]","12",-1,109032187,109068217
+"113","ENSMUSG00000040877","Wdr25",TRUE,FALSE,"WD repeat domain 25 [Source:MGI Symbol;Acc:MGI:3045255]","12",1,108894272,109028452
+"114","ENSMUSG00000040966","Slc22a2",FALSE,FALSE,"solute carrier family 22 (organic cation transporter), member 2 [Source:MGI Symbol;Acc:MGI:1335072]","17",1,12584189,12628465
+"115","ENSMUSG00000042105","Inpp5f",TRUE,TRUE,"inositol polyphosphate-5-phosphatase F [Source:MGI Symbol;Acc:MGI:2141867]","7",1,128611328,128696425
+"116","ENSMUSG00000042607","Asb4",TRUE,TRUE,"ankyrin repeat and SOCS box-containing 4 [Source:MGI Symbol;Acc:MGI:1929751]","6",1,5383386,5433022
+"117","ENSMUSG00000042814","Mcts2",FALSE,FALSE,"malignant T cell amplified sequence 2 [Source:MGI Symbol;Acc:MGI:1913655]","2",1,152687148,152687940
+"118","ENSMUSG00000044068","Zrsr1",TRUE,TRUE,"zinc finger (CCCH type), RNA binding motif and serine/arginine rich 1 [Source:MGI Symbol;Acc:MGI:98885]","11",1,22972005,22976496
+"119","ENSMUSG00000044231","Nhlrc1",TRUE,TRUE,"NHL repeat containing 1 [Source:MGI Symbol;Acc:MGI:2145264]","13",-1,47012558,47014850
+"120","ENSMUSG00000045362","Tnfrsf26",FALSE,FALSE,"tumor necrosis factor receptor superfamily, member 26 [Source:MGI Symbol;Acc:MGI:2651928]","7",-1,143607685,143627845
+"121","ENSMUSG00000045657","Pcdhb10",TRUE,TRUE,"protocadherin beta 10 [Source:MGI Symbol;Acc:MGI:2136745]","18",1,37411674,37414514
+"122","ENSMUSG00000045752","Tssc4",FALSE,FALSE,"tumor-suppressing subchromosomal transferable fragment 4 [Source:MGI Symbol;Acc:MGI:1861712]","7",1,143069249,143071093
+"123","ENSMUSG00000045777","Ifitm10",TRUE,FALSE,"interferon induced transmembrane protein 10 [Source:MGI Symbol;Acc:MGI:2444776]","7",-1,142325837,142373753
+"124","ENSMUSG00000046447","Camk2n1",TRUE,TRUE,"calcium/calmodulin-dependent protein kinase II inhibitor 1 [Source:MGI Symbol;Acc:MGI:1913509]","4",1,138454314,138460123
+"125","ENSMUSG00000046856","Gpr1",FALSE,FALSE,"G protein-coupled receptor 1 [Source:MGI Symbol;Acc:MGI:2385324]","1",-1,63182691,63214543
+"126","ENSMUSG00000047746","Fbxo40",FALSE,FALSE,"F-box protein 40 [Source:MGI Symbol;Acc:MGI:2443753]","16",-1,36963460,36990467
+"127","ENSMUSG00000047921","Trappc9",TRUE,TRUE,"trafficking protein particle complex 9 [Source:MGI Symbol;Acc:MGI:1923760]","15",-1,72589621,73061204
+"128","ENSMUSG00000048583","Igf2",TRUE,TRUE,"insulin-like growth factor 2 [Source:MGI Symbol;Acc:MGI:96434]","7",-1,142650766,142666816
+"129","ENSMUSG00000048720","Tbc1d12",FALSE,FALSE,"TBC1D12: TBC1 domain family, member 12 [Source:MGI Symbol;Acc:MGI:2384803]","19",1,38836579,38919923
+"130","ENSMUSG00000048895","Cdk5r1",TRUE,TRUE,"cyclin-dependent kinase 5, regulatory subunit 1 (p35) [Source:MGI Symbol;Acc:MGI:101764]","11",1,80477046,80481179
+"131","ENSMUSG00000049620","Prss33",TRUE,FALSE,"protease, serine, 33 [Source:MGI Symbol;Acc:MGI:2661234]","17",-1,23833360,23836056
+"132","ENSMUSG00000051355","Commd1",FALSE,FALSE,"COMM domain containing 1 [Source:MGI Symbol;Acc:MGI:109474]","11",-1,22896136,22982382
+"133","ENSMUSG00000051527","Usp29",TRUE,FALSE,"ubiquitin specific peptidase 29 [Source:MGI Symbol;Acc:MGI:1888998]","7",1,6961160,6963769
+"134","ENSMUSG00000051855","Mest",TRUE,TRUE,"mesoderm specific transcript [Source:MGI Symbol;Acc:MGI:96968]","6",1,30723547,30748455
+"135","ENSMUSG00000053395","Cacng8",TRUE,FALSE,"calcium channel, voltage-dependent, gamma subunit 8 [Source:MGI Symbol;Acc:MGI:1932376]","7",1,3390683,3415648
+"136","ENSMUSG00000054455","Vapb",TRUE,FALSE,"vesicle-associated membrane protein, associated protein B and C [Source:MGI Symbol;Acc:MGI:1928744]","2",1,173737511,173784336
+"137","ENSMUSG00000055078","Gabra5",TRUE,TRUE,"gamma-aminobutyric acid (GABA) A receptor, subunit alpha 5 [Source:MGI Symbol;Acc:MGI:95617]","7",-1,57407690,57510009
+"138","ENSMUSG00000055430","Nap1l5",TRUE,TRUE,"nucleosome assembly protein 1-like 5 [Source:MGI Symbol;Acc:MGI:1923555]","6",-1,58905234,58907126
+"139","ENSMUSG00000056972","Magel2",FALSE,FALSE,"melanoma antigen, family L, 2 [Source:MGI Symbol;Acc:MGI:1351648]","7",1,62376979,62381640
+"140","ENSMUSG00000058454","Dhcr7",FALSE,FALSE,"7-dehydrocholesterol reductase [Source:MGI Symbol;Acc:MGI:1298378]","7",1,143823145,143848410
+"141","ENSMUSG00000059119","Nap1l4",FALSE,FALSE,"nucleosome assembly protein 1-like 4 [Source:MGI Symbol;Acc:MGI:1316687]","7",-1,143513579,143549090
+"142","ENSMUSG00000061186","Sfmbt2",FALSE,FALSE,"Scm-like with four mbt domains 2 [Source:MGI Symbol;Acc:MGI:2447794]","2",1,10370510,10595253
+"143","ENSMUSG00000062866","Phactr2",TRUE,FALSE,"phosphatase and actin regulator 2 [Source:MGI Symbol;Acc:MGI:2446138]","10",-1,13207717,13474396
+"144","ENSMUSG00000064621","AF357355",FALSE,FALSE,"snoRNA AF357355 [Source:MGI Symbol;Acc:MGI:3843217]","12",1,109654627,109654698
+"145","ENSMUSG00000064621","Gm26922",FALSE,FALSE,"snoRNA AF357355 [Source:MGI Symbol;Acc:MGI:3843217]","12",1,109654627,109654698
+"146","ENSMUSG00000065022","AF357341",FALSE,FALSE,"snoRNA AF357341 [Source:MGI Symbol;Acc:MGI:3510328]","12",1,109681519,109681593
+"147","ENSMUSG00000065410","Mir298",FALSE,FALSE,"microRNA 298 [Source:MGI Symbol;Acc:MGI:3619321]","2",-1,174267504,174267585
+"148","ENSMUSG00000065426","Mir134",FALSE,FALSE,"microRNA 134 [Source:MGI Symbol;Acc:MGI:2676819]","12",1,109734123,109734224
+"149","ENSMUSG00000065433","Mir370",FALSE,FALSE,"microRNA 370 [Source:MGI Symbol;Acc:MGI:3619375]","12",1,109618258,109618336
+"150","ENSMUSG00000065448","Mir154",FALSE,FALSE,"microRNA 154 [Source:MGI Symbol;Acc:MGI:2676839]","12",1,109738424,109738507
+"151","ENSMUSG00000065477","Mir411",FALSE,FALSE,"microRNA 411 [Source:MGI Symbol;Acc:MGI:3619399]","12",1,109710175,109710270
+"152","ENSMUSG00000065497","Mir410",FALSE,FALSE,"microRNA 410 [Source:MGI Symbol;Acc:MGI:3619398]","12",1,109743715,109743795
+"153","ENSMUSG00000065501","Mir335",FALSE,FALSE,"microRNA 335 [Source:MGI Symbol;Acc:MGI:3619348]","6",1,30741299,30741396
+"154","ENSMUSG00000065521","Mir296",FALSE,FALSE,"microRNA 296 [Source:MGI Symbol;Acc:MGI:3619269]","2",-1,174267047,174267125
+"155","ENSMUSG00000065526","Mir337",FALSE,FALSE,"microRNA 337 [Source:MGI Symbol;Acc:MGI:3619351]","12",1,109585790,109585886
+"156","ENSMUSG00000065596","Mir184",FALSE,FALSE,"microRNA 184 [Source:MGI Symbol;Acc:MGI:2676848]","9",-1,89802260,89802328
+"157","ENSMUSG00000065749","AF357428",FALSE,FALSE,"snoRNA AF357428 [Source:MGI Symbol;Acc:MGI:3053436]","12",1,109679945,109680013
+"158","ENSMUSG00000067768","Xlr4b",FALSE,FALSE,"X-linked lymphocyte-regulated 4B [Source:MGI Symbol;Acc:MGI:1350975]","X",1,73214333,73222453
+"159","ENSMUSG00000067786","Nnat",TRUE,TRUE,"neuronatin [Source:MGI Symbol;Acc:MGI:104716]","2",1,157560078,157562522
+"160","ENSMUSG00000067787","Blcap",TRUE,FALSE,"bladder cancer associated protein homolog (human) [Source:MGI Symbol;Acc:MGI:1858907]","2",-1,157556362,157571274
+"161","ENSMUSG00000068151","A230006K03Rik",TRUE,FALSE,"RIKEN cDNA A230006K03 gene [Source:MGI Symbol;Acc:MGI:3644205]","7",-1,61127996,61311721
+"162","ENSMUSG00000068391","Chrac1",TRUE,TRUE,"chromatin accessibility complex 1 [Source:MGI Symbol;Acc:MGI:2135796]","15",1,73090392,73097554
+"163","ENSMUSG00000070072","Mir433",FALSE,FALSE,"microRNA 433 [Source:MGI Symbol;Acc:MGI:3619404]","12",1,109591715,109591838
+"164","ENSMUSG00000070076","Mir127",FALSE,FALSE,"microRNA 127 [Source:MGI Symbol;Acc:MGI:2676812]","12",1,109592832,109592928
+"165","ENSMUSG00000070080","Mir431",FALSE,FALSE,"microRNA 431 [Source:MGI Symbol;Acc:MGI:3619403]","12",1,109590447,109590537
+"166","ENSMUSG00000070129","Mir136",FALSE,FALSE,"microRNA 136 [Source:MGI Symbol;Acc:MGI:2676821]","12",1,109595317,109595398
+"167","ENSMUSG00000070133","Mir434",FALSE,FALSE,"microRNA 434 [Source:MGI Symbol;Acc:MGI:3619405]","12",1,109594506,109594599
+"168","ENSMUSG00000070424","Art5",FALSE,FALSE,"ADP-ribosyltransferase 5 [Source:MGI Symbol;Acc:MGI:107948]","7",-1,102096879,102102845
+"169","ENSMUSG00000070526","Peg12",FALSE,FALSE,"paternally expressed 12 [Source:MGI Symbol;Acc:MGI:1351637]","7",-1,62461871,62464510
+"170","ENSMUSG00000070527","Mkrn3",FALSE,FALSE,"makorin, ring finger protein, 3 [Source:MGI Symbol;Acc:MGI:2181178]","7",-1,62417593,62420139
+"171","ENSMUSG00000070570","Slc17a7",TRUE,TRUE,"solute carrier family 17 (sodium-dependent inorganic phosphate cotransporter), member 7 [Source:MGI Symbol;Acc:MGI:1920211]","7",1,45163921,45176138
+"172","ENSMUSG00000071815","Fthl17",FALSE,FALSE,"ferritin, heavy polypeptide-like 17 [Source:MGI Symbol;Acc:MGI:1933180]","X",1,9033485,9034331
+"173","ENSMUSG00000073125","Xlr3b",FALSE,FALSE,"X-linked lymphocyte-regulated 3B [Source:MGI Symbol;Acc:MGI:109505]","X",1,73192207,73202930
+"174","ENSMUSG00000073209","Klf14",FALSE,FALSE,"Kruppel-like factor 14 [Source:MGI Symbol;Acc:MGI:3577024]","6",-1,30956021,30958990
+"175","ENSMUSG00000075707","Dio3",FALSE,FALSE,"deiodinase, iodothyronine type III [Source:MGI Symbol;Acc:MGI:1306782]","12",1,110279068,110281097
+"176","ENSMUSG00000076006","Mir376b",FALSE,FALSE,"microRNA 376b [Source:MGI Symbol;Acc:MGI:3619378]","12",1,109723456,109723541
+"177","ENSMUSG00000077191","Snord64",FALSE,FALSE,"small nucleolar RNA, C/D box 64 [Source:MGI Symbol;Acc:MGI:3819546]","7",-1,59978808,59978874
+"178","ENSMUSG00000078247","Airn",FALSE,FALSE,"antisense Igf2r RNA [Source:MGI Symbol;Acc:MGI:1353471]","17",1,12741311,12860122
+"179","ENSMUSG00000085715","Tsix",FALSE,FALSE,"X (inactive)-specific transcript, opposite strand [Source:MGI Symbol;Acc:MGI:1336196]","X",1,103431517,103484957
+"180","ENSMUSG00000085925","Rtl1",FALSE,FALSE,"retrotransposon-like 1 [Source:MGI Symbol;Acc:MGI:2656842]","12",-1,109589194,109600330
+"181","ENSMUSG00000086503","Xist",FALSE,FALSE,"inactive X specific transcripts [Source:MGI Symbol;Acc:MGI:98974]","X",-1,103460375,103483217
+"182","ENSMUSG00000088294","AF357425",FALSE,FALSE,"snoRNA AF357425 [Source:MGI Symbol;Acc:MGI:3053434]","12",1,109636012,109636084
+"183","ENSMUSG00000090852","Tnfrsf22",FALSE,FALSE,"tumor necrosis factor receptor superfamily, member 22 [Source:MGI Symbol;Acc:MGI:1930270]","7",-1,143634806,143636585
+"184","ENSMUSG00000092035","Peg10",TRUE,TRUE,"paternally expressed 10 [Source:MGI Symbol;Acc:MGI:2157785]","6",1,4747306,4760517
+"185","ENSMUSG00000093224","Gm25750",FALSE,FALSE,"predicted gene, 25750 [Source:MGI Symbol;Acc:MGI:5455527]","12",-1,109711779,109711890
+"186","ENSMUSG00000093536","Smim17",TRUE,FALSE,"small integral membrane protein 17 [Source:MGI Symbol;Acc:MGI:4365374]","7",1,6398715,6432093
+"187","ENSMUSG00000095180","Rhox5",FALSE,FALSE,"reproductive homeobox 5 [Source:MGI Symbol;Acc:MGI:97538]","X",1,37804842,37808876
+"188","ENSMUSG00000097225","A330076H08Rik",TRUE,FALSE,"RIKEN cDNA A330076H08 gene [Source:MGI Symbol;Acc:MGI:2443193]","7",-1,61930913,61982356
+"189","ENSMUSG00000097391","Mirg",TRUE,TRUE,"miRNA containing gene [Source:MGI Symbol;Acc:MGI:3781106]","12",1,109729764,109749460
+"190","ENSMUSG00000097451","Rian",TRUE,TRUE,"RNA imprinted and accumulated in nucleus [Source:MGI Symbol;Acc:MGI:1922995]","12",1,109603940,109661716
+"191","too many to list (N = 137 genes)","Snord115",FALSE,FALSE,"2","16",NA,66600000,67000000
+"192","too many to list (N = 27 genes)","Snord116",FALSE,FALSE,"3","16",NA,67000000,67200000
