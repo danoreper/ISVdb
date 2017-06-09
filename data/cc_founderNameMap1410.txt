@@ -1,0 +1,9 @@
+abbreviation,founder
+A,A_J
+B,C57BL6J
+C,129S1_SvImJ
+D,NOD_ShiLtJ
+E,NZO_HlLtJ
+F,CAST_EiJ
+G,PWK_PhJ
+H,WSB_EiJ
