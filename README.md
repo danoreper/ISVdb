@@ -101,17 +101,17 @@ Each *.txt.tar.gz file in the genotype folder is a compressed csv file of genoty
 1) A row specifying the strain and chromosome of the format: strain:strainname,chr:chrname 
 2) The fields stored in the csv file. 
 The fields consist of the following:
--variant_id: a positive integer ID specifiying the variant. Unique to every variant; chromosomes don't share variant_id. However, this ID is shared across strains, and is consistent between the diplotype dump and the genotype dump files.
--pos: positive integer specifying variant position in bp along chromosome.
--allele_1: one of the alleles at this variant for the file-specified strain. This is part of an unphased genotype.
--allele_2: the second alelle at this variant for the file-specified strain. This is part of an unphased diplotype.
--prob: the probability that the unphased diplotype of the variant at this position is (allele_1, allele_2) 
--is_max: whether this is the max likelihood genotype for this variant in this strain. Redundant with prob, but available for convenience.  
--gene_name: the name of a gene enclosing the variant.
+* variant_id: a positive integer ID specifiying the variant. Unique to every variant; chromosomes don't share variant_id. However, this ID is shared across strains, and is consistent between the diplotype dump and the genotype dump files.
+* pos: positive integer specifying variant position in bp along chromosome.
+* allele\_1: one of the alleles at this variant for the file-specified strain. This is part of an unphased genotype.
+* allele\_2: the second alelle at this variant for the file-specified strain. This is part of an unphased diplotype.
+* prob: the probability that the unphased diplotype of the variant at this position is (allele_1, allele_2) 
+* is\_max: whether this is the max likelihood genotype for this variant in this strain. Redundant with prob, but available for convenience.
+* gene\_name: the name of a gene enclosing the variant.
 Note that there may multiple records per variant if the diplotype of the variant is uncertain; in such a case there is one row per non-zero diplotype probability, and the probabilities add approximately to 1. There also may be multiple rows per variant if a variant is enclosed by more than one gene.
--transcript_name: the name of a transcript enclosing the variant.
--consequence_1: the function consequence of allele_1 on transcript transcript_name, with respect to the B6 reference allele. If the allele_2 is the reference allele, the consequence is "reference". 
--consequence_2: the function consequence of allele_2 on transcipt ranscript_name, with respect to the B6 reference allele. If allele_2 is the reference allele, the consequence is "reference". 
+* transcript\_name: the name of a transcript enclosing the variant.
+* consequence\_1: the function consequence of allele_1 on transcript transcript_name, with respect to the B6 reference allele. If the allele_2 is the reference allele, the consequence is "reference". 
+* consequence\_2: the function consequence of allele_2 on transcipt ranscript_name, with respect to the B6 reference allele. If allele_2 is the reference allele, the consequence is "reference". 
 
 Note that there may multiple records per variant if the genotype of the variant is uncertain; in such a case there is one row per non-zero genotype probability, and the probabilities add approximately to 1. There also may be multiple rows per variant if a variant is enclosed by more than one gene and/or more than one transcript, as the consequence changes depending on the transcript.
 
