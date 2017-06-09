@@ -1,7 +1,8 @@
 library(shiny)
 library(pracma)
 library(RMySQL)
-con <- dbConnect(RMySQL::MySQL(), dbname = "exon_1410b", username='root',password='FrozenMixedVegetables',host="127.0.0.1",port=3308)
+pass = "dummy"
+con <- dbConnect(RMySQL::MySQL(), dbname = "exon_1410b", username='root',password=pass,host="127.0.0.1",port=3308)
 
 gene_list<-read.csv(file="genelist.csv",stringsAsFactors = FALSE)
 gene_list_all<-as.character(c(gene_list$gene_id,gene_list$gene_id));names(gene_list_all)<-c(gene_list$gene_name,gene_list$mgi_symbol)
