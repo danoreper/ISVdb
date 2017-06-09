@@ -1,7 +1,7 @@
 library(shiny)
 library(pracma)
 library(RMySQL)
-pass = "dummy"
+pass = "DUMMY"
 con <- dbConnect(RMySQL::MySQL(), dbname = "exon_1410b", username='root',password=pass,host="127.0.0.1",port=3308)
 
 gene_list<-read.csv(file="genelist.csv",stringsAsFactors = FALSE)
@@ -65,7 +65,7 @@ shinyServer(function(input, output, session) {
     content = function(file) {
       output$filename <-renderText({ as.character(file) })
       query<-generateQuery(input)
-      sysquery<-paste("ssh ywcai@valdardb.its.unc.edu \"mysql --user='root' --password='FrozenMixedVegetables' 
+      sysquery<-paste("ssh ywcai@valdardb.its.unc.edu \"mysql --user='root' --password='",pass,"' 
                       --database='exon_1410' -e '",query,";' \" >",file, sep=" ")
       message(sysquery)
       system(sysquery)
