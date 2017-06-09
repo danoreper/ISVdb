@@ -1,0 +1,79 @@
+resources: /nas/depts/006/valdar-lab/users/doreper/resources	
+
+external:
+  kallisto: kallisto
+  bowtie: bowtie
+  #bam.to.emase: /nas/depts/006/valdar-lab/users/doreper/emase/scripts/bam-to-emase
+  bam.to.emase: bam-to-emase
+  combine.emase.files: combine-emase-files
+  run.emase: run-emase
+  gbrs: gbrs
+  samtools: samtools
+  featureCounts: featureCounts    
+
+output: ../output.mediation
+tmpdir: ../output/tmp
+onCluster: yes #yes
+
+mnp:
+  mc.cores: 1 #8 #5
+  limit: .na
+  SSVA.numperm: 100 #400 #20	
+
+  evalprobelimit: .na
+  recomputeProbeInfo: no
+  output: ../outkill
+
+
+variantdb:
+  dbfolder: isvdb-test
+  ##num variants allowed
+  var_limit: .na
+  ##num cc lines allowed
+  cc_limit: .na
+  chr_range: .na
+  # - '16'
+  # - '17'
+  # - '18'
+  # - '19'
+  # - 'X'
+  # - 'Y'
+  # - 'MT'
+  # - '1'
+  # - '2'
+  # - '3'
+  # - '4'
+  # - '5'
+  # - '6'
+  # - '7'
+  # - '8'
+  # - '9'
+  # - '10'
+
+  full:
+    name: full_1410
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
+
+  exon:
+    name: exon_1410
+    rebuildVCF: no
+    rebuildFounder: yes
+    rebuildCC: yes
+
+  imprinted:
+    name: imprinted_1410
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
+ 
+ovx:
+  numPerm: 1000
+  numImp: 500
+  iter: 20000
+  mc.cores: 1        
+  rebuildData: yes
+  normalizeBeforeTransform: no
+  normalizeAfterTransform: no
+

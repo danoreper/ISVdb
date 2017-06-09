@@ -1,0 +1,384 @@
+##Global props
+##the root directory of all output
+output: ../output
+
+##the root directory of (almost) all data, with the exception of things that are too big to hold on
+##local machines and in dropbox, such as rnaseq data
+data: ../data
+
+##
+resources: /home/doreper/resources	
+
+##The root directory of all temp files that are generated. This is in home
+##because of horrible apparmor permissions issues; they can only be turned on for
+##files without spaces, but my dropbox folder has spaces
+tmpdir: ~/armor/
+
+##Number of cores expected for certain parallelizable steps. Often overriden on cluster
+mc.cores: 1.0
+
+##whether we are running on the cluster or on local machine
+onCluster: no
+
+
+##The location of external resources/packages, etc. Often overriden on the cluster
+external:
+  #The location of the kallisto executable. If on path, just do ./kallisto
+  kallisto: ~/resources/kallisto_linux-v0.42.4/kallisto
+
+  samtools: samtools  
+
+  #location of feature counts executable 
+  featureCounts: ~/resources/subread-1.5.0-p1-source/bin/featureCounts
+
+  #The location of the bowtie executable
+  bowtie: bowtie
+  
+  bam.to.emase: ~/resources/emase/bam-to-emase
+  
+  combine.emase.files: ~/resources/emase/combine-emase-files
+
+  run.emase:  ~/resources/emase/run-emase
+
+  gbrs: ~/resources/gbrs/gbrs
+
+
+
+##properties related to genome of B6 model organism mouse
+genome:
+  ##DNA reference of b6, downloaded from ensembl
+  dnaReferenceFile:  b6_reference/mus_musculus.GRCm38.75/genome.fa
+
+  karyotype: b6_reference/mm10.chrom.sizes
+  ##Feature file of b6, including exons, downloaded from ucsc
+  exonReferenceFile: b6_reference/mus_musculus.GRCm38.75/Mus_musculus.GRCm38.75.gtf
+
+  ##A file containing all the Andrew Morgan generated transcripts per founder, concatenated
+  ##together. Originally intended for allignment of RNA-seq using callisto. Each transcript_id is unqique; the founder or set of founders specific to a particular transcript sequence is appended to the
+  ##original transcript_id
+  merged_transcriptome_apm: founder_reference/transcriptome_apm/joined.fa
+
+  merged_alleles_apm: founder_reference/transcriptome_apm/joined.fa.allele
+
+  ## A folder containing bowtie index information for the merged transcriptome of the 8 founders as asupplied by KB Choi
+  merged_transcriptome_kb: founder_reference/merged_transcriptome_bwt_kwangbom
+
+  ##The biomart host corresponding to the dna reference version (e.g. the release corresponding to 38.75). Needed for, among other things, pulling out up to date gene boundaries and gene symbols
+  biomartHostForDNAReference: feb2014.archive.ensembl.org
+
+  ##The vcf release that the genome assumes ... currently unused
+  vcfRelease: '1410'
+
+  ##A mapping file from old founder names to current (1410) founder names 
+  foundersMap: cc_founderNameMap1410.txt
+
+  ##A mapping file from the old style strain names to the new cc* style strain names
+  ccNameMap:  cc_strainNameMap.csv
+
+  ##The VCF file filtered by vcftools to only include the CC founders. 
+  vcfDir: vcf/rel1410/filteredfounder
+
+  ## should the imprinted transcripts file be recomputed, or just use the one that was last written to file
+  rebuildImprintedTrancriptsFile: no
+  
+  ##Should all exons be loaded and stored in memory? They are big.
+  loadexons: no
+
+  ##data of CC haplotype probabilities. Relative to data
+  rilHaplotypeProbsDir: cc_probs_2016-03_mm10/
+
+  ##A data file describing the imprinted and expressed genes found in the Crowley paper.
+  ## needed to generate the imprinted genes list. Some fields may be defunct, and they are re
+  ##replaced by biomart annotations
+  imprintCrowleyExperimentFile: imprinted_genes_list/crowley_2015_brain_imprinted_genes.csv
+
+  ##A data file describing the set of all mousebook genes, imprinted anywhere. Needed
+  ## to generate the imprinted genes list
+  ##Some fields may be defunct, and they are replaced by biomart annotations
+  imprintLitFile: imprinted_genes_list/Literature_Imprinted_Genes.csv
+
+  ##Data file describing snord115 locations
+  ##Needed to generate the imprinted genes list
+  snord115.file:  imprinted_genes_list/snord115_ensembl_m38.4.csv
+
+  ##Data file describing snord116 locations
+  ##Needed to generate the imprinted genes list
+  snord116.file:  imprinted_genes_list/snord116_ensembl_m38.4.csv
+
+  snord:  b6_reference/mus_musculus.GRCm38.75/snord
+  ##Data file describing all imprinted genes, collated together from multiple sources
+  imprintedGenesFile: imprinted_genes_list/feb2014.archive.ensembl.org_allImprintedGenes.csv
+
+  ##data file describing all transcripts of all genes in the regions covered by the imprintedGenesFile genes
+  imprintedTranscriptsFile: imprinted_genes_list/imprinted_transcripts.txt
+
+  ##Should we rebuild the imprintedGenesFile? 
+  rebuildImprinted: no
+
+  ##folder containing GBRS reference informatio
+  GBRS.data: gbrs
+
+  ##The transibtion probability file to be used. AT present, DO, 1gen outbreeding, female
+  GBRS.tranprob: tranprob.DO.G1.F.npz
+  
+##properties that describe where experiment specific data resides
+experiment:
+  ## This is a special case of a data property NOT with resepct to data dir... the seq files are
+  ## so big that we store it in a separate folder so that when we sync data with cluster,
+  ## we dont end up downloading all the seq files. This only exists on the cluster
+  seq.file.root      : ../rnaseq/data
+
+  ## The file describing the well in which each seq library was placed in the 96 well plate for batch1
+  seq.batch1.lib.file: rnaseq/seq_library/batch1/RNA-seq_library.csv
+
+  ## The file describing the well in which each seq library was placed in the 96 well plate for batch2
+  seq.batch2.lib.file: rnaseq/seq_library/batch2/RNA-seq_library.csv
+
+  ## The file describing the well in which each seq library was placed in the 96 well plate for batch3
+  seq.batch3.lib.file: rnaseq/seq_library/batch3/RNA-seq_library.csv
+
+  seq.fragmentsize.file: rnaseq/seq_library/2016-03-18_fragment_report.csv
+  
+## A file storing all sequencing metadata. Not necessary and can be recomputed, but have to be on the cluster to do so, as the seq files themselves are too large to store locally
+  seq.covariates.file: rnaseq/seq_library/metaseq.csv
+
+  ## A file storing all the breeding data relating to the mice which were rna-sequenced
+  seq.breeding.covariates.file: rnaseq/2015-10_expression_pups.csv
+  ##AllMice_Behavior_GeneExpression5_11_15.csv        
+
+  #length of all reads. In principle could be pulled from a fastq file, but while that would reduce possibility of this being wrong, that seems pointlessly complicated, and not
+  #even necessarily helpful, given that every fastq file could potentially be different
+  readlength: 100
+  
+## A file storing all the breeding data relating to mice which were behaviorally assayed.
+  behavior.breeding.covariates.file: behavior/2015-10_behavior_pups.csv
+
+  adapterLength: 120
+
+  frag.sd.denom: 5
+
+##properties related to construction of the variant db
+variantdb:
+  dbfolder: isvdb-test
+  ##the db host
+  host: 127.0.0.1 ##localhost
+  ##the db username for construction
+  user: root
+
+  ##properties describing construction of the "full" db, i.e. everything
+  full:
+    ##name of the database
+    name: full_1410
+    ##should we rebuild the VCF file corresponding to the databasel i.e. should we apply vcftools
+    ## to filter our irrelevant strains and/or regions? Intended to speed testing, leave to yes in real db generation
+    rebuildVCF: yes
+    ##Should we rebuild the founder variant haplotypes, or can we assume it is already built. Intended to speed testing, leave to yes in real db generation
+    rebuildFounder: yes
+    ##Should we rebuild the information for all CC strains? This is the really computationally expensive part. Intended to speed testing, leave to yes in real db generation
+    rebuildCC: yes
+
+  ##properties describing construction of the exon database
+  exon:
+    name: exon_1410
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
+    padding: 100
+
+  ##Properties describing construction of variants just in the imprinted transcripts
+  imprinted:
+    name: imprinted_1410
+    rebuildVCF: no ##yes
+    rebuildFounder: no
+    rebuildCC: yes
+    padding: 5000
+
+  ##Engine used for creating database tables
+  engine: MYISAM
+
+  ## any probability in the cc probability tables that is less than this probability is discarded;
+  ## i.e. if the probability of diplotype being CC, is .005, it is disregarded and isn't stored in the database.
+  truncate_cc_prob: 0.01
+
+  ## max number of variants of each type (indel, snp) that the vcf parsing will bother storing. Meant for testing
+  var_limit: 20 #.na
+ 
+  ##max number of cc lines that variant db will bother storing. Meant for testing.
+  cc_limit: .na
+
+  ##The chromosomes that will be built. .na means build them all
+  chr_range: .na
+
+mnp:
+
+
+  mc.cores: 1 #3
+
+  ## The type of surrogate variable computation. Options include SSVA, SVA, and SSVA_perm
+  surrogat: SSVA	
+  num.sv: 7 
+
+  ## Number of probesets which will be modelled, and in which we will test for significance of POE
+  limit: 100 ##20  ##.na    ## .na is yaml version of NA
+
+  ## Number of probesets for which probe metadata will be computed in evalProbes.R
+  evalprobelimit: .na #1000
+
+  ## Should we include strain by pipeline effects in the model
+  modelStrainPipeline: no
+
+  ##Bool indicating whether to regress out everything but the strain and diet main effect/interaction terms 
+  ## in a preprocessing step --i.e the  the nuisance factors-- or to simply model the nuisance factors simultaneously in a single regression
+  residualize.expression.pre.straindiet: yes #no #yes
+
+  ##Bool indicating whether to z-transform the p-values, shift the z-value by median, and then convert back to p-values  
+  medianAdjust.p.values: yes
+
+
+  ##default significance level for testing
+  alphalevel: 0.05
+  
+  scaleOnForPCA: yes
+  normalizeExpressionAfterTransform: yes
+  probeAlignThresh: 100
+  lowExpressionThresh: 5  ##log2 scale
+  lowValidProbeThresh: 4
+  SVA.topgenes: 1000
+  SSVA.numperm: 2
+  computeEffectsOnControlProbes: no
+  loadparsed.probe.alignments: yes
+  saveIntermediates: no ##yes
+  batchSize: 100
+
+  
+  ##Should analysis be restricted to only those sample for which we still have genetic material,
+  ##and could presumably perform a validation study.
+  useCurrentSamples: no
+
+  recomputeProbeInfo: no
+  compute.apt.probeset.summarize: no ##no
+
+  data: ../data
+  output: ../output/sva/
+
+  breedinglog: sva/2017-02-13_breederLog.csv
+  old.expression.file: sva/log2RMA-GENE-DEFAULT-Group1.txt
+  snord.file: sva/SNORD_cluster_20120524.csv
+  exonReferenceFile: b6_reference/mus_musculus.GRCm38.75/Mus_musculus.GRCm38.75.gtf
+  
+  pgfFile: sva/microarray_lib_files/MoGene-1_1-st-v1.r4.analysis-lib-files/MoGene-1_1-st-v1.r4.pgf
+  clfFile: sva/microarray_lib_files/MoGene-1_1-st-v1.r4.analysis-lib-files/MoGene-1_1-st-v1.r4.clf
+  mpsFile: sva/microarray_lib_files/MoGene-1_1-st-v1.r4.analysis-lib-files/MoGene-1_1-st-v1.r4.mps
+  probesetSeqLocationFile: sva/microarray_lib_files/MoGene-1_1-st-v1.r4.analysis-lib-files/MoGene-1_1-st-v1.na34.mm10.probeset.csv
+  qccFile: sva/microarray_lib_files/MoGene-1_1-st-v1.r4.analysis-lib-files/MoGene-1_1-st-v1.r4.qcc
+
+  oldPgfFile: sva/microarray_lib_files/MoGene-1_0-st-v1.r3.analysis-lib-files/MoGene-1_0-st-v1.r3.pgf
+  oldClfFile: sva/microarray_lib_files/MoGene-1_0-st-v1.r3.analysis-lib-files/MoGene-1_0-st-v1.r3.clf
+  oldMpsFile: sva/microarray_lib_files/MoGene-1_0-st-v1.r3.analysis-lib-files/MoGene-1_0-st-v1.r3.mps
+  oldProbesetSeqLocationFile: sva/microarray_lib_files/MoGene-1_0-st-v1.r3.analysis-lib-files/MoGene-1_0-st-v1.na33.2.mm9.transcript.csv
+  
+
+  probeAlignmentFile:  sva/MoGene-1_0-st-v1_probeinfo_b.txt
+  NOD.B6.variantsFile: sva/nod.b6.variants.txt
+  probeDataSaveFile:   sva/probeData.RData
+
+  apt.outdir:  sva/apt_output_mask_rel1410_3-21_exonfilter
+  killname:    killList.txt
+  cel.dir:     sva/cel_files
+  
+
+  
+  imprintedGenesFile: /imprinted_genes_list/feb2014.archive.ensembl.org_allImprintedGenes.csv
+
+  ##file describing which samples currently exist
+  currentSamplesFile: sva/Microarray_Animals_maybe_05-26-16.csv
+
+  tf.file: sva/2017-03-22_chipbase_tf.txt
+
+
+  ##uselme: no  
+## lambdasToTry:
+##  - -3.0
+##  - -2.0
+##  - -1.0
+##  - -0.5
+##  - 0.0
+##  - 5.0e-01       ## floats in a yaml list are parsed incorrectly if the decimal point is on the front 
+##  - 1.0
+##  - 2.0
+##  - 3.0
+
+    
+  ## mode: regular #phen #regular
+     
+  ##computeBehaviorCor: no ##yes	
+
+  ##pipelines:
+  ##- 1
+  ##- 2
+
+  ## groupedDiets: .na
+  ##  other:
+  ##  - StdCtrl
+  ##  - LowPro
+  ##  - VitDDef
+  ##  MethylSuff: MethylSuff
+
+  ## scantypes:
+  ## - regular
+  ## - nostrain
+  ## - nodiet
+
+
+  ## number of cores to assume are available for mnp processes per maching; used primarily by mclapp
+
+ovx:
+  idcol: ANIMAL.ID
+
+  lambdasToTryPerm:
+  - -3.0
+  - -2.0
+  - -1.0
+  - -0.5
+  - -3.333e-01
+  - 0.0
+  - 5.0e-01       ## floats in a yaml vector are parsed incorrectly if the decimal point is on the front without a 0 after it
+  - 3.33333e-01
+  - 1.0  ## if the decimal point is not included for this number, the vector will load up as a list instead, as the types (integer and float) will be different, and a vector cant hold different types
+  - 2.0
+  - 3.0
+  
+  modelname: ./ovx/model.delta.bug
+  modelname.2: ./ovx/model.strain.bug
+  iter: 10000
+  thin: 10
+
+  numImp: 3
+  numPerm: 100
+  burninfrac: 0.2
+  normalizeBeforeTransform: no
+  normalizeAfterTransform: no
+  gurka: yes
+  discreteBuckets:
+  - 0.0
+  - 0.05
+  - 1.0e-01
+  - 1.0
+  mc.cores: 1
+  extra.imp.multiple: 1
+  rebuildData: yes
+
+
+  lambdasToTry:
+  - -3.0
+  - -2.0
+  - -1.0
+  - -0.5
+  - -3.333e-01
+  - 0.0
+  - 5.0e-01       ## floats in a yaml vector are parsed incorrectly if the decimal point is on the front without a 0 after it
+  - 3.33333e-01
+  - 1.0  ## if the decimal point is not included for this number, the vector will load up as a list instead, as the types (integer and float) will be different, and a vector cant hold different types
+  - 2.0
+  - 3.0
+
