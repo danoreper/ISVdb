@@ -83,13 +83,14 @@ ISVDB\_LOCATION/output/isvdb/exon1410/diplotype contains a folder corresponding 
 Each *.txt.tar.gz file in the diplotypes folder is a compressed csv file of diplotypes for a particular strain and chromosome, with 2 header rows:
 1) A row specifying the strain and chromosome of the format: strain:strainname,chr:chrname 
 2) The fields stored in the csv file. 
+
 The fields consist of the following:
--variant_id: a positive integer ID specifiying the variant. Unique to every variant; chromosomes don't share variant_id. However, this ID is shared across strains, and is consistent between the diplotype dump and the genotype dump files.
--pos: positive integer specifying variant position in bp along chromosome.
--founder_1: one of the founder haplotypes at this variant for the file-specified strain and chromosome. This is part of an unphased diplotype.
--founder_2: the second founder haplotypes at this variant for the file-specified strain and chromosome. This is part of an unphased diplotype.
--prob: the probability on [0,1] that the unphased diplotype of the variant at this position is (founder_1, founder_2) 
--gene_name: the name of a gene enclosing the variant.
+*variant_id: a positive integer ID specifiying the variant. Unique to every variant; chromosomes don't share variant_id. However, this ID is shared across strains, and is consistent between the diplotype dump and the genotype dump files.
+*pos: positive integer specifying variant position in bp along chromosome.
+*founder\_1: one of the founder haplotypes at this variant for the file-specified strain and chromosome. This is part of an unphased diplotype.
+*founder\_2: the second founder haplotypes at this variant for the file-specified strain and chromosome. This is part of an unphased diplotype.
+*prob: the probability on [0,1] that the unphased diplotype of the variant at this position is (founder\_1, founder\_2) 
+*gene_name: the name of a gene enclosing the variant.
 
 
 Note that there may be multiple records per variant if the diplotype of the variant is uncertain; in such a case there is one row per non-zero diplotype probability, and the probabilities add approximately to 1. There also may be multiple rows per variant if a variant is enclosed by more than one gene.
