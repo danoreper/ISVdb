@@ -12,7 +12,7 @@ resources: /home/doreper/resources
 ##The root directory of all temp files that are generated. This is in home
 ##because of horrible apparmor permissions issues; they can only be turned on for
 ##files without spaces, but my dropbox folder has spaces
-tmpdir: ~/armor/
+tmpdir: ./tmp/
 
 ##Number of cores expected for certain parallelizable steps. Often overriden on cluster
 mc.cores: 1.0
@@ -53,7 +53,8 @@ genome:
   ccNameMap:  cc_strainNameMap.csv
 
   ##The VCF file filtered by vcftools to only include the CC founders. 
-  vcfDir: vcf/rel1410/filteredfounder
+  ##vcfDir: vcf/rel1410/filteredfounder
+  vcfDir: vcf/rel1410/
 
   ## should the imprinted transcripts file be recomputed, or just use the one that was last written to file
   rebuildImprintedTrancriptsFile: no

@@ -59,8 +59,8 @@ filterVCF$writeFoundersFile <- function(tmpdir, founders)
 filterVCF$filterVcfsInDir = function(vcfDirIn, vcfDirOut,  tmpdir="./tmp", vcfExtensionIn, founders=NULL, bedfile=NULL, keepcsq=T, mc.cores=1, chr = NULL)
 {
     
-    dir.create(vcfDirOut)
-    dir.create(tmpdir)
+    dir.create(vcfDirOut, showWarnings = F)
+    dir.create(tmpdir, showWarnings = F)
     vcfFiles       = stringutils$getFilesWithExtension(vcfDirIn, vcfExtensionIn)
     vcfOuts        = file.path(vcfDirOut, basename(vcfFiles))
     ii = 1:length(vcfFiles)
