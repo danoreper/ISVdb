@@ -1,1 +1,7 @@
 output/*
+src/tmp/*
+src/*.log
+src/*.out
+data/vcf/*
+data/cc_probs_2016*
+*.pyc
