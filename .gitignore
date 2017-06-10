@@ -1,5 +1,4 @@
 output/*
-src/tmp/*
 src/*.log
 src/*.out
 data/vcf/*

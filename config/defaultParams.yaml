@@ -1,6 +1,8 @@
 ##Global props
 ##the root directory of all output
 output: ../output
+##The root directory of all temp files that are generated. 
+tmpdir: ../output/tmp/
 
 ##the root directory of (almost) all data, with the exception of things that are too big to hold on
 ##local machines and in dropbox, such as rnaseq data
@@ -9,10 +11,6 @@ data: ../data
 ##
 resources: /home/doreper/resources	
 
-##The root directory of all temp files that are generated. This is in home
-##because of horrible apparmor permissions issues; they can only be turned on for
-##files without spaces, but my dropbox folder has spaces
-tmpdir: ./tmp/
 
 ##Number of cores expected for certain parallelizable steps. Often overriden on cluster
 mc.cores: 1.0
