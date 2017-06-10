@@ -38,8 +38,6 @@ genome:
   ##The biomart host corresponding to the dna reference version (e.g. the release corresponding to 38.75). Needed for, among other things, pulling out up to date gene boundaries and gene symbols
   biomartHostForDNAReference: feb2014.archive.ensembl.org
 
-  ##The vcf release that the genome assumes ... currently unused
-  vcfRelease: '1410'
 
   ##A mapping file from old founder names to current (1410) founder names 
   foundersMap: cc_founderNameMap1410.txt
@@ -47,8 +45,10 @@ genome:
   ##A mapping file from the old style strain names to the new cc* style strain names
   ccNameMap:  cc_strainNameMap.csv
 
+  ##The vcf release that the genome assumes ... currently unused
+  vcfRelease: '1410'
+
   ##The VCF file filtered by vcftools to only include the CC founders. 
-  ##vcfDir: vcf/rel1410/filteredfounder
   vcfDir: vcf/rel1410/
 
   ## should the imprinted transcripts file be recomputed, or just use the one that was last written to file
