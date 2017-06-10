@@ -1,6 +1,6 @@
 # ISVdb v1.2
 Code to generate the whole genome data stored in the Inbred Strain Variant Database (v1.2). 
-In particular, this code imputes genotypes and diplotypes for CC strains, and writes this information out to zipped csv files (along with the founder strains as well). It may potentially become a CRAN package eventually but will reside on Github for now. It is more likely that we will eventually create a non-CRAN R package. 
+In particular, this code imputes genotypes and diplotypes for CC strains, and writes this information out to zipped csv files (along with the founder strains as well). It may become a CRAN package eventually, but will reside on Github for now. It is more likely that we will eventually create a non-CRAN R package. 
 
 # Requirements
 * OSX or linux
@@ -9,7 +9,7 @@ In particular, this code imputes genotypes and diplotypes for CC strains, and wr
 * Python>=2.7.12
 * R CRAN packages: data.table, reshape2, ggplot2, igraph, stringr
 * R Bioconductor packages: Biostrings, IRanges, biomaRt, GenomicRanges, rtracklayer
-* Python packages: PyYAML, ipdb
+* Python packages: PyYAML
 
 # Download
 Git or SVN checkout using the web URL: https://github.com/danoreper/ISVdb.git

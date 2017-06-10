@@ -10,9 +10,11 @@ curl  https://zenodo.org/record/399474/files/File_S4.gz > ./data/vcf/rel1410/mgp
 
 curl  https://zenodo.org/record/399474/files/File_S5.gz > ./data/vcf/rel1410/mgp.v4.snps.MT.dbSNP.vcf.gz
 
-##curl ftp://ftp-mouse.sanger.ac.uk/REL-1505-SNPs_Indels/mgp.v5.merged.snps_all.dbSNP142.vcf.gz -O > mgp.v5.merged.snps_all.dbSNP142.vcf.gz
+mkdir ./data/vcf/rel1504
 
-##curl ftp://ftp-mouse.sanger.ac.uk/REL-1505-SNPs_Indels/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz -O > mgp.v5.merged.indels.dbSNP142.normed.vcf.gz           
+##curl ftp://ftp-mouse.sanger.ac.uk/REL-1505-SNPs_Indels/mgp.v5.merged.snps_all.dbSNP142.vcf.gz -O > ./data/vcf/rel1504/mgp.v5.merged.snps_all.dbSNP142.vcf.gz
+
+##curl ftp://ftp-mouse.sanger.ac.uk/REL-1505-SNPs_Indels/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz -O > ./data/vcf/rel1504/mgp.v5.merged.indels.dbSNP142.normed.vcf.gz           
 
 
 mkdir ./data/b6_reference/mus_musculus.GRCm38.75/
