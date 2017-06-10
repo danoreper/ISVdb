@@ -8,9 +8,6 @@ tmpdir: ../output/tmp/
 ##local machines and in dropbox, such as rnaseq data
 data: ../data
 
-##
-resources: /home/doreper/resources	
-
 
 ##Number of cores expected for certain parallelizable steps. Often overriden on cluster
 mc.cores: 1.0

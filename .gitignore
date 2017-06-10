@@ -1,6 +1,8 @@
 output/*
 src/*.log
 src/*.out
+src/*.Rout
 data/vcf/*
 data/cc_probs_2016*
 *.pyc
+data/b6_reference/mus_musculus.GRCm38.75/*

@@ -1,32 +1,10 @@
-resources: /nas/depts/006/valdar-lab/users/doreper/resources	
-
-external:
-  kallisto: kallisto
-  bowtie: bowtie
-  #bam.to.emase: /nas/depts/006/valdar-lab/users/doreper/emase/scripts/bam-to-emase
-  bam.to.emase: bam-to-emase
-  combine.emase.files: combine-emase-files
-  run.emase: run-emase
-  gbrs: gbrs
-  samtools: samtools
-  featureCounts: featureCounts    
-
-output: ../output.mediation
+output: ../output/
 tmpdir: ../output/tmp
 onCluster: yes #yes
 
-mnp:
-  mc.cores: 1 #8 #5
-  limit: .na
-  SSVA.numperm: 100 #400 #20	
-
-  evalprobelimit: .na
-  recomputeProbeInfo: no
-  output: ../outkill
-
 
 variantdb:
-  dbfolder: isvdb-test
+  dbfolder: ../output/isvdb-test
   ##num variants allowed
   var_limit: .na
   ##num cc lines allowed
@@ -58,7 +36,7 @@ variantdb:
 
   exon:
     name: exon_1410
-    rebuildVCF: no
+    rebuildVCF: yes
     rebuildFounder: yes
     rebuildCC: yes
 
@@ -67,13 +45,3 @@ variantdb:
     rebuildVCF: yes
     rebuildFounder: yes
     rebuildCC: yes
- 
-ovx:
-  numPerm: 1000
-  numImp: 500
-  iter: 20000
-  mc.cores: 1        
-  rebuildData: yes
-  normalizeBeforeTransform: no
-  normalizeAfterTransform: no
-
