@@ -1,0 +1,51 @@
+output: ../output/
+tmpdir: ../output/tmp
+onCluster: yes #yes
+
+
+variantdb:
+
+  ##num variants allowed
+  var_limit: .na
+  ##num cc lines allowed
+  cc_limit: .na
+  chr_range: .na
+  # - '16'
+  # - '17'
+  # - '18'
+  # - '19'
+  # - 'X'
+  # - 'Y'
+  # - 'MT'
+  # - '1'
+  # - '2'
+  # - '3'
+  # - '4'
+  # - '5'
+  # - '6'
+  # - '7'
+  # - '8'
+  # - '9'
+  # - '10'
+  
+  dbfolder: ../output/isvdb-test
+  
+  vcfDir: vcf/rel1504/
+
+  full:
+    name: full_1504
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
+
+  exon:
+    name: exon_1504
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
+
+  imprinted:
+    name: imprinted_1504
+    rebuildVCF: yes
+    rebuildFounder: yes
+    rebuildCC: yes
