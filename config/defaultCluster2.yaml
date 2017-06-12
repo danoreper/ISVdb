@@ -2,6 +2,8 @@ output: ../output/
 tmpdir: ../output/tmp
 onCluster: yes #yes
 
+genome:
+  vcfDir: vcf/rel1504/
 
 variantdb:
 
@@ -30,7 +32,7 @@ variantdb:
   
   dbfolder: ../output/isvdb-test
   
-  vcfDir: vcf/rel1504/
+
 
   full:
     name: full_1504
@@ -40,7 +42,7 @@ variantdb:
 
   exon:
     name: exon_1504
-    rebuildVCF: yes
+    rebuildVCF: no
     rebuildFounder: yes
     rebuildCC: yes
 
