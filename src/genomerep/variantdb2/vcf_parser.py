@@ -48,8 +48,7 @@ def navigateToheaderTokens(fle):
 
 
 def getFirstHeader(vcfFiles):
-    logger.debug("trying to pull out header tokens")
-    logger.debug("current path is: " + os.getcwd())
+    logger.debug("trying to pull out header tokens. current path is: " + os.getcwd())
     logger.debug("opening:" + vcfFiles[0])
     ##grab the first vcf, we assume all vcfs will have the same header tokens. Will check this later on
     fle = gzip.open(vcfFiles[0], 'r')
@@ -109,7 +108,6 @@ def mergeAndWrite(values, writer):
 
 
 def parsevcf(vcfFiles, foundersFile, dbname, allowedTranscriptsFile, limit):
-    logger.debug("!!!!!!!!!!!!!!!!!!!!!")
     logger.debug("about to begin parsing for db " + dbname)
     tmStart = time.time()
 
@@ -168,10 +166,14 @@ def parsevcf(vcfFiles, foundersFile, dbname, allowedTranscriptsFile, limit):
                 ##logger.debug(line)
                 vcfTokens = line.split("\t")
                 if diploParser.isValidVariant(vcfTokens):
+                    # logger.debug("valid line!")
+                    # logger.debug(line)
+                    # logger.debug(vcfTokens)
                     values = {}
                     for parserName, parser in parsers.iteritems():
                         values[parserName] = parser.getValues(vcfTokens, variant_id)
                     mergeAndWrite(values, writer)
+
                 variant_id = variant_id + 1
                 if (variant_id % 10000)==0:
                     print(variant_id)
@@ -249,8 +251,8 @@ class DiploParsing:
         for colind in self.founderinds.itervalues():
         ##    diplotypeVal = vcftokens[colind].split(":")
         ##    diplotypeVal = diplotypeVal[0]
-
-            if not vcftokens[colind].startswith(("0/0","\.")):
+            tok = vcftokens[colind]
+            if not tok.startswith("0/0") and not tok.startswith("./."):
                 return(True)
 
         return False
@@ -282,7 +284,7 @@ class DiploParsing:
             if mleDiplotype=="./.":
                 values.append([founder, None, None, 1])
             elif all([x == "." for x in gps]):
-                values.append([founder, 0, 0, 1])
+                values.append([founder, None, None, 1])
 
             else:
                 probs = self.getProbs(gps)
