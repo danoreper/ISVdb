@@ -25,9 +25,14 @@ For now, this install script only downloads data files (that are too large for g
 2. Enter the following at command line: 
 ISVDB\_LOCATION/src\$ R CMD BATCH ./genomerep/variantdb2/dbdriver.R
 
-2a. Running locally will--- realistically --- require hundreds of hours. If you have access to UNC research computing, computation can finish in a few hours on the Killdevil computing cluster. To use Killdevil, enter the following on killdevil:
+2a. Running locally will--- realistically --- require hundreds of hours. If you have access to UNC research computing, or some other LSF based cluster, computation can finish in a few hours. To use an LSF based system, enter the following on killdevil:
 
 ISVDB\_LOCATION/src$ R CMD BATCH '--args ../config/defaultCluster.yaml' ./genomerep/variantdb/dbdriver.R
+
+To build the 15.04 version of the database (still experimental)
+
+ISVDB\_LOCATION/src$ R CMD BATCH '--args ../config/defaultCluster2.yaml' ./genomerep/variantdb/dbdriver.R
+
 
 2b. Another option to reduce runtime is to run locally, but restrict the size of the database that is created. To do so, edit ISVDB\_LOCATION/config/defaultParams.yaml. In particular, edit the following properties:
 
