@@ -25,7 +25,8 @@ failed = c()
 clusterOut = list()
 for(i in 1:length(funcArgs))
 {
-    clusterOut[[i]] = try(do.call(func, c(funcArgs[[i]], otherGlobals)))
+    argz = c(funcArgs[[i]], otherGlobals)
+    clusterOut[[i]] = try(do.call(func, argz))
     if(class(clusterOut[[i]])=="try-error")
     {
         failed = c(failed, i)

@@ -211,3 +211,4 @@ mytoc = function(amessage)
         toc()
     }
 }
+options("warnPartialMatchDollar" = T)

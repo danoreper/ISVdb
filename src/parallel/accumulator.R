@@ -189,7 +189,7 @@ parallel$get.cluster.accum <- function(system.type,
         
         iter$hasNext <- function()
         {
-            return(!is.null(batch.i))
+            return(!is.null(batch.i)&& !length(batch.i)==0)
         }
         
         return(iter)
@@ -329,7 +329,7 @@ parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), batc
             {
                 out = NULL
             } else {
-                out = outputs[i]
+                out = outputs[[i]]
                 i <<- i+1
             }
             return(out)
