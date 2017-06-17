@@ -25,7 +25,7 @@ For now, this install script only downloads data files (that are too large for g
 2. Enter the following at command line: 
 ISVDB\_LOCATION/src\$ R CMD BATCH ./genomerep/variantdb2/dbdriver.R
 
-2a. Running locally will--- realistically --- require hundreds of hours. If you have access to UNC research computing, or some other LSF based cluster, computation can finish in a few hours. To use an LSF based system, enter the following on killdevil:
+2a. Running locally will--- realistically --- require ~100 hours. If you have access to UNC research computing, or some other LSF based cluster, computation can finish in a few hours. To use an LSF based system, enter the following on killdevil:
 
 ISVDB\_LOCATION/src$ R CMD BATCH '--args ../config/defaultCluster.yaml' ./genomerep/variantdb/dbdriver.R
 
