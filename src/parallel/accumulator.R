@@ -138,10 +138,10 @@ parallel$get.cluster.accum <- function(system.type,
                                         maxNumJobs       = accum$.jobsLimit)$failingcommands
         }
 
+        prevFailingCount = Inf
+        failing = localf(clusterCommands = accum$.clusterCommands)
         if(retryFailing)
         {
-            prevFailingCount = Inf
-            failing = localf(clusterCommands = accum$.clusterCommands)
             while(length(failing)>0 && length(failing)<prevFailingCount)
             {
                 print(paste0("failures:", length(failing)))
@@ -253,7 +253,7 @@ parallel$.getOutput <- function(outfile)
 
 
 ##TODO: move mclapply stuff to another file
-parallel$get.mc.accum <- function(func, mc.cores, otherGlobals = list(), batchSize=100*mc.cores)
+parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), batchSize=100*mc.cores)
 {
     accum = new.env(hash=T)
     accum$ready = F

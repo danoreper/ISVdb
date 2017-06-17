@@ -17,12 +17,12 @@ f = function(x,y)
 tmpdir = "./job.tmp/"
 
 ##system.type = "longleaf"
-##system.type = "mc"
-system.type = "killdevil"
+system.type = "mc"
+##system.type = "killdevil"
 
 if(system.type == "mc")
  {
-     accum = parallel$get.mc.accum(func = f, mc.cores = 1, otherGlobals = list(y=100))
+     accum = parallel$get.mc.accum(func = f, mc.cores = 1, sharedVariables = list(y=100))
  } else {
 
      accum = parallel$get.cluster.accum(system.type       = system.type,
@@ -49,6 +49,7 @@ for(i in 1:30)
 
 outputs = accum$runAll()
 
+browser()
 
 
 print("getAllOutputs")
