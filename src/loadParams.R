@@ -12,10 +12,16 @@ for (aname in ls(prop))
 }
 
 ##intentionally in global scope for ease of typing as its everywhere
-dat = function(x)
+dat = function(...)
 {
-    file.path(prop$data, x)
+    file.path(prop$data, ...)
 }
 
+outf = function(...)
+{
+    apath = file.path(prop$output, ...)
+    dir.create(dirname(apath), recursive = T, showWarnings = F)
+    return(apath)
+}
 fp = file.path
 rm("aname")

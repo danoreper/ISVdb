@@ -70,7 +70,6 @@ bsub$get.bsub.accumulator <- function(funcFile, bsubCommand,
 
     accumulator$runAll <- function()
     {
-
         logdir = fp(outdir, "bsub.outfiles")
 
         prevFailingCount = Inf
@@ -234,7 +233,6 @@ bsub$lapply.wrapper <- function(inds, FUN, batchSize = 10*mc.cores, mc.cores, ..
 ##see if this is so. Sleeps rest of the time, so probably ok to run on the cluster
 bsub$submitCommands <- function(bsubCommand, quantCommands, sleepCheck=NULL, bsuboutdir = NULL, batchSize = 1)
 {
-
     len = length(quantCommands)
     indexGroups = util$getIndexGroupsForLen(len, batchSize)
 
@@ -266,7 +264,7 @@ bsub$submitCommands <- function(bsubCommand, quantCommands, sleepCheck=NULL, bsu
             if(!file.exists(outfile))
             {
                 print("job failed!")
-                print(submitted.jobs[[jobname]])
+##                print(submitted.jobs[[jobname]])
                 
                 failingcommands = c(failingcommands, submitted.jobs[[jobname]])
                 failingjobs     = c(failingjobs, jobname)
@@ -324,7 +322,8 @@ bsub$run.single.bsub <- function(bsubCommand, jobname, quantcommandset, outputlo
                         " \"  ",
                         paste(quantcommandset, collapse="; "),
                         " \" ")
-    cat(fullcommand)
+    ## cat(fullcommand)
+    ## browser()
     system(fullcommand)
 }
 

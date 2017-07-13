@@ -4,8 +4,6 @@ library(data.table)
 
 db_builder = new.env(hash=T)
 
-
-
 db_builder$get.db.lite <- function(dbdir)
 {
 
@@ -18,6 +16,7 @@ db_builder$get.db.lite <- function(dbdir)
     dblite$temp      = fp(dbdir, "temp") ##db_builder$getInstance(fp(dbdir, "temp") #fp(dbdir, temp)
     dir.create(dblite$temp, showWarnings = F, recursive = T)
 
+    
     dblite$get.temp.dir <- function(subdir=NULL)
     {
         if(is.null(subdir))
@@ -29,7 +28,8 @@ db_builder$get.db.lite <- function(dbdir)
             return(adir)
         }
     } 
-        
+
+    
     dblite$iterate <- function(type = "genotype",
                                parseFunc,
                                strain1s= dblite[[type]]$getStrains(), 
@@ -55,7 +55,6 @@ db_builder$get.db.lite <- function(dbdir)
         }
         outs = accum$runAll()
         
-        
         if(iterator)
         {
             stop("unimplemented")
@@ -80,38 +79,130 @@ db_builder$get.db.lite <- function(dbdir)
         return(outs)
     }
 
-    dblite$.callparse <- function(parseFunc, strain1, strain2, chr, type)
-    {
 
-        if(is.na(strain2))
+    dblite$.callparse <- function(parseFunc, strain1, strain2=NULL, chr, type)
+    {
+        df = dblite$read(strain1 = strain1, strain2=strain2, chr=chr, type=type)
+        if(is.null(strain2))
         {
-            inst = dblite[[type]]
-            df =  inst$read(strain1, chr)
             out = parseFunc(strain1, chr, df)
         } else {
-            inst = dblite[[paste0(type,"Sampling")]]
-            df1 =  inst$read(strain1, chr)
-            df2 =  inst$read(strain2, chr)
-
-            if(type=="genotype")
-            {
-                setkey(df1, "variant_id", "transcript_id")
-                setkey(df2, "variant_id", "transcript_id")
-            } else if (type=="diplotype")
-            {
-                setkey(df1, "variant_id")
-                setkey(df2, "variant_id")
-            }
-            
-            df = df1[df2, prob:=prob*i.prob]
-            df[,i.prob:=NULL]
-            df[,i.pos:=NULL]
-            df[,i.transcript_name:=NULL]
-            df[,i.gene_name:=NULL]
-            browser()
-            out = parseFunc(strain1, strain2, chr, df) 
+            out = parseFunc(strain1, strain2, chr, df)
         }
         return(out)
+    }
+    
+    dblite$read <- function(strain1, strain2=NULL, chr, type, storeKnownFields = T, phased=NULL)
+    {
+        if(is.null(strain2)&&!is.null(phased))
+        {
+            stop("phase only has meaning if we are crossing two strains")
+        }
+
+        if(!is.null(strain2) &is.null(phased))
+        {
+            stop("assign a value to 'phased' if crossing two strains.")
+        }
+        
+        if(is.null(strain2))
+        {
+            inst = dblite[[type]]
+            df =  inst$read(strain1, chr, storeKnownFields)
+        } else {
+            funcname = paste0(".read", type, "Pair")
+            df   = dblite[[funcname]](strain1, strain2, chr, storeKnownFields, phased) 
+        }
+        return(df)
+    }
+
+    dblite$.readgenotypePair <- function(strain1, strain2, chr, storeKnownFields, phased = NULL)
+    {
+        inst = dblite[[paste0("genotype","Sampling")]]
+        df1 =  inst$read(strain1, chr, storeKnownFields=F)
+        df2 =  inst$read(strain2, chr, storeKnownFields=F, select =c("variant_id", "transcript_name", "allele", "consequence", "prob"))
+        setnames(df1, c("allele","consequence"),  c("allele1", "consequence1"))
+        setnames(df2, c("allele","consequence"),  c("allele2", "consequence2"))
+        
+        tojoinback = unique(df1[,c("variant_id", "transcript_name", "pos","gene_name")])
+        df1[,pos:=NULL]
+        df1[,gene_name:=NULL]
+        
+        df = df1[df2, on=c("variant_id", "transcript_name"), allow.cartesian=T]
+        df[,prob:=prob*i.prob]
+        df[,i.prob:=NULL]
+
+        for(cname in c("allele1", "allele2", "consequence1", "consequence2"))
+        {
+            df[[cname]] = as.character(df[[cname]])
+        }
+
+        if(is.null(phased) | !phased)
+        {
+            correctOrder = df$allele1 <= df$allele2
+            
+            tmp = df$allele1
+            df$allele1[!correctOrder] = df$allele2[!correctOrder]
+            df$allele2[!correctOrder] = tmp[!correctOrder]
+            
+            tmp = as.character(df$consequence1)
+            df$consequence1[!correctOrder] = df$consequence2[!correctOrder]
+            df$consequence2[!correctOrder] = tmp[!correctOrder]
+            
+        }
+
+        df = df[,list(consequence1 = consequence1[1], consequence2 = consequence2[1], prob=sum(prob)),
+                by=c("variant_id", "transcript_name", "allele1", "allele2")]
+        
+        df = tojoinback[df, on=c("variant_id","transcript_name"), allow.cartesian=T]
+        
+        if(storeKnownFields)
+        {
+            df[,strain1:=strain1]
+            df[,strain2:=strain2]
+            df[,chr:= chr]
+        }
+        ordering = c("strain1", "strain2", "variant_id", "chr", "pos", "transcript_name", "gene_name", "allele1", "allele2", "consequence1", "consequence2", "prob")
+        newInds = match(ordering, colnames(df))
+        newInds = na.omit(newInds)
+        df = df[,colnames(df)[newInds],with=F]
+        return(df)
+    }
+
+    dblite$.readdiplotypePair <- function(strain1, strain2, chr, storeKnownFields, phased = NULL)
+    {
+        inst = dblite[[paste0("diplotype","Sampling")]]
+        df1 =  inst$read(strain1, chr, storeKnownFields=F)
+        df2 =  inst$read(strain2, chr, storeKnownFields=F)
+        
+        setnames(df1, "founder", "founder1")
+        setnames(df2, "founder", "founder2")
+        
+        tojoinback = unique(df1[,c("variant_id", "pos")])
+        
+        df = df1[df2, on=c("variant_id","gene_name"), allow.cartesian=T]
+        df[,prob:=prob*i.prob]
+        df[,i.prob:=NULL]
+        
+        if(is.null(phased) | !phased)
+        {
+            df[,tmp:=founder1]
+            df[,founder1:=pmin(as.character(founder1), as.character(founder2))]
+            df[,founder2:=pmax(as.character(tmp), as.character(founder2))]
+        }
+        df = df[,list(prob=sum(prob)), by=c("variant_id", "gene_name", "founder1", "founder2")]
+        df = df[tojoinback, on="variant_id", allow.cartesian=T]
+        
+        if(storeKnownFields)
+        {
+            df[,strain1:=strain1]
+            df[,strain2:=strain2]
+            df[,chr:= chr]
+        }
+        ordering = c("strain1", "strain2", "variant_id", "chr", "pos", "gene_name", "founder1", "founder2","prob")
+        newInds = match(ordering, colnames(df))
+        newInds = na.omit(newInds)
+        df = df[,colnames(df)[newInds],with=F]
+        return(df)
     }
 
     return(dblite)
@@ -234,7 +325,7 @@ db_builder$getInstance <- function(tabledir)
         }
     }
     
-    inst$read <- function(strain, chr, zipped=T, select=NULL)
+    inst$read <- function(strain, chr, zipped=T, select=NULL, storeKnownFields = T)
     {
         readargs = list(stringsAsFactors= T, skip=1, sep = inst.sep, showProgress = F)
         fle = inst$getfile(strain, chr, zipped = zipped)
@@ -243,7 +334,11 @@ db_builder$getInstance <- function(tabledir)
 
         print(paste(strain, chr))
         df = do.call(fread, readargs)
-
+        if(storeKnownFields)
+        {
+            df$strain = strain
+            df$chr     = chr
+        }
         return(df)
     }
 

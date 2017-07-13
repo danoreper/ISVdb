@@ -27,7 +27,7 @@ for(i in 1:length(funcArgs))
 {
     argz = c(funcArgs[[i]], otherGlobals)
     clusterOut[[i]] = try(do.call(func, argz))
-    if(class(clusterOut[[i]])=="try-error")
+    if(length(clusterOut[[i]])==1 && class(clusterOut[[i]])=="try-error")
     {
         failed = c(failed, i)
     }

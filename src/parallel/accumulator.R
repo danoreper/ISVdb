@@ -111,7 +111,6 @@ parallel$get.cluster.accum <- function(system.type,
         force(funcArgs)
 
         ##TODO: change the script to use -P in front of the prop file? or perhaps encode the propFile into the infile, rather than the prop? Or remove the prop?
-
         save(file = inFile, list = c("outFile","failFile", "funcArgs",  "funcFile", "prop", "filesToSource"))
         command = paste0(commandRoot, " ", propFile, " -I",inFile, "' ",clusterScript, " ", routFile)
 ##        print(command)
@@ -127,15 +126,16 @@ parallel$get.cluster.accum <- function(system.type,
         
         localf = function(clusterCommands)
         {
+  
             clusterCommands =
                 parallel$.submitCommands(jobSystem        = accum$.jobSystem,
-                                        jobSubmitCommand = accum$.jobSubmitCommand,
-                                        clusterCommands  = clusterCommands,
-                                        sleepCheck       = accum$.sleepCheck,
-                                        cluster.outdir   = fp(accum$.outdir, "jobsubmit.outfiles"),
-                                        outdir           = fp(accum$.outdir),
-                                        batchSize        = accum$.batchSize,
-                                        maxNumJobs       = accum$.jobsLimit)$failingcommands
+                                         jobSubmitCommand = accum$.jobSubmitCommand,
+                                         clusterCommands  = clusterCommands,
+                                         sleepCheck       = accum$.sleepCheck,
+                                         cluster.outdir   = fp(accum$.outdir, "jobsubmit.outfiles"),
+                                         outdir           = fp(accum$.outdir),
+                                         batchSize        = accum$.batchSize,
+                                         maxNumJobs       = accum$.jobsLimit)$failingcommands
         }
 
         prevFailingCount = Inf
@@ -429,8 +429,13 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
     {
         jobname = names(submitted.jobs)[[i]]
         outfile = parallel$.getOutLogFile(cluster.outdir,jobname)
+
+        failedBatch =
+            (!file.exists(outfile) && jobSystem$thename == "killdevil") ||
+            (!file.exists(parallel$.getDefaultOutputFile(cluster.outdir, jobname)) && jobSystem$thename == "longleaf")
         
-        if(!file.exists(outfile))
+        
+        if(failedBatch)
         {
             print("********************")
             print("Failed entire batch, no outfile:")
