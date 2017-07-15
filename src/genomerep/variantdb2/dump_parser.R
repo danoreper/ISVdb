@@ -406,6 +406,7 @@ db_builder$toWideMappingFormat <- function(df, normalize = T)
         ##Cast to wide format.
         dw = dcast.data.table(df, strain1 + strain2 + variant_id + chr + pos + gene_name ~ diplo, value.var = "prob")
 
+
         ##replace resulting NAs from cast with 0 (most diplotypes never happen at a given variant position)
         for (i in colnames(dw))
         {
@@ -417,7 +418,7 @@ db_builder$toWideMappingFormat <- function(df, normalize = T)
         tofill = setdiff(cnames, colnames(dw))
         dw[,tofill]=0
 
-        ##If we dont care about keeping track of missing probabilities, and just want the diplotype colz to sum (almost exactly) to 0
+        ##If we dont care about keeping track of missing prob, and just want the diplotype colz to sum (almost exactly) to 0
         if(normalize)
         {
             nrm = rowSums(dw[,cnames, with = F])
