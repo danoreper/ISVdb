@@ -4,6 +4,7 @@ library(data.table)
 
 db_builder = new.env(hash=T)
 
+
 db_builder$get.db.lite <- function(dbdir)
 {
 
@@ -378,11 +379,54 @@ db_builder$getInstance <- function(tabledir)
 
 
 
-    ## command = paste0("tar -xzvf ", chrfl.long.tgz, " -C ", straindir)
-    ## print(command)
-    ## system(command)
+db_builder$toWideMappingFormat <- function(df, normalize = T)
+{
+    geno = "allele1" %in% colnames(df)
+
+    if(geno)
+    {
+        stop("not yet implemented")
+    } else {
+
+        ##a lookup table to convert fullnames to abbreviations
+        founders = fread(dat(prop$genome$foundersMap))
+        setkey(founders, "founder")
+        
+        ##create a diplotype that is abbreviated and joined
+        df[,diplo:=paste(founders[as.character(df$founder1)]$abbreviation,
+                         founders[as.character(df$founder2)]$abbreviation,
+                         sep = ".")]
+        
+        ##remove rows that are the same variant and diplotype, but different genes-- merge the gene names, split by semicolon
+        df = df[, list(prob = prob[1], gene_name=paste(gene_name, collapse = ";")), by = c("variant_id", "pos", "diplo")]
+
+        ##Cast to wide format.
+        dw = dcast.data.table(df, variant_id + pos + gene_name ~ diplo, value.var = "prob")
+
+        ##replace resulting NAs from cast with 0 (most diplotypes never happen at a given variant position)
+        for (i in colnames(dw))
+        {
+            dw[is.na(get(i)), (i):=0]
+        }
+
+        ## get set of all possible pairs of founders; we are going to add columns of 0's for diplotypes that never happen anywhere
+        cnames = paste(rep(LETTERS[1:8], each = 8), rep(LETTERS[1:8], times = 8), sep=".")
+        tofill = setdiff(cnames, colnames(dw))
+        dw[,tofill]=0
+
+        ##If we dont care about keeping track of missing probabilities, and just want the diplotype colz to sum (almost exactly) to 0
+        if(normalize)
+        {
+            nrm = rowSums(dw[,cnames, with = F])
+            dw[,cnames] = dw[,cnames,with = F]/nrm
+        }
+        
+        ##for ease of reading, set the column order
+        colorder = c("variant_id", "pos", "gene_name", cnames)
+        setcolorder(dw, colorder)
+        
+        return(dw)
+    }
     
-    ## if(zipped)
-    ## {
-    
-    ## }
+}
+
