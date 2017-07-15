@@ -381,6 +381,8 @@ db_builder$getInstance <- function(tabledir)
 
 db_builder$toWideMappingFormat <- function(df, normalize = T)
 {
+
+    
     geno = "allele1" %in% colnames(df)
 
     if(geno)
@@ -398,10 +400,11 @@ db_builder$toWideMappingFormat <- function(df, normalize = T)
                          sep = ".")]
         
         ##remove rows that are the same variant and diplotype, but different genes-- merge the gene names, split by semicolon
-        df = df[, list(prob = prob[1], gene_name=paste(gene_name, collapse = ";")), by = c("variant_id", "pos", "diplo")]
+        df = df[, list(prob = prob[1], gene_name=paste(gene_name, collapse = ";")),
+                by = c("strain1", "strain2", "variant_id", "chr", "pos", "diplo")]
 
         ##Cast to wide format.
-        dw = dcast.data.table(df, variant_id + pos + gene_name ~ diplo, value.var = "prob")
+        dw = dcast.data.table(df, strain1 + strain2 + variant_id + chr + pos + gene_name ~ diplo, value.var = "prob")
 
         ##replace resulting NAs from cast with 0 (most diplotypes never happen at a given variant position)
         for (i in colnames(dw))
@@ -422,7 +425,7 @@ db_builder$toWideMappingFormat <- function(df, normalize = T)
         }
         
         ##for ease of reading, set the column order
-        colorder = c("variant_id", "pos", "gene_name", cnames)
+        colorder = c("strain1", "strain2", "variant_id", "chr", "pos", "gene_name", cnames)
         setcolorder(dw, colorder)
         
         return(dw)

@@ -21,12 +21,12 @@ chr = "7"
 crosses = list()
 for(i in 1:length(strain1s))
 {
+    print(paste0("cross", i))
     strain1 = strain1s[i]
     strain2 = strain2s[i]
 
     cross = db$read(strain1 = strain1, strain2 = strain2, type = "diplotype", phased = T, chr = chr)
     cross_wide = db_builder$toWideMappingFormat(cross)
-    browser()
     crosses[[i]] = cross_wide
 }
     
