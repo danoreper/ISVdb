@@ -186,10 +186,21 @@ db_builder$get.db.lite <- function(dbdir)
         
         if(is.null(phased) | !phased)
         {
-            df[,tmp:=founder1]
-            df[,founder1:=pmin(as.character(founder1), as.character(founder2))]
-            df[,founder2:=pmax(as.character(tmp), as.character(founder2))]
+            founders = fread(dat(prop$genome$foundersMap))
+            setorder(founders, "abbreviation")
+            df$founder1 = factor(df$founder1, levels = founders$founder)
+            df$founder2 = factor(df$founder2, levels = founders$founder)
+            correctOrder = as.integer(df$founder1) <= as.integer(df$founder2)
+
+            df$founder1 = as.character(df$founder1)
+            df$founder2 = as.character(df$founder2)
+            tmp = as.character(df$founder1)
+            
+            df$founder1[!correctOrder] = df$founder2[!correctOrder]
+            df$founder2[!correctOrder] = tmp[!correctOrder]
+
         }
+        
         df = df[,list(prob=sum(prob)), by=c("variant_id", "gene_name", "founder1", "founder2")]
         df = df[tojoinback, on="variant_id", allow.cartesian=T]
         
