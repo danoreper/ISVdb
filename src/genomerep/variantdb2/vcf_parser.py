@@ -284,7 +284,10 @@ class DiploParsing:
             if mleDiplotype=="./.":
                 values.append([founder, None, None, 1])
             elif all([x == "." for x in gps]):
-                values.append([founder, None, None, 1])
+		if mleDiplotype!="0/0":
+			values.append([founder, None, None, 1])
+		else:
+                	values.append([founder, 0, 0, 1])
 
             else:
                 probs = self.getProbs(gps)
