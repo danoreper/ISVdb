@@ -34,7 +34,8 @@ db_builder$get.db.lite <- function(dbdir)
     dblite$iterate <- function(type = "genotype",
                                parseFunc,
                                strain1s= dblite[[type]]$getStrains(), 
-                               strain2s= NA,
+                               strain2s= NULL,
+                               phased = F,
                                chrs = dblite[[type]]$getChrs(strain1s[1]),
                                select = NULL,
                                zipped = T,
@@ -81,9 +82,22 @@ db_builder$get.db.lite <- function(dbdir)
     }
 
 
-    dblite$.callparse <- function(parseFunc, strain1, strain2=NULL, chr, type)
+    dblite$.callparse <- function(parseFunc,
+                                  strain1,
+                                  strain2=NULL,
+                                  phased= NULL,
+                                  chr,
+                                  type)
     {
-        df = dblite$read(strain1 = strain1, strain2=strain2, chr=chr, type=type)
+        if(is.null(phased))
+        {
+            if(!is.null(strain2))
+            {
+                phased = T
+            }
+        }
+
+        df = dblite$read(strain1 = strain1, strain2=strain2, phased = phased, chr=chr, type=type)
         if(is.null(strain2))
         {
             out = parseFunc(strain1, chr, df)
@@ -100,6 +114,7 @@ db_builder$get.db.lite <- function(dbdir)
             stop("phase only has meaning if we are crossing two strains")
         }
 
+        
         if(!is.null(strain2) &is.null(phased))
         {
             stop("assign a value to 'phased' if crossing two strains.")
@@ -108,7 +123,7 @@ db_builder$get.db.lite <- function(dbdir)
         if(is.null(strain2))
         {
             inst = dblite[[type]]
-            df =  inst$read(strain1, chr, storeKnownFields)
+            df =  inst$read(strain = strain1, chr = chr, storeKnownFields = storeKnownFields)
         } else {
             funcname = paste0(".read", type, "Pair")
             df   = dblite[[funcname]](strain1, strain2, chr, storeKnownFields, phased) 
@@ -233,8 +248,6 @@ db_builder$getInstance <- function(tabledir)
         unlink(tabledir, recursive = T)
         dir.create(tabledir, showWarnings = F, recursive = T)
     }
-
-
     
     
     inst$iterate <- function(parseFunc,

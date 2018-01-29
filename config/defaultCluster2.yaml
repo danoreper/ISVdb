@@ -1,6 +1,6 @@
 output: ../output/
 tmpdir: ../output/tmp
-onCluster: yes #yes
+onCluster: yes
 
 genome:
   vcfDir: vcf/rel1504/
@@ -42,7 +42,7 @@ variantdb:
 
   exon:
     name: exon_1504
-    rebuildVCF: no
+    rebuildVCF: yes
     rebuildFounder: yes
     rebuildCC: yes
 

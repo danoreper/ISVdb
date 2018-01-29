@@ -134,7 +134,7 @@ buildVariantDb$buildSingleVariantDb <- function(db,
     ##build an accumulator for parallelizing jobs
     accum = getIterAccumulator()
     ##accum = bsub$get.stub.accum()
-
+    
     ##Rebuild founder genotypes
     pracma::tic()
     if(rebuildFounder)
@@ -185,7 +185,6 @@ buildVariantDb$buildSingleVariantDb <- function(db,
 
 buildVariantDb$updateFounderVariantIDs <- function(db, founders)
 {
-
     chrsToCheck =  db$genotype$getChrs()
     maxv = unlist(db$iterate("genotype", parseFunc = function(strain,chr, df){max(df$variant_id)},
                              strain1s = "C57BL6J", chrs = chrsToCheck, select = "variant_id"))
@@ -240,6 +239,7 @@ buildVariantDb$buildFounderGenotypes <- function(db,
     ##Filter vcf to only include chromosome. If ranges are specified, filter the vcf to only those ranges.
     print("filtering vcf")
 
+ 
     vcftargetdir   = db$get.temp.dir(fp("vcf",paste0("chr_",chr)))
     pracma::tic()
     if(rebuildVCF)
@@ -375,7 +375,17 @@ buildVariantDb$build_CC_info <- function(db,
         melted$founder_2 = pmax(id1, id2)
         melted = melted[,c("variant_id", "founder_1", "founder_2", "prob"), with = F]
         setkey(melted, "variant_id")
+        
         melted = genez.df[melted, allow.cartesian = T]
+
+        if(length(unique(melted$strain))>1|length(unique(melted$chr))>1)
+        {
+            browser()
+            stop("these columns should be redundant and thus removable.")
+        }
+        melted$strain = NULL
+        melted$chr = NULL
+        
         setcolorder(melted, c("variant_id", "pos", "founder_1", "founder_2", "prob", "gene_name"))
         assignMax(melted, c("variant_id", "gene_name"))
         return(melted)
@@ -398,6 +408,8 @@ buildVariantDb$build_CC_info <- function(db,
 
         allfounders[,isMax:=NULL]
         gt.founder.sampling = getSamplingTable(allfounders, c("allele", "consequence"), c("strain","variant_id","transcript_name","allele"))
+        ##TODO consider removing
+        gt.founder.sampling$chr = NULL
         return(gt.founder.sampling)
         ##return(dfs)
     }
@@ -427,7 +439,7 @@ buildVariantDb$build_CC_info <- function(db,
         gt2[,prob:=prob*i.prob]
         gt2[,i.prob:=NULL]
         gt2[,strain:=NULL]
-        
+
         setnames(gt2,
                  old = c("allele", "i.allele", "consequence", "i.consequence"),
                  new = c("allele_1", "allele_2", "consequence_1", "consequence_2"))
@@ -524,6 +536,9 @@ buildVariantDb$build_CC_info <- function(db,
         dp.founder$founder_2 = founder
         dp.founder$prob      = 1
         dp.founder$isMax     = 1
+        ##TODO does it work?
+        dp.founder$strain=NULL
+        dp.founder$chr=NULL
         setcolorder(dp.founder, c("variant_id", "pos", "founder_1", "founder_2", "prob", "isMax", "gene_name"))
         db$diplotype$write(strain=founder, chr=chr, df = dp.founder, zipped = T)
 
