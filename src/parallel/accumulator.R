@@ -7,6 +7,25 @@ parallel = new.env(hash=T)
 
 unlink(".RData")
 
+parallel$useCluster <- function(parallelArgs)
+{
+    usecluster = !is.null(parallelArgs$system.type)&&parallelArgs$system.type %in% c("longleaf", "killdevil")
+    return(usecluster)
+}
+
+parallel$getDefaultLocalArgs <- function()
+{
+    return(list(mc.cores =1))
+}
+
+parallel$getAccum <- function(arglist)
+{
+    notlocal = parallel$useCluster(arglist)
+    f = parallel$get.mc.accum
+    if(notlocal){f = parallel$get.cluster.accum}
+    out = do.call(f, arglist)
+}
+
 parallel$get.cluster.accum <- function(system.type,       
                                        func,
                                        sharedVariables        = list(),
@@ -20,10 +39,56 @@ parallel$get.cluster.accum <- function(system.type,
                                        systemOpts             = c(),
                                        outdir                 = fp("./job.tmp"),
                                        retryFailing           = F,
-                                       saveProp               = F)
+                                       saveProp               = T)
 {
+    ## Creates an 'accumulator' object that accumulates calls, deploys them across cluster nodes.
+## This is like creating an object which will do the map part of map-reduce. The reduce functionality is elsewhere
+## Args:  
+##   system.type: a string, either "killdevil" or "longleaf"
+##
+##   func: the function which is going to be called repeatedly for different arguments.
+##
+##   sharedVariables: a list of the named arguments to 'func' which are shared accross invocations of func;
+##                    the intent is to avoid saving and loading big things like data frames many times,
+##                    when it only needs to be done once. This can speed things up a lot.
+##
+##   filesToSource: a vector of paths (relative to ./src/) to R files;
+##                  whatever R files func depends on
+##                  (including at a minimum, the file func is originally defined in) must be included here.
+##
+##   batchSize: the number of calls which will be batched on a single node
+##
+##   timeLimit.hours: the amount of time in hours allocated in the cluster per job.
+##
+##   coresPerJob:     the number of cores that will be used per job
+##
+##   maxSimulJobs:    A buffering parameter, which doesnt allow any more than maxSimulJobs to
+##                    be submit at the same time. It will slowly submit more jobs as old ones are finished
+##                    Primary intent is to avoid overwhelming the bsub/slurm queue and angering cluster admin
+##
+##   systemOpts: longleaf (slurm) and killdevil (lsf) have additional optional submit params. Add them as a vector of strings here.
+##
+##   outdir: the folder where temporary files are serialized and deserialized to facilitate job submission and collation
+##
+##   retryFailing: Sometimes, we run jobs which are known to occasionally randomly fail.
+##                 If it is desired to simply try running the job again automatically, set this to T.
+##
+##   saveProp:     Leave this alone for now.
+##
+## Returns:
+##   An accumulator object with, addCall, runAll, getAllOutputs, getOutputIterator methods.
+##   Use accum$addCall to queue up jobs for parallelization,
+##       accum$runAll to kick off the jobs once all calls have been added.
+##       accum$getOutputs to load ALL outputs into memory at once, once runAll has been called
+##       accum$getOutputIterator to load outputs into memory one at a time once runAll
+##             has been called (see that method for more detail)
+##
+##
+## See ./parallel/accum.example.R for examples.
+    
+    
     ##Consider getting rid of these as arguements to change.... probably a good idea to package them up into a class like thing, including the script.
-
+    
     getInFile     = parallel$.getDefaultInputFile
     getOutFile    = parallel$.getDefaultOutputFile
     getFailFile   = parallel$.getDefaultFailFile
@@ -36,7 +101,11 @@ parallel$get.cluster.accum <- function(system.type,
     accum$.jobSubmitCommand = accum$.jobSystem$getSubmitCommand(time.hours = timeLimit.hours,
                                                                 numProcessPerNode = coresPerJob,
                                                                 memoryLimit.GB = cpuMemLimit.GB)
-    if(!is.null(systemOpts)) {accum$.jobSubmitCommand = paste(accum$.jobSubmitCommand, paste(systemOpts, collapse = " "))}   
+
+    if(!is.null(systemOpts))
+    {
+        accum$.jobSubmitCommand = paste(accum$.jobSubmitCommand, paste(systemOpts, collapse = " "))
+    }   
     
     accum$.sleepCheck=15
     accum$.filesToSource = filesToSource
@@ -47,8 +116,15 @@ parallel$get.cluster.accum <- function(system.type,
 
     accum$.currentBatchArgs = list()
     accum$.clusterCommands = c()
-    funcname = as.character(substitute(func))
-    funcname = funcname[length(funcname)]
+   
+    funcname = try(as.character(substitute(func)))
+    if(class(funcname)=="try-error")
+    {
+        funcname = "anonf"
+    } else {
+        funcname = funcname[length(funcname)]
+    }
+    
     x = fp(outdir, paste0(tempdir(), "_",funcname ,"_", parallel$.get.start()))
     accum$.outdir = x
 
@@ -57,12 +133,21 @@ parallel$get.cluster.accum <- function(system.type,
     accum$.batchLengths = c()
     accum$.funcFile = fp(accum$.outdir, "func.RData")
     otherGlobals = sharedVariables
+
     save(list=c("func","otherGlobals"), file = accum$.funcFile)
     
     accum$.ready =  T
     
     accum$addCall <- function(funcArgs, propObj=NULL)
     {
+        ## Args:
+        ##      Add function calls to be submitted to the job accumulator.
+        ##
+        ##      funcArgs: a named list of the arguments to func which change from call to call;
+        ##                i.e., don't include the sharedVariables which were defined when accumulator was created
+        ##      propObj: leave this alone for now.
+        ##
+
         if(!accum$.ready)
         {
             stop("create a new accumulator, this one has already been run.")
@@ -86,7 +171,6 @@ parallel$get.cluster.accum <- function(system.type,
     
     accum$.save.current.batch <- function()
     {
-        
         if(length(accum$.currentBatchArgs)==0)
         {
             return()
@@ -110,10 +194,12 @@ parallel$get.cluster.accum <- function(system.type,
         filesToSource = accum$.filesToSource
         force(funcArgs)
 
-        ##TODO: change the script to use -P in front of the prop file? or perhaps encode the propFile into the infile, rather than the prop? Or remove the prop?
-        save(file = inFile, list = c("outFile","failFile", "funcArgs",  "funcFile", "prop", "filesToSource"))
         command = paste0(commandRoot, " ", propFile, " -I",inFile, "' ",clusterScript, " ", routFile)
-##        print(command)
+        ##TODO: change the script to use -P in front of the prop file? or perhaps encode the propFile into the infile, rather than the prop? Or remove the prop?
+
+        save(file = inFile, list = c("outFile","failFile", "funcArgs",  "funcFile", "prop", "filesToSource", "command"))
+       
+        print(command)
         accum$.clusterCommands <<- c(accum$.clusterCommands, command)
         accum$.batchLengths = c(accum$.batchLengths, length(accum$.currentBatchArgs))
         accum$.currentBatchArgs <<-list()
@@ -121,6 +207,12 @@ parallel$get.cluster.accum <- function(system.type,
     
     accum$runAll <- function()
     {
+        ## Runs all the jobs that have been queued up in the accumulator.
+        ## Requires addCall to have been called first
+        ##
+        ## Return a list of output files, containing in their totality all the results. when batchsize>1,
+        ## More than one result is stored per file.
+        ## 
         print(paste0("running all jobs; temp files for debugging stored in ", accum$.outdir))
         accum$.save.current.batch()
         
@@ -153,21 +245,55 @@ parallel$get.cluster.accum <- function(system.type,
         outfiles = getOutFile(accum$.outdir, 1:length(accum$.clusterCommands)) 
         accum$.ready <<- F
 
+        ##print("returning outfiles")
         return(outfiles)
     }
 
+    
     accum$getOutputIterator <- function(outputs)
     {
+        ## Creates an iterator for walking over the results of runAll, one at a time.
+        ## Primarily useful when loading all results at once is too memory intesnive.
+        ## Otherwise, just use getAllOutputs
+        ##
+        ## Args:
+        ##    Outputs: the output from calling runAll.
+        ##
+        ## Returns:
+        ##    An environment with 2 methods: nextItem, and hasNext
+        ##
+        ## When nextItem() is called, the iterator returns the next output, and moves one forward
+        ## along the list of results.
+        ## hasNext() checks as to whether there are any more results to return
+        ## e.g., do something like this:
+        ##
+        ## iter = accum$getOutputIterator(outputs)
+        ## while(iter$hasNext())
+        ## {
+        ##      item = iter$nextItem()
+        ##      print(item)
+        ## }
+        ##
+        ## See parallel/accum.example.R for further detail
+
+        
         i  = 1
         j  = 1
-        batch.i = parallel$.getOutput(outputs[[i]])
+        batch.i = try(parallel$.getOutput(outputs[[i]]))
+        if(class(batch.i)=="try-error") {print(paste0("failed on (",i,",",j,")"))}
         batchlen.i = accum$.batchLengths[i]
 
         iter = new.env(hash=T)
 
         iter$nextItem <- function()
         {
-            out     = batch.i[[j]]  
+            if(class(batch.i)!="try-error")
+            {
+                out     = batch.i[[j]]
+            } else {
+                print(paste0("skipping (",i,",",j,")"))
+                out = try(stop("nofile", call.=F))
+            }
             j <<- j + 1
             if(j>batchlen.i)
             {
@@ -181,7 +307,8 @@ parallel$get.cluster.accum <- function(system.type,
                     return(out)
                 }
 
-                batch.i <<- parallel$.getOutput(outputs[[i]])
+                batch.i <<- try(parallel$.getOutput(outputs[[i]]))
+                if(class(batch.i)=="try-error") { print(paste0("failed on (",i,",",j,")"))}
                 batchlen.i <<- accum$.batchLengths[i]
             }
             return(out)
@@ -253,7 +380,7 @@ parallel$.getOutput <- function(outfile)
 
 
 ##TODO: move mclapply stuff to another file
-parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), batchSize=100*mc.cores)
+parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), mclBatch=100*mc.cores)
 {
     accum = new.env(hash=T)
     accum$ready = F
@@ -289,8 +416,8 @@ parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), batc
         {
             browser()
         }
-        out = parallel$lapply.wrapper(inds, FUN = accum$.funcWrapper, batchSize = batchSize, mc.cores = mc.cores)
-        print("ranall")
+        out = parallel$lapply.wrapper(inds, FUN = accum$.funcWrapper, mclBatch = mclBatch, mc.cores = mc.cores)
+##        print("ranall")
         accum$ready = F
         return(out)
     }
@@ -350,19 +477,24 @@ parallel$get.mc.accum <- function(func, mc.cores, sharedVariables = list(), batc
 ##TODO move lapply stuff to a separate file
 ##FUN must take as its first argument a vector of indexes
 ##and grab the relevant portion of whatever the additional arguments are
-parallel$lapply.wrapper <- function(inds, FUN, batchSize = 10*mc.cores, mc.cores, ...)
+parallel$lapply.wrapper <- function(inds, FUN, mclBatch = 10*mc.cores, mc.cores, ...)
 {
     if(mc.cores==1)
     {
-        
-        results = lapply(X=inds, FUN=FUN, ...)
+        results = list()
+        for(i in 1:length(inds))
+        {
+            print(i)
+            results[[i]] = FUN(inds[[i]], ...)
+        }
+        ##results = lapply(X=inds, FUN=FUN, ...)
         return(results)
     } 
     else 
     {
         ##Split into batches to allow mclapply to work properly, it doesn't garbage collect well.
         ##function call returns a list of lists of indexes, splitting up inds into indexes of length batch size
-        indexGroups = util$getIndexGroupsForInds(inds, batchSize) 
+        indexGroups = util$getIndexGroupsForInds(inds, mclBatch) 
 
         results = list()
         for(i in 1:length(indexGroups))
@@ -396,6 +528,7 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
     submitted.jobs = list()
     for(i in 1:length(clusterCommands))
     {
+        
         while(jobSystem$countActiveJobs(names(submitted.jobs))>=maxNumJobs)
         {
             numActive = jobSystem$countActiveJobs(names(submitted.jobs))
@@ -405,10 +538,11 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
         
         jobname        = paste0(start.time, ".", i)
         submitted.jobs[[jobname]] = clusterCommands[i]
-
+        
         jobSystem$run.single.job(jobSubmitCommand, jobname, clusterCommands[i], cluster.outdir)
     }
-    print(paste0("submitted all jobs started at ", start.time))
+
+    print(paste0("submitted all ", length(clusterCommands), " jobs, started at ", start.time))
 
     if(!is.null(sleepCheck))
     {
@@ -427,13 +561,17 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
     failingjobs = c()
     for (i in 1:length(submitted.jobs))
     {
+##        print(paste0("parsing submitted job: ", i))
         jobname = names(submitted.jobs)[[i]]
+##        print(paste0(jobname))
         outfile = parallel$.getOutLogFile(cluster.outdir,jobname)
+        adef = parallel$.getDefaultOutputFile(outdir, i)
 
         failedBatch =
             (!file.exists(outfile) && jobSystem$thename == "killdevil") ||
-            (!file.exists(parallel$.getDefaultOutputFile(cluster.outdir, jobname)) && jobSystem$thename == "longleaf")
-        
+            ##            (!file.exists(parallel$.getDefaultOutputFile(cluster.outdir, jobname)) && jobSystem$thename == "longleaf")
+            (!file.exists(parallel$.getDefaultOutputFile(outdir, i)) && jobSystem$thename == "longleaf")
+    
         
         if(failedBatch)
         {
@@ -441,6 +579,10 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
             print("Failed entire batch, no outfile:")
             print(jobname)
             print(submitted.jobs[[jobname]])
+            if(jobSystem$thename == "longleaf")
+            {
+                try(print(parallel$.getDefaultOutputFile(outdir, i)))
+            }
             print("********************")
 
             failingcommands = c(failingcommands, submitted.jobs[[jobname]])
@@ -467,8 +609,10 @@ parallel$.submitCommands <- function(jobSystem, jobSubmitCommand, clusterCommand
             next
         }
 
+        
         failfile = parallel$.getDefaultFailFile(outdir, i)
         load(failfile)
+##        print("loaded failfile")
         if(length(failed)>1)
         {
             print("********************")
@@ -563,8 +707,12 @@ parallel$.run.single.job <- function(submitCommand, jobname, quantcommandset, ou
     } else { qbreak = ""}
     fullcommand = paste(submitCommand, qbreak,  paste(quantcommandset, collapse="; "), qbreak)
 ##    cat(fullcommand)
-    x = invisible(system(fullcommand,intern=T, ignore.stdout = T))
-    return(x)
+    ##    x = invisible(system(fullcommand,intern=T, ignore.stdout = T))
+##    browser()
+    ##x = (system(fullcommand,intern=T, ignore.stdout = T))
+    system(fullcommand)
+    
+    ##return(x)
 }
 
 

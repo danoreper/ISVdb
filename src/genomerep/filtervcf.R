@@ -58,7 +58,7 @@ filterVCF$writeFoundersFile <- function(tmpdir, founders)
 ##filters all the vcfs in a given dir, in parallel if mc.cores>1
 filterVCF$filterVcfsInDir = function(vcfDirIn, vcfDirOut,  tmpdir="./tmp", vcfExtensionIn, founders=NULL, bedfile=NULL, keepcsq=T, mc.cores=1, chr = NULL)
 {
-    browser()
+    
     dir.create(vcfDirOut, showWarnings = F)
     dir.create(tmpdir, showWarnings = F)
     vcfFiles       = stringutils$getFilesWithExtension(vcfDirIn, vcfExtensionIn)

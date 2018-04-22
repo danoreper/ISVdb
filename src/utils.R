@@ -71,8 +71,13 @@ util$get.empirical.max.tail.p.value <- function(stat, stat.null)
 }
 
 ##Given a set of trueLabels, shuffles them numShuffles times, returns a matrix of the shuffles where each column is a shuffling. subjectTo is a constraint of length trueLabels, consisting of a vector of integers. Each integer is a group; shuffling must respect the group membership. For example if half the trueLabels were assigned a 1, and the other half a 2 in the subjsectTo vector, trueLabels in the 1 group could be shuffled among each other, and trueLabels in the 2 group could be shuffled amongst each other. 
-util$generateShuffles <- function(trueLabels, numShuffles = 1, subjectTo = NULL, identityFirst = F)
+util$generateShuffles <- function(trueLabels, numShuffles = 1, subjectTo = NULL, identityFirst = F, seed = NULL)
 {
+    if(!is.null(seed))
+    {
+        set.seed(seed)
+    }
+    
     if(numShuffles == 0)
     {
         return(as.matrix(trueLabels, ncol=1))
@@ -189,6 +194,21 @@ util$bjobs <- function()
     print(ss("bjobs"))
 }
 
+util$getLibs <- function()
+{
+    command = "grep -rohP '(?<=library\\().*(?=\\))' *"
+    x = system(command, intern=T)
+    x = gsub(x, pattern = "\"", replacement="")
+    x = sort(unique(x))
+    return(x)
+}
+
+util$bioc <- function(alib="")
+{
+    source("https://bioconductor.org/biocLite.R")
+    biocLite(alib)
+}
+
 #intentionally in global scope for ease of typing
 fp = file.path
 ss = system
@@ -211,4 +231,5 @@ mytoc = function(amessage)
         toc()
     }
 }
+
 options("warnPartialMatchDollar" = T)

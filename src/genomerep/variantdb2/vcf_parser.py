@@ -45,7 +45,7 @@ def navigateToheaderTokens(fle):
 
     logger.debug("header tokens are: " + str(headerTokens))
     return headerTokens
-
+]
 
 def getFirstHeader(vcfFiles):
     logger.debug("trying to pull out header tokens. current path is: " + os.getcwd())
@@ -139,7 +139,8 @@ def parsevcf(vcfFiles, foundersFile, dbname, allowedTranscriptsFile, limit):
         parsers["Allele"]  = AlleleParsing(headerTokensGlobal)
         parsers["Info"]    = InfoParsing(headerTokensGlobal)
         parsers["Diplo"]   = diploParser
-
+        parsers["Meta"]    = DiploMetadataParsing(headerTokensGlobal)
+        
         variant_id = 1
         logger.debug("about to iterate over vcffiles")
         writer = open(dbname, "w", INSERT_BATCH_SIZE)
@@ -173,6 +174,7 @@ def parsevcf(vcfFiles, foundersFile, dbname, allowedTranscriptsFile, limit):
                     for parserName, parser in parsers.iteritems():
                         values[parserName] = parser.getValues(vcfTokens, variant_id)
                     mergeAndWrite(values, writer)
+
 
                 variant_id = variant_id + 1
                 if (variant_id % 10000)==0:
@@ -303,8 +305,87 @@ class DiploParsing:
                         values.append([founder, allele_index_1, allele_index_2, prob])
         values.append(["C57BL6J", 0,0,1])
         return(values)
-            
 
+class DiploMetadataParsing:
+        
+    _outputInfoFieldToInputField = OrderedDict([("gq" ,  "GQ"),
+                                            ("dp" ,  "DP"),
+                                            ("mq0f", "MQ0F"),
+                                            ("an",   "AN"),
+                                            ("mq",   "MQ"),
+                                            ("dv",   "DV"),
+                                            ("dp4",  "DP4"),
+                                            ("sp",   "SP"),
+                                            ("sgb",  "SGB"),
+#                                             ("pv4",  "PV4"),
+                                            ("fi",    "FI")])  
+    
+    #gt and gp not included here because they are already taken into account in the DiploParsing
+    _outputfields = ["variant_id","strain_name"]
+    _outputfields.extend(_outputInfoFieldToInputField.keys())
+    
+    insertInd     = _outputfields.index("dp4")
+    _outputfields.remove("dp4")
+    _outputfields.insert(insertInd,  "dp_ref_fwd")
+    _outputfields.insert(insertInd+1,"dp_ref_rev")
+    _outputfields.insert(insertInd+2,"dp_alt_fwd")
+    _outputfields.insert(insertInd+3,"dp_alt_rev")
+
+    secondaryTokens    = "GT:GQ:DP:MQ0F:GP:PL:AN:MQ:DV:DP4:SP:SGB:PV4:FI"
+#         "GQ: DP: MQ0F: GP:       AN: MQ: DV: DP4:     SP: SGB:       PV4: FI"
+#         15:  4:  0.25: 80,15,0:  2:  25: 4:  0,0,4,0: 0:  -0.556411: .:   0
+
+    secondaryTokens       = secondaryTokens.split(":")
+    _infoinds         = getInputColIndsForOutput(secondaryTokens, _outputInfoFieldToInputField)
+    
+    def __init__(self, headerTokens, foundersFile):
+        #see vcf spec for gl: we are assuming biallelic genotypes of form j/k, and no more than 200 alleles...
+        #maxAlleleInd       = 200
+        founders  = DiploParsing._parseFounders(foundersFile)
+        #building this map just to use the convenient method for finding header column indexes
+        outputFieldToInputField = OrderedDict()
+        for founder in founders:
+            outputFieldToInputField[founder] = founder
+        self.founderinds = getInputColIndsForOutput(headerTokens, outputFieldToInputField)
+        
+    def getValues(self, vcftokens, variant_id):
+        values = []
+        for founder, colind in self.founderinds.iteritems():
+            if(len(vcftokens)<=colind):
+                logger.info("warn!")
+                logger.info(vcftokens)
+                return(None)
+            
+            infotokens = vcftokens[colind].split(":")
+            infotokens = [tok.strip() for tok in infotokens]
+            _infoinds = DiploMetadataParsing._infoinds
+            dp4 = infotokens[_infoinds["dp4"]]
+            dp4 = dp4.split(",")
+            if(len(dp4)==1):
+                dp4 = [".", ".", ".", "."] 
+            
+            value = [variant_id, founder] 
+            valueExtra = (infotokens[_infoinds["gq"]],
+                    infotokens[_infoinds["dp"]],
+                    infotokens[_infoinds["mq0f"]],
+                    infotokens[_infoinds["an"]],
+                    infotokens[_infoinds["mq"]],
+                    infotokens[_infoinds["dv"]],
+                    dp4[0],
+                    dp4[1],
+                    dp4[2],
+                    dp4[3],
+                    infotokens[_infoinds["sp"]],
+                    infotokens[_infoinds["sgb"]],
+                    infotokens[_infoinds["fi"]])
+            #replace "." with none- missing values. Will turn into null in the db
+            valueExtra = [v.strip() if v!="." else None for v in valueExtra]
+            value.extend(valueExtra)
+#             logger.info(value)  
+#             logger.info(len(value))
+            values.append(value)
+        return(values)
+            
 
 class InfoParsing:
     _outputFieldToInputField = OrderedDict([("allele",         "Allele"),

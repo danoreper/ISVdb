@@ -248,6 +248,8 @@ db_builder$getInstance <- function(tabledir)
         unlink(tabledir, recursive = T)
         dir.create(tabledir, showWarnings = F, recursive = T)
     }
+
+
     
     
     inst$iterate <- function(parseFunc,

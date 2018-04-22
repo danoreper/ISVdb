@@ -33,19 +33,42 @@ buildImprintedGenes$collateImprintInfo <- function(
     litOnly    = literature[litOnly]
     nLit       = nrow(litOnly)
     nImprint   = nrow(imprinted)
+
+
+    sns = list()
+    i = 1
+    for(sn in c(115, 116))
+    {
+        
+        sns[[i]] = fread(dat(paste0("b6_reference/mus_musculus.GRCm38.75/snord/",sn,".csv")))
+        sns[[i]] = data.frame(ensembl_gene_id = as.character(sns[[i]]$id_with_url),
+                              brainImprinted = F,
+                              strainEffect = F,
+                              Expressed.allele = NA)
+        i = i + 1
+    }
     
 #collate the supplementary table imprinted genes, and the literature known imprinted genes into a single data frame
 #we collect the bare minimum of what is necessary from these tables, and look up the rest from ensembl mart, as that is an online resource that is more current.
     impGenes =data.frame(
-      ensembl_gene_id = c(as.character(litOnly$Ensembl.Gene.ID), as.character(imprinted$Ensembl.name)), 
-      mgi_symbol      = c(as.character(litOnly$Gene), as.character(imprinted$Gene)),
-      brainImprinted  = c(rep(F,nLit), rep(T, nImprint)),
-      strainEffect    = c(rep(F,nLit), as.character(imprinted$Strain.effect.))=="Yes",
-      Expressed.allele = c(as.character(litOnly$Expressed.allele), as.character(imprinted$Expressed.allele)))
+        ensembl_gene_id = c(as.character(litOnly$Ensembl.Gene.ID), as.character(imprinted$Ensembl.name)), 
+        mgi_symbol      = c(as.character(litOnly$Gene), as.character(imprinted$Gene)),
+        brainImprinted  = c(rep(F,nLit), rep(T, nImprint)),
+        strainEffect    = c(rep(F,nLit), as.character(imprinted$Strain.effect.))=="Yes",
+        Expressed.allele = c(as.character(litOnly$Expressed.allele), as.character(imprinted$Expressed.allele)))
 
-    impGenes = data.table(impGenes,key="ensembl_gene_id")
+
+    impGenes = data.table(impGenes)
+    ## remove the bogus 115/116, lacking actual gene name, rows
     impGenes = impGenes[!mgi_symbol %in% c("Snord115","Snord116")]
-    
+    impGenes$mgi_symbol = NULL
+
+    ##put the real snord records in
+    for(sn in sns) {impGenes = rbind(impGenes, sn)}
+    impGenes = data.table(impGenes,key="ensembl_gene_id")
+
+    ## browser()
+
     
     ##enMart  = getGene(ensembl.gene.ID,type="ensembl_gene_id", mart=ensembl) 
     enMart = getBM(attributes=c("ensembl_gene_id",
@@ -59,10 +82,7 @@ buildImprintedGenes$collateImprintInfo <- function(
 
     enMart = data.table(enMart, key="ensembl_gene_id")
     fullInfo                 = impGenes[enMart]
-    ##use the ensembl mart version of IDs after joining the two tables, as it is more current
-    fullInfo$mgi_symbol      = fullInfo$i.mgi_symbol 
-    fullInfo$i.mgi_symbol      = NULL
-	
+    ##use the ensembl mart version of IDs after joining the two tables, as it is more current	
     
     ##some number of ensembl ids wont exist in ensembl mart, lets examine them
     allEnsembl   = unique(c(as.character(imprinted$Ensembl.name), as.character(literature$Ensembl.Gene.ID)))
@@ -70,35 +90,7 @@ buildImprintedGenes$collateImprintInfo <- function(
     print("following ensembl ids were not found in biomart... they are deprecated as of my last manual check against ensembl page")
     print(missingEnsembl)
 
-
-    ##This has to be done separately since the IDS are all bogus for snord115 and 116
-    
-    snord115 = read.table(snord115.file, sep=",", nrows=0, header=T)
-    snord115$snordtype = "snord115"
-
-    snord116 = read.table(snord116.file, sep=",", nrows=0, header=T)
-    snord116$snordtype = "snord116"
-
-    snords = rbind(snord115, snord116)
-    snords$location = as.character(snords$location)
-    
-    pos=  unlist(lapply(strsplit(snords$location,split=":"), "[",2))
-    start = unlist(lapply(strsplit(pos, split = "-"), "[", 1))
-    end = unlist(lapply(strsplit(pos, split = "-"), "[", 2))
-
-    snords = data.frame(ensembl_gene_id = snords$id_with_url,
-                        mgi_symbol      = paste0(snords$name),
-                        brainImprinted  = F,
-                        strainEffect    = F,
-                        snordType       = snords$snordtype,
-                          description     = snords$snordtype,
-                          chromosome_name = unlist(lapply(strsplit(snords$location,split=":"), "[",1)),
-                          strand           =  unlist(lapply(strsplit(snords$location,split=":"), "[",3)),
-                          start_position   = start,
-                          end_position     = end,
-                          Expressed.allele = NA)
-
-    fullInfo = rbind(fullInfo, snords, fill = T)
+    ## fullInfo = rbind(fullInfo, snords, fill = T)
     #redundant gene names, but with bizzare ensembl ids, and shifted slightly in position. assuming these are bad.
     fullInfo = fullInfo[!(fullInfo$ensembl_gene_id %in% c("64245", "64244"))]
     return(fullInfo)

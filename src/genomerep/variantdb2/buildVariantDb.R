@@ -134,7 +134,7 @@ buildVariantDb$buildSingleVariantDb <- function(db,
     ##build an accumulator for parallelizing jobs
     accum = getIterAccumulator()
     ##accum = bsub$get.stub.accum()
-    
+
     ##Rebuild founder genotypes
     pracma::tic()
     if(rebuildFounder)
@@ -185,6 +185,7 @@ buildVariantDb$buildSingleVariantDb <- function(db,
 
 buildVariantDb$updateFounderVariantIDs <- function(db, founders)
 {
+
     chrsToCheck =  db$genotype$getChrs()
     maxv = unlist(db$iterate("genotype", parseFunc = function(strain,chr, df){max(df$variant_id)},
                              strain1s = "C57BL6J", chrs = chrsToCheck, select = "variant_id"))
@@ -439,7 +440,7 @@ buildVariantDb$build_CC_info <- function(db,
         gt2[,prob:=prob*i.prob]
         gt2[,i.prob:=NULL]
         gt2[,strain:=NULL]
-
+        
         setnames(gt2,
                  old = c("allele", "i.allele", "consequence", "i.consequence"),
                  new = c("allele_1", "allele_2", "consequence_1", "consequence_2"))
