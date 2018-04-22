@@ -5,19 +5,20 @@ library(data.table)
 db_builder = new.env(hash=T)
 
 
-db_builder$get.db.lite <- function(dbdir)
+db_builder$get.db.lite <- function(dbdir, serverLocation="")
 {
 
     dblite = new.env(hash=T)
-    dblite$genotype  = db_builder$getInstance(fp(dbdir, "genotype"))
-    dblite$diplotype = db_builder$getInstance(fp(dbdir, "diplotype"))
-    dblite$genotypeSampling  = db_builder$getInstance(fp(dbdir, "genotypeSampling"))
-    dblite$diplotypeSampling = db_builder$getInstance(fp(dbdir, "diplotypeSampling"))
+    dblite$genotype  = db_builder$getInstance(dbdir, "genotype", serverLocation)
+    dblite$diplotype = db_builder$getInstance(dbdir, "diplotype", serverLocation)
+    dblite$genotypeSampling  = db_builder$getInstance(dbdir, "genotypeSampling", serverLocation)
+    dblite$diplotypeSampling = db_builder$getInstance(dbdir, "diplotypeSampling", serverLocation)
 
     dblite$temp      = fp(dbdir, "temp") ##db_builder$getInstance(fp(dbdir, "temp") #fp(dbdir, temp)
     dir.create(dblite$temp, showWarnings = F, recursive = T)
 
-    
+
+
     dblite$get.temp.dir <- function(subdir=NULL)
     {
         if(is.null(subdir))
@@ -235,8 +236,10 @@ db_builder$get.db.lite <- function(dbdir)
     return(dblite)
 }
 
-db_builder$getInstance <- function(tabledir)
+db_builder$getInstance <- function(tabledir, type, serverLocation = "")
 {
+    tabledir = fp(tabledir, type)
+    
     inst.sep = "\t"
     
     dir.create(tabledir, showWarnings = F, recursive = T)
@@ -350,6 +353,21 @@ db_builder$getInstance <- function(tabledir)
         } else {
             fle = fp(straindir, paste0(chr, ".txt"))
         }
+        
+        ##if its on a server, copy the file over first before returning the filename
+        if(serverLocation!="")
+        {
+            serverLocation = fp(serverLocation, type)
+            straindir = fp(serverLocation, strain)
+            print(straindir)
+            serverfle = fp(straindir, paste0(chr, ".txt.tar.gz"))
+            browser()
+            try(dir.create(dirname(fle), recursive = T, showWarnings = F))
+            command = paste0("wget "," -O ", fle, " ",  serverfle)
+            print(command)
+            system(command)
+        }
+        return(fle)
     }
     
     inst$read <- function(strain, chr, zipped=T, select=NULL, storeKnownFields = T)
