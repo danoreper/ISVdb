@@ -1,18 +1,22 @@
 source("./loadParams.R")
-source("./bsub.R")
+source("./parallel/accumulator.R")
 library(data.table)
 
 db_builder = new.env(hash=T)
 
 
-db_builder$get.db.lite <- function(dbdir, serverLocation="")
+db_builder$get.db.lite <- function(dbdir, serverLocation="", cacheServerData = F)
 {
-
+    if(serverLocation!="")
+    {
+        unlink(dbdir, recursive = T)
+        dir.create(dbdir, recursive = T, showWarnings = F)
+    }
     dblite = new.env(hash=T)
-    dblite$genotype  = db_builder$getInstance(dbdir, "genotype", serverLocation)
-    dblite$diplotype = db_builder$getInstance(dbdir, "diplotype", serverLocation)
-    dblite$genotypeSampling  = db_builder$getInstance(dbdir, "genotypeSampling", serverLocation)
-    dblite$diplotypeSampling = db_builder$getInstance(dbdir, "diplotypeSampling", serverLocation)
+    dblite$genotype  = db_builder$getInstance(dbdir, "genotype", serverLocation, cacheServerData)
+    dblite$diplotype = db_builder$getInstance(dbdir, "diplotype", serverLocation, cacheServerData)
+    dblite$genotypeSampling  = db_builder$getInstance(dbdir, "genotypeSampling", serverLocation, cacheServerData)
+    dblite$diplotypeSampling = db_builder$getInstance(dbdir, "diplotypeSampling", serverLocation, cacheServerData)
 
     dblite$temp      = fp(dbdir, "temp") ##db_builder$getInstance(fp(dbdir, "temp") #fp(dbdir, temp)
     dir.create(dblite$temp, showWarnings = F, recursive = T)
@@ -40,7 +44,7 @@ db_builder$get.db.lite <- function(dbdir, serverLocation="")
                                chrs = dblite[[type]]$getChrs(strain1s[1]),
                                select = NULL,
                                zipped = T,
-                               accum = bsub$get.mc.accumulator(mc.cores = 1),
+                               accum = NULL, ##parallel$get.mc.accumulator(mc.cores = 1),
                                iterator = F)    
     {
         outs = list()
@@ -62,7 +66,7 @@ db_builder$get.db.lite <- function(dbdir, serverLocation="")
         {
             stop("unimplemented")
         } else {
-            outs = bsub$getAllOutputs(outs, accum)
+            outs = accum$getAllOutputs(outs)
             for(i in 1:length(outs))
             {
                 if(length(outs[[i]])==1 &is.na(outs[[i]]))
@@ -127,7 +131,7 @@ db_builder$get.db.lite <- function(dbdir, serverLocation="")
             df =  inst$read(strain = strain1, chr = chr, storeKnownFields = storeKnownFields)
         } else {
             funcname = paste0(".read", type, "Pair")
-            df   = dblite[[funcname]](strain1, strain2, chr, storeKnownFields, phased) 
+            df   = dblite[[funcname]](strain1, strain2, chr=chr, storeKnownFields, phased) 
         }
         return(df)
     }
@@ -236,7 +240,7 @@ db_builder$get.db.lite <- function(dbdir, serverLocation="")
     return(dblite)
 }
 
-db_builder$getInstance <- function(tabledir, type, serverLocation = "")
+db_builder$getInstance <- function(tabledir, type, serverLocation = "", cacheServerData=F)
 {
     tabledir = fp(tabledir, type)
     
@@ -282,7 +286,7 @@ db_builder$getInstance <- function(tabledir, type, serverLocation = "")
         {
             stop("unimplemented")
         } else {
-            outs = bsub$getAllOutputs(outs, accum)
+            outs = accum$getAllOutputs(outs)
             for(i in 1:length(outs))
             {
                 if(length(outs[[i]])==1 &is.na(outs[[i]]))
@@ -355,18 +359,18 @@ db_builder$getInstance <- function(tabledir, type, serverLocation = "")
         }
         
         ##if its on a server, copy the file over first before returning the filename
-        if(serverLocation!="")
-        {
-            serverLocation = fp(serverLocation, type)
-            straindir = fp(serverLocation, strain)
-            print(straindir)
-            serverfle = fp(straindir, paste0(chr, ".txt.tar.gz"))
-            browser()
-            try(dir.create(dirname(fle), recursive = T, showWarnings = F))
-            command = paste0("wget "," -O ", fle, " ",  serverfle)
-            print(command)
-            system(command)
-        }
+        ## if(serverLocation!="")
+        ## {
+        ##     serverLocation = fp(serverLocation, type)
+        ##     straindir = fp(serverLocation, strain)
+        ##     print(straindir)
+        ##     serverfle = fp(straindir, paste0(chr, ".txt.tar.gz"))
+        ##     browser()
+        ##     try(dir.create(dirname(fle), recursive = T, showWarnings = F))
+        ##     command = paste0("wget "," -O ", fle, " ",  serverfle)
+        ##     print(command)
+        ##     system(command)
+        ## }
         return(fle)
     }
     
@@ -374,11 +378,41 @@ db_builder$getInstance <- function(tabledir, type, serverLocation = "")
     {
         readargs = list(stringsAsFactors= T, skip=1, sep = inst.sep, showProgress = F)
         fle = inst$getfile(strain, chr, zipped = zipped)
+        
+        browser()
+
+        ##if its on a server, copy the file over first, while grabbing a lock on the file
+        if(serverLocation!="")
+        {
+            try(dir.create(dirname(fle), recursive = T, showWarnings = F))
+            alock = filelock::lock(paste0(fle, ".lock"))
+            serverLocation = fp(serverLocation, type)
+            straindir = fp(serverLocation, strain)
+            print(straindir)
+            serverfle = fp(straindir, paste0(chr, ".txt.tar.gz"))
+            
+            command = paste0("wget "," -O ", fle, " ",  serverfle)
+            print(command)
+            system(command)
+        }
+
+
+        
         readargs$select = select ##must be on its own line or else it actually stores a null
         readargs$input = ifelse(zipped, paste0("tar -xOzf ", fle), fle)
 
         print(paste(strain, chr))
         df = do.call(fread, readargs)
+        if(serverLocation!="")
+        {
+            ##if not caching, get rid of the file
+            if(!cacheServerData)
+            {
+                unlink(fle)
+            }
+            ##and release the lock now that the file has been downloaded
+            filelock::unlock(alock)
+        }
         if(storeKnownFields)
         {
             df$strain = strain
