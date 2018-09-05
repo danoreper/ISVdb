@@ -1,6 +1,6 @@
 # ISVdb v1.2
 Code to generate the whole genome data stored in the Inbred Strain Variant Database (v1.2). 
-In particular, this code imputes genotypes and diplotypes for CC strains, and writes this information out to zipped csv files (along with the founder strains as well). It may become a CRAN package eventually, but will reside on Github for now. It is more likely that we will eventually create a non-CRAN R package. For publication see https://www.ncbi.nlm.nih.gov/pubmed/28592645
+In particular, this code imputes genotypes and diplotypes for CC strains, and writes this information out to zipped csv files (along with the founder strains as well). It may become a CRAN package eventually, but will reside on Github for now. It is more likely that we will eventually create a non-CRAN R package. Publication is at https://www.ncbi.nlm.nih.gov/pubmed/28592645
 
 # Requirements
 * OSX or linux
